@@ -1,9 +1,9 @@
-import { data } from '../index/+data.js'
+import { data } from '../index/+data.js';
 
-export { onBeforePrerenderStart }
+export { onBeforePrerenderStart };
 
 async function onBeforePrerenderStart() {
-  const { movies } = await data();
-  const moviePageURLs = movies.map(movie => '/star-wars/' + movie.id)
-  return moviePageURLs
+    const { movies } = await data();
+    const moviePageURLs = movies.map((movie) => `/star-wars/${movie.id}`);
+    return moviePageURLs;
 }
