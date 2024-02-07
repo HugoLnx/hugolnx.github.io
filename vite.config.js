@@ -16,6 +16,7 @@ export default defineConfig({
         vike({
             ssr: false,
             prerender: true,
+            filesystemRoutingRoot: resolve(__dirname, 'src/'),
         }),
         vue({ include: [/\.vue$/, /\.md$/] }),
         md(),
