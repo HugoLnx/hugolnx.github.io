@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "dev": "npx vite",
-    "build": "vite build",
+    "dev": "vite dev --force",
+    "build": "vite build --force",
+    "serve": "npm run build && http-server dist/client -p 4000",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue ."
   },
   "dependencies": {
@@ -19,6 +20,7 @@
   "devDependencies": {
     "eslint": "^8.56.0",
     "eslint-plugin-vue": "^9.21.1",
+    "http-server": "^14.1.1",
     "vite": "^5.0.12"
   },
   "type": "module"
