@@ -27,11 +27,13 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@stylistic/eslint-plugin-js": "^1.6.0",
     "@types/gensync": "^1.0.4",
+    "bulma": "^0.9.4",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-vue": "^9.21.1",
     "http-server": "^14.1.1",
+    "sass": "^1.70.0",
     "vite": "^5.0.12",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-glsl": "^1.2.1"
