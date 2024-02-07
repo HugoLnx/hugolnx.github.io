@@ -1,13 +1,9 @@
 // https://vike.dev/data
 export { data }
 
-// The node-fetch package (which only works on the server-side) can be used since
-// this file always runs on the server-side, see https://vike.dev/data#server-side
 import fetch from 'cross-fetch'
 
 const data = async (pageContext) => {
-  await sleep(300) // Simulate slow network
-
   const response = await fetch(`https://brillout.github.io/star-wars/api/films/${pageContext.routeParams.id}.json`)
   let movie = await response.json()
 
@@ -26,8 +22,4 @@ function minimize(movie) {
   const { id, title, release_date, director, producer } = movie
   movie = { id, title, release_date, director, producer }
   return movie
-}
-
-function sleep(milliseconds) {
-  return new Promise((r) => setTimeout(r, milliseconds))
 }
