@@ -5,12 +5,14 @@
 </template>
 
 <script setup>
-import { usePageContext } from '../../renderer/usePageContext'
+/* eslint-disable-next-line import/no-unresolved */
+import { usePageContext } from ':usePageContext';
 
-const pageContext = usePageContext()
-let { is404, abortReason } = pageContext
+const pageContext = usePageContext();
+const { is404 } = pageContext;
+let { abortReason } = pageContext;
 if (!abortReason) {
-  abortReason = is404 ? 'Page not found.' : 'Something went wrong.'
+    abortReason = is404 ? 'Page not found.' : 'Something went wrong.';
 }
 </script>
 

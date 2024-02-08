@@ -8,6 +8,6 @@
 </template>
 
 <script setup>
-import { useData } from '../../../renderer/useData'
+import { useData } from ':useData';
 const data = useData()
 </script>
