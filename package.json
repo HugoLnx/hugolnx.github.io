@@ -1,8 +1,12 @@
 {
   "scripts": {
     "dev": "vite dev --force",
-    "build": "vite build --force",
-    "serve": "npm run build && http-server tmp/dist/client -p 4000",
+    "build": "npm run build:dev",
+    "build:dev": "cross-env NODE_ENV=development vite build --force --mode development",
+    "build:prod": "cross-env NODE_ENV=production vite build --force --mode production",
+    "emulate": "npm run emulate:dev",
+    "emulate:dev": "npm run build:dev && http-server tmp/dist/client -p 4000",
+    "emulate:prod": "npm run build:prod && http-server tmp/dist/client -p 4000",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue .",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx,.vue ./pages/"
   },
@@ -28,6 +32,7 @@
     "@stylistic/eslint-plugin-js": "^1.6.0",
     "@types/gensync": "^1.0.4",
     "bulma": "^0.9.4",
+    "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
