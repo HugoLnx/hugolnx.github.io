@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "vite dev --force",
     "build": "vite build --force",
-    "serve": "npm run build && http-server dist/client -p 4000",
+    "serve": "npm run build && http-server tmp/dist/client -p 4000",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue .",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx,.vue ./pages/"
   },
