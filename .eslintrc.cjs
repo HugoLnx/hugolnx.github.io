@@ -3,7 +3,6 @@ module.exports = {
     ignorePatterns: [
         'node_modules/',
         'dist/',
-        'renderer/',
         'star-wars/',
     ],
     plugins: [

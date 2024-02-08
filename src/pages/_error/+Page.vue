@@ -5,7 +5,8 @@
 </template>
 
 <script setup>
-import { usePageContext } from '../../renderer/usePageContext';
+/* eslint-disable-next-line import/no-unresolved */
+import { usePageContext } from ':usePageContext';
 
 const pageContext = usePageContext();
 const { is404 } = pageContext;
