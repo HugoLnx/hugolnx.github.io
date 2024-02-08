@@ -1,10 +1,7 @@
 <template>
   <div id="page-container">
     <div id="sidebar">
-      <a
-        id="logo-container"
-        href="/"
-      >
+      <a id="logo-container" href="/">
         <img
           src="./img/logo.svg"
           height="64"
@@ -12,9 +9,15 @@
           alt="logo"
         >
       </a>
-      <Link href="/">Welcome</Link>
-      <Link href="/about">About</Link>
-      <Link href="/star-wars">Data Fetching</Link>
+      <Link href="/">
+        Welcome
+      </Link>
+      <Link href="/about">
+        About
+      </Link>
+      <Link href="/star-wars">
+        Data Fetching
+      </Link>
     </div>
     <div id="page-content">
       <slot />
