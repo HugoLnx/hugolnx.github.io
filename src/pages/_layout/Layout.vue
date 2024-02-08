@@ -26,8 +26,15 @@
 </template>
 
 <script setup>
+import logger from '../../js/env/logger';
 import Link from './Link.vue';
 import './css/index.css';
+
+logger.debug('Layout Setup');
+</script>
+
+<script>
+logger.debug('Layout Setup');
 </script>
 
 <style>

@@ -23,7 +23,6 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            ':utils/logger': resolve(__dirname, 'src/js/utils/logger.js'),
             ':useData': 'vike-vue/useData',
             ':usePageContext': 'vike-vue/usePageContext',
         },

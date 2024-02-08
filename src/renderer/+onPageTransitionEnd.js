@@ -1,5 +1,7 @@
+import logger from '../js/env/logger';
+
 async function onPageTransitionEnd() {
-    console.log('Page transition end');
+    logger.debug('Page transition end');
     document.querySelector('body').classList.remove('page-is-transitioning');
 }
 
