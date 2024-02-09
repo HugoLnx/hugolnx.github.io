@@ -28,7 +28,7 @@
 <script setup>
 import logger from '../../js/env/logger';
 import Link from './Link.vue';
-import './css/index.css';
+import './css/index.scss';
 
 logger.debug('Layout Setup');
 </script>
@@ -69,18 +69,5 @@ logger.debug('Layout Setup');
 #logo-container {
   margin-top: 20px;
   margin-bottom: 10px;
-}
-</style>
-
-<style lang="scss">
-$back-color: #fcc;
-$font-color: #88c;
-
-body {
-  background-color: $back-color;
-
-  h1 {
-    color: $font-color;
-  }
 }
 </style>
