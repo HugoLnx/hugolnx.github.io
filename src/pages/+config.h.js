@@ -7,7 +7,7 @@ export default {
     extends: config,
     title: 'Hugolnx Website',
     favicon: '/favicon.ico',
-    ssr: false,
+    ssr: true,
     Layout,
     Head,
 };
