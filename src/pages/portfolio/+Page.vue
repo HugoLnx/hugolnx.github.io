@@ -1,6 +1,6 @@
 <template>
   <h1 class="title">
-    Overview
+    Portfolio
   </h1>
   <h2 class="subtitle">
     TODO

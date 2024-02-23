@@ -14,7 +14,7 @@ export default defineConfig({
         eslint(),
         glsl(),
         vike({
-            ssr: false,
+            ssr: true,
             prerender: true,
             filesystemRoutingRoot: resolve(__dirname, 'src/'),
         }),

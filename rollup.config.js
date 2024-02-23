@@ -15,6 +15,21 @@ export default {
     // output: {
     //     manualChunks(id) {
     //         if (!id.includes('node_modules')) {
+    //             const pageMatch = id.match(/pages\/([^/]+)\//);
+    //             if (pageMatch !== null) {
+    //                 const pageName = pageMatch[1];
+    //                 console.log('page', pageName, id);
+    //                 return pageName;
+    //             }
+
+    //             const vueMatch = id.match(/([^/\\]+)\.vue/);
+    //             if (vueMatch !== null) {
+    //                 const vueName = vueMatch[1];
+    //                 console.log('vue', vueName, id);
+    //                 return vueName;
+    //             }
+
+    //             console.log('none', id);
     //             return undefined;
     //         }
     //         const libname = id.match(/node_modules\/([^/]+)\//)[1];
