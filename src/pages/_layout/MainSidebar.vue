@@ -8,7 +8,7 @@
         Hugo Roque
       </h1>
       <h2 class="subtitle">
-        Game Developer
+        Gameplay Programmer
       </h2>
       <div class="social-media">
         <SocialIconLink
@@ -103,11 +103,11 @@
 </template>
 
 <script setup>
-import SocialIconLink from './SocialIconLink.vue';
-import BulletList from './BulletList.vue';
-import BulletListItem from './BulletListItem.vue';
-import TagList from './TagList.vue';
-import TagItem from './TagItem.vue';
+import SocialIconLink from '../../components/SocialIconLink.vue';
+import BulletList from '../../components/BulletList.vue';
+import BulletListItem from '../../components/BulletListItem.vue';
+import TagList from '../../components/TagList.vue';
+import TagItem from '../../components/TagItem.vue';
 
 const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 </script>

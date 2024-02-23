@@ -22,33 +22,33 @@
 
       <div id="main-navbar-links" class="navbar-menu">
         <div class="navbar-start">
-          <LinkC href="/" class="navbar-item">
+          <NavLink href="/" class="navbar-item">
             Overview
-          </LinkC>
+          </NavLink>
 
-          <LinkC href="/portfolio" class="navbar-item">
+          <NavLink href="/portfolio" class="navbar-item">
             Portfolio
-          </LinkC>
+          </NavLink>
 
-          <LinkC href="/skills" class="navbar-item">
+          <NavLink href="/skills" class="navbar-item">
             Skills
-          </LinkC>
+          </NavLink>
 
-          <LinkC href="/work-history" class="navbar-item">
+          <NavLink href="/work-history" class="navbar-item">
             Work History
-          </LinkC>
+          </NavLink>
 
-          <LinkC href="/resume" class="navbar-item">
+          <NavLink href="/resume" class="navbar-item">
             Resume
-          </LinkC>
+          </NavLink>
 
-          <LinkC href="/about-me" class="navbar-item">
+          <NavLink href="/about-me" class="navbar-item">
             About Me
-          </LinkC>
+          </NavLink>
 
-          <LinkC href="/contact" class="navbar-item">
+          <NavLink href="/contact" class="navbar-item">
             Contact
-          </LinkC>
+          </NavLink>
         </div>
       </div>
     </div>
@@ -56,5 +56,5 @@
 </template>
 
 <script setup>
-import LinkC from './LinkC.vue';
+import NavLink from './NavLink.vue';
 </script>

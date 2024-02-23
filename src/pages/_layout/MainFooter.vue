@@ -11,7 +11,7 @@
 </template>
 
 <style lang="scss">
-@import './css/bulma-custom.scss';
+@import '../../css/bulma-custom.scss';
 
 #main-footer {
   background-color: $main-footer-background-color;

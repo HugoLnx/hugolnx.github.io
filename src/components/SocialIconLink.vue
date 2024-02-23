@@ -21,7 +21,7 @@ defineProps({
 </script>
 
 <style lang="scss">
-@import './css/bulma-custom.scss';
+@import '../css/bulma-custom.scss';
 
 a.social-icon-link {
   display: flex;

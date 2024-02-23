@@ -30,11 +30,11 @@
 import MainNavbar from './MainNavbar.vue';
 import MainSidebar from './MainSidebar.vue';
 import MainFooter from './MainFooter.vue';
-import './css/index.scss';
+import '../../css/index.scss';
 </script>
 
 <style lang="scss">
-@import './css/bulma-custom.scss';
+@import '../../css/bulma-custom.scss';
 
 #main-body {
   margin-top: $navbar-height;

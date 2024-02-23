@@ -18,7 +18,7 @@ const iconClasses = inject('iconClasses');
 </script>
 
 <style lang="scss">
-@import './css/bulma-custom.scss';
+@import '../css/bulma-custom.scss';
 .bullet-list-item {
   display: block;
   margin-bottom: 0.25rem;
