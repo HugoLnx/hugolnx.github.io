@@ -34,8 +34,8 @@
             Skills
           </NavLink>
 
-          <NavLink href="/work-history" class="navbar-item">
-            Work History
+          <NavLink href="/work-experience" class="navbar-item">
+            Work Experience
           </NavLink>
 
           <NavLink href="/resume" class="navbar-item">
