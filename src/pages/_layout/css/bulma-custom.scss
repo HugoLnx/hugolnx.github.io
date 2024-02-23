@@ -1,0 +1,34 @@
+@import 'bulmaswatch/darkly/_variables.scss';
+@import 'bulma/bulma.sass';
+@import 'bulmaswatch/darkly/_overrides.scss';
+
+$main-sidebar-background-color: $footer-background-color; // lighten($footer-background-color, 1%);
+$main-view-background-color: $body-background-color; // lighten($footer-background-color, 5%);
+$main-footer-background-color: darken($navbar-background-color, 15%);
+
+@mixin flex-stretch-items-vertical {
+  display: flex;
+  align-items: stretch;
+  flex-flow: column nowrap;
+}
+
+@mixin flex-stretch-items-horizontal {
+  display: flex;
+  align-items: stretch;
+  flex-flow: row nowrap;
+}
+
+.columns.no-columns-offset {
+  margin-top: 0;
+  .column {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+.columns.no-columns-spacing {
+  &, .column {
+    margin: 0;
+    padding: 0;
+  }
+}

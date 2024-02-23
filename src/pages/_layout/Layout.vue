@@ -1,73 +1,70 @@
 <template>
-  <div id="page-container">
-    <div id="sidebar">
-      <a id="logo-container" href="/">
-        <img
-          src="./img/logo.svg"
-          height="64"
-          width="64"
-          alt="logo"
-        >
-      </a>
-      <Link href="/">
-        Welcome
-      </Link>
-      <Link href="/about">
-        About
-      </Link>
-      <Link href="/star-wars">
-        Data Fetching
-      </Link>
+  <MainNavbar />
+  <div id="main-body">
+    <div id="main-middle">
+      <div class="container vertical-stretch">
+        <div class="columns no-columns-spacing vertical-stretch">
+          <div class="column is-2 is-hidden-mobile vertical-stretch">
+            <div id="main-middle-sidebar" class="vertical-stretch">
+              <MainSidebar id="main-middle-sidebar-content" class="vertical-stretch" />
+            </div>
+          </div>
+          <div class="column vertical-stretch">
+            <div id="main-middle-view" class="vertical-stretch">
+              <main id="main-middle-view-content" class="vertical-stretch">
+                <slot />
+              </main>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="page-content">
-      <slot />
-    </div>
+    <MainFooter />
   </div>
 </template>
 
 <script setup>
-import logger from '../../js/env/logger';
-import Link from './Link.vue';
+import MainNavbar from './MainNavbar.vue';
+import MainSidebar from './MainSidebar.vue';
+import MainFooter from './MainFooter.vue';
 import './css/index.scss';
-
-logger.debug('Layout Setup');
 </script>
 
-<script>
-logger.debug('Layout Setup');
-</script>
+<style lang="scss">
+@import './css/bulma-custom.scss';
 
-<style>
-#sidebar a {
-  padding: 2px 10px;
-  margin-left: -10px;
-}
-#sidebar a.is-active {
-  background-color: #eee;
-}
-</style>
+#main-body {
+  margin-top: $navbar-height;
+  display: flex;
+  flex-flow: column nowrap;
 
-<style scoped>
-#page-container {
-  display: flex;
-  max-width: 900px;
-  margin: auto;
+  #main-middle {
+    flex-grow: 1;
+
+    #main-middle-sidebar-content, #main-middle-view-content {
+      padding: 1.5rem;
+    }
+
+    #main-middle-sidebar {
+      background-color: $main-sidebar-background-color;
+    }
+
+    #main-middle-view {
+      background-color: $main-view-background-color;
+    }
+  }
+
+  footer {
+    flex-basis: content;
+  }
 }
-#page-content {
-  padding: 20px;
-  padding-bottom: 50px;
-  min-height: 100vh;
+
+.vertical-stretch {
+  height: 100%;
 }
-#sidebar {
-  padding: 20px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.8em;
-  border-right: 2px solid #eee;
-}
-#logo-container {
-  margin-top: 20px;
-  margin-bottom: 10px;
+
+body, html, #page-view, #main-body {
+  height: 100vh;
+  @extend .is-fullheight;
 }
 </style>
