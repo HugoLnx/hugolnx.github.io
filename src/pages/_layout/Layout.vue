@@ -4,7 +4,10 @@
     <div id="main-middle">
       <div class="container vertical-stretch">
         <div class="columns no-columns-spacing vertical-stretch">
-          <div class="column is-2 is-hidden-mobile vertical-stretch">
+          <div
+            id="main-middle-sidebar-column"
+            class="column is-3 is-hidden-mobile vertical-stretch"
+          >
             <div id="main-middle-sidebar" class="vertical-stretch">
               <MainSidebar id="main-middle-sidebar-content" class="vertical-stretch" />
             </div>
@@ -51,6 +54,10 @@ import './css/index.scss';
 
     #main-middle-sidebar {
       background-color: $main-sidebar-background-color;
+    }
+
+    #main-middle-sidebar-column {
+      min-width: 300px;
     }
 
     #main-middle-view {

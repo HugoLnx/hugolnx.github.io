@@ -34,3 +34,7 @@ $size-8: $size-1 * 0.2;
     padding: 0;
   }
 }
+
+.title.title-simple {
+  margin-bottom: calc($title-sub-size / 2.0);
+}
