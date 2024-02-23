@@ -11,6 +11,7 @@
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx,.vue ./pages/"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
     "@vitejs/plugin-vue": "^5.0.3",
     "@vue/compiler-sfc": "^3.4.15",
     "@vue/server-renderer": "^3.4.15",
@@ -19,7 +20,6 @@
     "compression": "^1.7.4",
     "cross-fetch": "^4.0.0",
     "js-logger": "^1.6.1",
-    "material-icons": "^1.13.12",
     "three": "^0.161.0",
     "tweakpane": "^4.0.3",
     "unplugin-vue-markdown": "^0.26.0",

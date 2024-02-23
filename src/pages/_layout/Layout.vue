@@ -41,7 +41,11 @@ import './css/index.scss';
   #main-middle {
     flex-grow: 1;
 
-    #main-middle-sidebar-content, #main-middle-view-content {
+    #main-middle-sidebar-content {
+      padding: 1.5rem 0.75rem;
+    }
+
+    #main-middle-view-content {
       padding: 1.5rem;
     }
 
