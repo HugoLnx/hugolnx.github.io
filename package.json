@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "vite dev --force",
+    "dev": "vite dev --force --host 0.0.0.0",
     "build": "npm run build:dev",
     "build:dev": "cross-env NODE_ENV=development vite build --force --mode development",
     "build:prod": "cross-env NODE_ENV=production vite build --force --mode production",

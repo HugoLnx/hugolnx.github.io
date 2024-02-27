@@ -15,6 +15,7 @@
 import { inject } from 'vue';
 
 const iconClasses = inject('iconClasses');
+const hoverColor = inject('hoverColor');
 </script>
 
 <style lang="scss">
@@ -32,9 +33,13 @@ const iconClasses = inject('iconClasses');
     margin-left: 0.1rem;
   }
 
+  .icon, .icon span {
+      color: v-bind(hoverColor);
+  }
+
   &:hover {
     .icon, .icon span, .icon-raw-text {
-      color: $success;
+      color: v-bind(hoverColor);
       font-weight: bold;
     }
   }

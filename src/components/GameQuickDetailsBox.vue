@@ -1,24 +1,85 @@
 <template>
   <div class="box game-quick-details">
     <div class="box-content">
-      <h2 class="title title-simple is-4">
-        {{ title }}
-      </h2>
-      <div class="box-columns">
-        <div class="box-column">
-          <AutoplayVideo
-            class="game-video"
-            :src="videoSrc"
-            :width="videoWidth"
-            :height="videoHeight"
+      <div class="game-quick-details-middle">
+        <h2 class="game-title title title-simple">
+          {{ title }}
+        </h2>
+        <AutoplayVideo
+          class="game-video"
+          :src="videoSrc"
+          :width="videoWidth"
+          :height="videoHeight"
+        />
+        <div class="game-links">
+          <GameLink
+            title="Steam"
+            :href="links.steam"
+            icon-classes="fa-brands fa-steam-symbol"
+          />
+          <GameLink
+            title="Trailer"
+            :href="links.trailer"
+            icon-classes="fa-solid fa-play"
+          />
+          <GameLink
+            title="Gameplay"
+            :href="links.gameplay"
+            icon-classes="fa-solid fa-gamepad"
           />
         </div>
-        <div class="box-column bullets-column">
-          <BulletList icon-classes="fa-regular fa-circle-check has-text-success">
-            <BulletListItem v-for="bullet in bullets" :key="bullet">
-              {{ bullet }}
-            </BulletListItem>
-          </BulletList>
+      </div>
+      <div class="game-quick-details-bottom">
+        <div class="box-columns">
+          <div class="box-column highlights-column">
+            <div class="game-highlights">
+              <h3 class="title title-simple is-5">
+                Highlights
+              </h3>
+              <BulletList
+                icon-classes="fa-solid fa-star"
+                :hover-color="starColor"
+              >
+                <BulletListItem v-for="topic in highlights" :key="topic">
+                  {{ topic }}
+                </BulletListItem>
+              </BulletList>
+            </div>
+          </div>
+          <div class="box-column bullets-column">
+            <div class="game-integrations">
+              <h3 class="title title-simple is-5">
+                Integrations
+              </h3>
+              <ul class="inline-list">
+                <li
+                  v-for="integration in integrations"
+                  :key="integration"
+                  class="list-item"
+                >
+                  {{ integration }}
+                </li>
+              </ul>
+            </div>
+            <div class="game-specs">
+              <h3 class="title title-simple is-5">
+                Specs
+              </h3>
+              <p>
+                Platforms:
+                <span
+                  v-for="platform in platforms"
+                  :key="platform"
+                  class="list-item"
+                >
+                  {{ platform }}
+                </span>
+              </p>
+              <p>
+                Made with: {{ engine }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -29,27 +90,88 @@
 import AutoplayVideo from './AutoplayVideo.vue';
 import BulletList from './BulletList.vue';
 import BulletListItem from './BulletListItem.vue';
+import GameLink from './GameLink.vue';
+import bulmaConstants from '../js/bulma-constants';
 
 defineProps({
     title: { type: String, required: true },
     videoSrc: { type: String, required: true },
-    bullets: { type: Array, required: true },
+    highlights: { type: Array, required: true },
+    integrations: { type: Array, required: true },
+    platforms: { type: Array, required: true },
+    engine: { type: String, required: true },
+    links: { type: Object, required: true },
 });
 
-const videoWidth = 320;
-const videoHeight = 180;
+const { colors: bulmaColors } = bulmaConstants;
+const starColor = bulmaColors.yellow;
+
+const videoWidth = 640;
+const videoHeight = 360;
+
+const videoWidthPx = `${videoWidth}px`;
+// const gameHighlightsHeightPx = `${videoHeight + 15}px`;
 </script>
 
 <style lang="scss">
+  @use 'sass:color';
   @import '../css/bulma-custom.scss';
 
-  .game-quick-details {
-    .box-content {
-      padding: 0.5rem 1rem;
+  .box.game-quick-details {
+    padding: 0;
+    width: v-bind(videoWidthPx);
+
+    .game-quick-details-middle {
+      position: relative;
+
+      .game-title.title.title-simple {
+        position: absolute;
+        font-size: $size-6;
+        top: 0;
+        left: 0;
+        border-radius: $radius;
+        background-color: color.adjust($dark, $alpha: -0.05%);
+        margin: 0.5rem;
+        padding: 0.5rem ($box-padding - 0.5rem);
+      }
+
+      .game-links {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 1rem;
+
+        .game-link {
+          padding: 0.5rem;
+          border-radius: $radius;
+          border: $button-border-width solid rgba($white, 0);
+
+          &:hover {
+            background-color: color.adjust($dark, $alpha: -0.05%);
+            border-color: $link;
+          }
+        }
+      }
+
+      .game-video {
+        border-radius: $box-radius $box-radius 0 0;
+      }
+    }
+
+    .game-quick-details-bottom {
+      padding: 1rem $box-padding;
+    }
+
+    .game-quick-details-bottom .title {
+      color: $link;
     }
 
     &.box {
       display: inline-block;
+    }
+
+    .bullet-list {
+      display: block;
     }
 
     .box-columns {
@@ -57,20 +179,32 @@ const videoHeight = 180;
       flex-flow: row nowrap;
       align-items: center;
 
-      .box-column {
-        flex-basis: fit-content;
+      .highlights-column {
+        flex: 5;
       }
 
       .bullets-column {
-        margin-left: 1rem;
+        flex: 4;
       }
 
-      .bullet-list {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-around;
-        height: 120px;
+      // .box-column {
+      //   flex-basis: fit-content;
+      // }
+
+      // .bullets-column {
+      //   margin-left: 1rem;
+      // }
+    }
+
+    .game-highlights {
+      .bullet-list-item {
+        margin-top: 0.75rem;
+        margin-bottom: 1rem;
       }
+
+      // .bullet-list {
+      //   margin-bottom: 2rem;
+      // }
 
       .bullet-list, .bullet-list-item {
         &, span {
@@ -79,8 +213,36 @@ const videoHeight = 180;
       }
     }
 
+    .game-integrations {
+      margin-bottom: 0.5rem;
+    }
+
+    .list-item {
+      display: inline-block;
+
+      &::after {
+        content: ', ';
+        margin-right: 0.5rem;
+      }
+
+      &:last-child::after {
+        content: '';
+      }
+    }
+
+    .game-links {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: start;
+      align-items: center;
+      gap: 2rem;
+      margin-left: 0.25rem;
+      // margin-top: 0.5rem;
+    }
+
     .game-video {
-      border-radius: 0.25rem;
+      width: 100%;
+      // border-radius: 0.25rem;
     }
   }
 </style>

@@ -30,7 +30,7 @@ a.social-icon-link {
   width: 2rem;
 
   .icon-raw-text {
-    font-size: $size-8;
+    font-size: $size-7-l2;
   }
 
   &:not(:hover) .icon-raw-text {
