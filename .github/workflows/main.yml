@@ -4,6 +4,7 @@ on:
     # We only run this GitHub action upon new commits to `main`
     branches:
       - main
+      - force-deploy
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
