@@ -8,7 +8,8 @@
     "emulate:dev": "npm run build:dev && http-server tmp/dist/client -p 4000",
     "emulate:prod": "npm run build:prod && http-server tmp/dist/client -p 4000",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue .",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx,.vue ./pages/"
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx,.vue ./pages/",
+    "force-deploy": "git branch -D force-deploy && git branch force-deploy && git push origin force-deploy --force"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
