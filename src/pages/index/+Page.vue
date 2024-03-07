@@ -13,6 +13,7 @@
     :engine="game.engine"
     :platforms="game.platforms"
     :links="game.links"
+    :is-personal="game.isPersonal"
   />
 </template>
 

@@ -1,0 +1,35 @@
+shortTitle: Tybot Invasion
+fullTitle: "Tybot Invasion: The Typing Runner"
+engine: Unity 3D
+platforms:
+    - Windows
+    - Linux
+    - Mac
+links:
+    steam: ""
+    trailer: ""
+    gameplay: ""
+    previewLow: /videos/???-preview-360p.mp4
+bullets:
+    technical:
+        - Tower defense system made from scratch
+        - Smart enemy scheduler
+        - Configuration via scriptable objects
+    integrations:
+        - Steam
+        - Leaderboards
+        - Achievements
+        - Stats
+        - Cloud Save
+tags:
+    - Unity
+    - Steam
+    - Windows
+    - Linux
+    - Mac
+    - Indie
+    - Typing Game
+    - ??? Tower Defense
+    - Achievements
+    - Leaderboards
+    - Cloud Save

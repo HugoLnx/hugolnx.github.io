@@ -2,9 +2,14 @@
   <div class="box game-quick-details">
     <div class="box-content">
       <div class="game-quick-details-middle">
-        <h2 class="game-title title title-simple">
-          {{ title }}
-        </h2>
+        <div class="video-inner-header">
+          <h2 class="game-title title title-simple">
+            {{ title }}
+          </h2>
+          <p v-if="isPersonal" class="personal-label">
+            Personal Prototype
+          </p>
+        </div>
         <AutoplayVideo
           class="game-video"
           :src="videoSrc"
@@ -13,16 +18,19 @@
         />
         <div class="game-links">
           <GameLink
+            v-if="links.steam"
             title="Steam"
             :href="links.steam"
             icon-classes="fa-brands fa-steam-symbol"
           />
           <GameLink
+            v-if="links.trailer"
             title="Trailer"
             :href="links.trailer"
             icon-classes="fa-solid fa-play"
           />
           <GameLink
+            v-if="links.gameplay"
             title="Gameplay"
             :href="links.gameplay"
             icon-classes="fa-solid fa-gamepad"
@@ -47,7 +55,7 @@
             </div>
           </div>
           <div class="box-column bullets-column">
-            <div class="game-integrations">
+            <div v-if="integrations" class="game-integrations">
               <h3 class="title title-simple is-5">
                 Integrations
               </h3>
@@ -93,7 +101,7 @@ import BulletListItem from './BulletListItem.vue';
 import GameLink from './GameLink.vue';
 import bulmaConstants from '../js/bulma-constants';
 
-defineProps({
+const { integrations } = defineProps({
     title: { type: String, required: true },
     videoSrc: { type: String, required: true },
     highlights: { type: Array, required: true },
@@ -101,6 +109,7 @@ defineProps({
     platforms: { type: Array, required: true },
     engine: { type: String, required: true },
     links: { type: Object, required: true },
+    isPersonal: { type: Boolean, default: false },
 });
 
 const { colors: bulmaColors } = bulmaConstants;
@@ -117,6 +126,17 @@ const videoWidthPx = `${videoWidth}px`;
   @use 'sass:color';
   @import '../css/bulma-custom.scss';
 
+  @mixin video-inner-tag-like-colors($back, $back-hover, $border, $border-hover) {
+    border: $button-border-width solid;
+    background-color: color.change($back, $alpha: 0.6);
+    border-color: color.change($border, $alpha: 0.05);
+
+    &:hover {
+      background-color: color.change($back-hover, $alpha: 0.95);
+      border-color: color.change($border-hover, $alpha: 1);
+    }
+  }
+
   .box.game-quick-details {
     padding: 0;
     width: v-bind(videoWidthPx);
@@ -124,15 +144,31 @@ const videoWidthPx = `${videoWidth}px`;
     .game-quick-details-middle {
       position: relative;
 
-      .game-title.title.title-simple {
+      .video-inner-header {
+        display: flex;
+        flex-flow: row nowrap;
         position: absolute;
-        font-size: $size-6;
         top: 0;
         left: 0;
-        border-radius: $radius;
-        background-color: color.adjust($dark, $alpha: -0.05%);
-        margin: 0.5rem;
-        padding: 0.5rem ($box-padding - 0.5rem);
+        z-index: 1;
+
+        .game-title.title.title-simple, .personal-label {
+          font-size: $size-6;
+          border-radius: $radius;
+          margin: 0.5rem;
+          padding: 0.5rem ($box-padding - 0.5rem);
+          line-height: inherit;
+        }
+
+        .game-title.title.title-simple {
+          @include video-inner-tag-like-colors($dark, $dark, $white, $white);
+          // background-color: color.change($dark, $alpha: 0.6);
+        }
+
+        .personal-label {
+          @include video-inner-tag-like-colors($primary, $primary, $white, $white);
+          // background-color: color.change($primary, $alpha: 0.6);
+        }
       }
 
       .game-links {
@@ -144,12 +180,14 @@ const videoWidthPx = `${videoWidth}px`;
         .game-link {
           padding: 0.5rem;
           border-radius: $radius;
-          border: $button-border-width solid rgba($white, 0);
 
-          &:hover {
-            background-color: color.adjust($dark, $alpha: -0.05%);
-            border-color: $link;
-          }
+          @include video-inner-tag-like-colors($dark, $dark, $white, $link);
+          // background-color: color.change($dark, $alpha: 0.6);
+
+          // &:hover {
+          //   background-color: color.change($dark, $alpha: 0.95);
+          //   border-color: $link;
+          // }
         }
       }
 
@@ -177,7 +215,7 @@ const videoWidthPx = `${videoWidth}px`;
     .box-columns {
       display: flex;
       flex-flow: row nowrap;
-      align-items: center;
+      align-items: start;
 
       .highlights-column {
         flex: 5;

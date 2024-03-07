@@ -1,0 +1,34 @@
+shortTitle: King Bullseye
+fullTitle: "King Bullseye: The Chess Strike"
+engine: Unity 3D
+platforms:
+    - Windows
+    - Linux
+    - Mac
+links:
+    steam: "https://store.steampowered.com/app/1600870/King_Bullseye_The_Chess_Strike"
+    trailer: "https://youtu.be/GBDkMf0BGyw?si=0m9njEetBE4W-NNb"
+    gameplay: "https://www.youtube.com/watch?v=mXcG0rBt1Wo"
+    previewLow: /videos/kingbullseye-preview-360p.mp4
+bullets:
+    technical:
+        - Shooter made from scratch
+        - Smart enemy scheduler
+        - Enemies AI with chess-inspired behaviors
+    integrations:
+        - Steam
+        - Leaderboards
+        - Achievements
+        - Stats
+        - Cloud Save
+tags:
+    - Unity
+    - Steam
+    - Windows
+    - Linux
+    - Mac
+    - Indie
+    - Shooter
+    - Achievements
+    - Leaderboards
+    - Cloud Save

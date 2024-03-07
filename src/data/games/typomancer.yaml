@@ -1,0 +1,36 @@
+shortTitle: Typomancer
+fullTitle: "Typomancer in the Feather's Way"
+engine: Unity 3D
+platforms:
+    - Windows
+    - Linux
+    - Mac
+links:
+    steam: "https://store.steampowered.com/app/1714300/Typomancer_in_the_Feathers_Way"
+    trailer: "https://youtu.be/r-heFArzPqI?si=5R6Ev6J13BYeDatI"
+    gameplay: "https://youtu.be/kQzl2wnoM0c?si=135dvP9GoFB45F2W"
+    previewLow: /videos/typomancer-preview-360p.mp4
+bullets:
+    technical:
+        - Typing system made from scratch
+        - Integration between typing and platformer
+        - Corgi customization
+    integrations:
+        - Steam
+        - Corgi
+        - Leaderboards
+        - Achievements
+        - Stats
+        - Cloud Save
+tags:
+    - Unity
+    - Steam
+    - Windows
+    - Linux
+    - Mac
+    - Indie
+    - Typing Game
+    - Platformer
+    - Achievements
+    - Leaderboards
+    - Cloud Save

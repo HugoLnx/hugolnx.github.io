@@ -1,0 +1,35 @@
+shortTitle: Neon Ships
+fullTitle: "Neon Ships: The Type'em Up Shooter"
+engine: Unity 3D
+platforms:
+    - Windows
+    - Linux
+    - Mac
+links:
+    steam: "https://store.steampowered.com/app/1528580/Neon_Ships_The_Typeem_Up_Shooter"
+    trailer: "https://youtu.be/MYc81JHaO3A"
+    gameplay: "https://youtu.be/TmkhOMJtYmU"
+    previewLow: /videos/neonships-preview-360p.mp4
+bullets:
+    technical:
+        - Shoot'em up system made from scratch
+        - Composable shooting patterns
+        - Typing system made from scratch
+    integrations:
+        - Steam
+        - Leaderboards
+        - Achievements
+        - Stats
+        - Cloud Save
+tags:
+    - Unity
+    - Steam
+    - Windows
+    - Linux
+    - Mac
+    - Indie
+    - Typing Game
+    - Shoot'em Up
+    - Achievements
+    - Leaderboards
+    - Cloud Save

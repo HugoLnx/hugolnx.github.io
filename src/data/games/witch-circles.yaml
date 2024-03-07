@@ -1,0 +1,22 @@
+shortTitle: Witch Circles
+fullTitle: Witch Circles
+engine: Unity 3D
+platforms:
+    - WebGL
+links:
+    steam: null
+    trailer: null
+    gameplay: "https://youtu.be/ZX8zFkrlRZc"
+    previewLow: /videos/witch-circles-preview-360p.mp4
+bullets:
+    technical:
+        - Circle math solver UI made from scratch
+        - Educational game
+        - Internationalization
+    integrations:
+        - Legends of Learning SDK
+tags:
+    - Unity
+    - WebGL
+    - Educational Game
+    - Legends of Learning
