@@ -1,20 +1,26 @@
 <template>
-  <div class="box game-quick-details">
+  <div
+    class="box game-quick-details"
+    :class="{ 'is-vertical-video': isMobile, 'is-horizontal-video': !isMobile}"
+  >
     <div class="box-content">
       <div class="game-quick-details-middle">
         <div class="video-inner-header">
           <h2 class="game-title title title-simple">
             {{ title }}
           </h2>
-          <p v-if="isPersonal" class="personal-label">
-            Personal Prototype
+          <p v-if="isPersonal" class="video-inner-tag">
+            personal prototype
+          </p>
+          <p v-if="isFreelance" class="video-inner-tag">
+            as freelancer
           </p>
         </div>
         <AutoplayVideo
           class="game-video"
           :src="videoSrc"
-          :width="videoWidth"
-          :height="videoHeight"
+          :width="videoSize.width"
+          :height="videoSize.height"
         />
         <div class="game-links">
           <GameLink
@@ -22,6 +28,12 @@
             title="Steam"
             :href="links.steam"
             icon-classes="fa-brands fa-steam-symbol"
+          />
+          <GameLink
+            v-if="links.googlePlay"
+            title="Store"
+            :href="links.googlePlay"
+            icon-classes="fa-brands fa-google-play"
           />
           <GameLink
             v-if="links.trailer"
@@ -38,8 +50,8 @@
         </div>
       </div>
       <div class="game-quick-details-bottom">
-        <div class="box-columns">
-          <div class="box-column highlights-column">
+        <div class="details-columns">
+          <div class="details-column highlights-column">
             <div class="game-highlights">
               <h3 class="title title-simple is-5">
                 Highlights
@@ -54,7 +66,7 @@
               </BulletList>
             </div>
           </div>
-          <div class="box-column bullets-column">
+          <div class="details-column bullets-column">
             <div v-if="integrations" class="game-integrations">
               <h3 class="title title-simple is-5">
                 Integrations
@@ -101,31 +113,71 @@ import BulletListItem from './BulletListItem.vue';
 import GameLink from './GameLink.vue';
 import bulmaConstants from '../js/bulma-constants';
 
-const { integrations } = defineProps({
+const { isMobile } = defineProps({
     title: { type: String, required: true },
     videoSrc: { type: String, required: true },
     highlights: { type: Array, required: true },
-    integrations: { type: Array, required: true },
+    integrations: { type: Array, required: true, default: () => [] },
     platforms: { type: Array, required: true },
     engine: { type: String, required: true },
     links: { type: Object, required: true },
     isPersonal: { type: Boolean, default: false },
+    isFreelance: { type: Boolean, default: false },
+    isMobile: { type: Boolean, default: false },
 });
+
+const HORIZONTAL_VIDEO_SIZE = { width: 640, height: 360 };
+const VERTICAL_VIDEO_SIZE = { width: 270, height: 480 };
 
 const { colors: bulmaColors } = bulmaConstants;
 const starColor = bulmaColors.yellow;
 
-const videoWidth = 640;
-const videoHeight = 360;
+const videoSize = isMobile ? VERTICAL_VIDEO_SIZE : HORIZONTAL_VIDEO_SIZE;
 
-const videoWidthPx = `${videoWidth}px`;
-// const gameHighlightsHeightPx = `${videoHeight + 15}px`;
+const videoWidthPx = `${videoSize.width}px`;
+const videoHeightPx = `${videoSize.height}px`;
+const boxMaxWidthPx = `${HORIZONTAL_VIDEO_SIZE.width}px`;
 </script>
+
+<style lang="scss">
+  @import '../css/bulma-custom.scss';
+
+  .box.game-quick-details {
+    padding: 0;
+    display: inline-block;
+
+    &.is-horizontal-video {
+      width: v-bind(videoWidthPx);
+    }
+
+    &.is-vertical-video {
+      max-width: v-bind(boxMaxWidthPx);
+      .game-quick-details-middle {
+        height: v-bind(videoHeightPx);
+
+        &, video, .video-inner-header, .game-links {
+          width: v-bind(videoWidthPx);
+          min-width: v-bind(videoWidthPx);
+        }
+      }
+
+      .box-content {
+        display: flex;
+        flex-flow: row nowrap;
+      }
+
+      .game-quick-details-bottom {
+        .details-columns {
+          flex-flow: column nowrap;
+        }
+      }
+    }
+  }
+</style>
 
 <style lang="scss">
   @use 'sass:color';
   @import '../css/bulma-custom.scss';
-
   @mixin video-inner-tag-like-colors($back, $back-hover, $border, $border-hover) {
     border: $button-border-width solid;
     background-color: color.change($back, $alpha: 0.6);
@@ -137,70 +189,111 @@ const videoWidthPx = `${videoWidth}px`;
     }
   }
 
-  .box.game-quick-details {
-    padding: 0;
-    width: v-bind(videoWidthPx);
+  .game-quick-details-middle {
+    position: relative;
 
-    .game-quick-details-middle {
-      position: relative;
+    .video-inner-header {
+      display: flex;
+      flex-flow: row nowrap;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
 
-      .video-inner-header {
-        display: flex;
-        flex-flow: row nowrap;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-
-        .game-title.title.title-simple, .personal-label {
-          font-size: $size-6;
-          border-radius: $radius;
-          margin: 0.5rem;
-          padding: 0.5rem ($box-padding - 0.5rem);
-          line-height: inherit;
-        }
-
-        .game-title.title.title-simple {
-          @include video-inner-tag-like-colors($dark, $dark, $white, $white);
-          // background-color: color.change($dark, $alpha: 0.6);
-        }
-
-        .personal-label {
-          @include video-inner-tag-like-colors($primary, $primary, $white, $white);
-          // background-color: color.change($primary, $alpha: 0.6);
-        }
+      .game-title.title.title-simple, .video-inner-tag {
+        font-size: $size-6;
+        border-radius: $radius;
+        margin: 0.5rem;
+        padding: 0.5rem ($box-padding - 0.5rem);
+        line-height: inherit;
       }
 
-      .game-links {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        margin-bottom: 1rem;
-
-        .game-link {
-          padding: 0.5rem;
-          border-radius: $radius;
-
-          @include video-inner-tag-like-colors($dark, $dark, $white, $link);
-          // background-color: color.change($dark, $alpha: 0.6);
-
-          // &:hover {
-          //   background-color: color.change($dark, $alpha: 0.95);
-          //   border-color: $link;
-          // }
-        }
+      .game-title.title.title-simple {
+        @include video-inner-tag-like-colors($dark, $dark, $white, $white);
       }
 
-      .game-video {
-        border-radius: $box-radius $box-radius 0 0;
+      .video-inner-tag {
+        @include video-inner-tag-like-colors($primary, $primary, $white, $white);
       }
     }
+  }
 
-    .game-quick-details-bottom {
-      padding: 1rem $box-padding;
+  .game-links {
+    display: flex;
+    flex-flow: row wrap;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 1rem;
+    margin-left: 0.25rem;
+
+    .game-link {
+      padding: 0.5rem;
+      border-radius: $radius;
+
+      @include video-inner-tag-like-colors($dark, $dark, $white, $link);
     }
+  }
 
-    .game-quick-details-bottom .title {
+  .is-horizontal-video .game-links {
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .is-vertical-video .game-links {
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  .game-video {
+    width: 100%;
+  }
+
+  .is-horizontal-video .game-video {
+    border-radius: $box-radius $box-radius 0 0;
+  }
+
+  .is-vertical-video .game-video {
+    border-radius: $box-radius 0 0 $box-radius;
+  }
+</style>
+
+<style lang="scss">
+  @import '../css/bulma-custom.scss';
+
+  .game-quick-details-bottom {
+    .details-columns {
+      display: flex;
+      align-items: start;
+    }
+  }
+
+  .is-horizontal-video .game-quick-details-bottom {
+    .details-columns {
+      flex-flow: row nowrap;
+
+      .highlights-column {
+        flex: 5;
+      }
+
+      .bullets-column {
+        flex: 4;
+      }
+    }
+  }
+
+  .is-vertical-video .game-quick-details-bottom {
+    .details-columns {
+      flex-flow: column nowrap;
+    }
+  }
+
+  .game-quick-details-bottom {
+    padding: 1rem $box-padding;
+    .title {
       color: $link;
     }
 
@@ -212,37 +305,11 @@ const videoWidthPx = `${videoWidth}px`;
       display: block;
     }
 
-    .box-columns {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: start;
-
-      .highlights-column {
-        flex: 5;
-      }
-
-      .bullets-column {
-        flex: 4;
-      }
-
-      // .box-column {
-      //   flex-basis: fit-content;
-      // }
-
-      // .bullets-column {
-      //   margin-left: 1rem;
-      // }
-    }
-
     .game-highlights {
       .bullet-list-item {
         margin-top: 0.75rem;
         margin-bottom: 1rem;
       }
-
-      // .bullet-list {
-      //   margin-bottom: 2rem;
-      // }
 
       .bullet-list, .bullet-list-item {
         &, span {
@@ -266,21 +333,6 @@ const videoWidthPx = `${videoWidth}px`;
       &:last-child::after {
         content: '';
       }
-    }
-
-    .game-links {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: start;
-      align-items: center;
-      gap: 2rem;
-      margin-left: 0.25rem;
-      // margin-top: 0.5rem;
-    }
-
-    .game-video {
-      width: 100%;
-      // border-radius: 0.25rem;
     }
   }
 </style>

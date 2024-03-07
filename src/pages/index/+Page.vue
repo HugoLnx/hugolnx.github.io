@@ -14,6 +14,8 @@
     :platforms="game.platforms"
     :links="game.links"
     :is-personal="game.isPersonal"
+    :is-mobile="game.isMobile"
+    :is-freelance="game.isFreelance"
   />
 </template>
 
