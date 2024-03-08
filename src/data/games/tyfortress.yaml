@@ -9,7 +9,9 @@ links:
     steam: "https://store.steampowered.com/app/1661700/Tyfortress_Tactical_Typing/"
     trailer: "https://www.youtube.com/watch?v=FtdJSk4B41k"
     gameplay: "https://www.youtube.com/watch?v=OurOSsgrPLI"
-    previewLow: /videos/tyfortress-preview-360p.mp4
+    previewLow: /videos/tyfortress-preview-360p-low.mp4
+    previewMid: /videos/tyfortress-preview-360p-mid.mp4
+    poster: /images/tyfortress-preview-poster-360p.jpg
 bullets:
     technical:
         - Tower defense system made from scratch

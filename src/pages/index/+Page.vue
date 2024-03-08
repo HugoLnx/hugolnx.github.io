@@ -6,7 +6,7 @@
   <GameQuickDetailsBox
     v-for="game in games"
     :key="game.shortTitle"
-    :title="game.shortTitle"
+    :title="game.shortTitle + ' (Low)'"
     :video-src="game.links.previewLow"
     :highlights="game.bullets.technical"
     :integrations="game.bullets.integrations"

@@ -7,7 +7,9 @@ links:
     steam: null
     trailer: null
     gameplay: "https://youtu.be/M1vvi4pJK8A"
-    previewLow: /videos/xan-preview-360p.mp4
+    previewLow: /videos/xan-preview-360p-low.mp4
+    previewMid: /videos/xan-preview-360p-mid.mp4
+    poster: /images/xan-preview-poster-360p.jpg
 bullets:
     technical:
         - Expression solver UI made from scratch

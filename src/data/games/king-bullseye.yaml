@@ -9,7 +9,9 @@ links:
     steam: "https://store.steampowered.com/app/1600870/King_Bullseye_The_Chess_Strike"
     trailer: "https://youtu.be/GBDkMf0BGyw?si=0m9njEetBE4W-NNb"
     gameplay: "https://www.youtube.com/watch?v=mXcG0rBt1Wo"
-    previewLow: /videos/kingbullseye-preview-360p.mp4
+    previewLow: /videos/kingbullseye-preview-360p-low.mp4
+    previewMid: /videos/kingbullseye-preview-360p-mid.mp4
+    poster: /images/kingbullseye-preview-poster-360p.jpg
 bullets:
     technical:
         - Shooter made from scratch

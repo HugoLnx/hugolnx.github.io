@@ -21,6 +21,7 @@
           :src="videoSrc"
           :width="videoSize.width"
           :height="videoSize.height"
+          :poster="links.poster"
         />
         <div class="game-links">
           <GameLink
@@ -192,13 +193,16 @@ const boxMaxWidthPx = `${HORIZONTAL_VIDEO_SIZE.width}px`;
   .game-quick-details-middle {
     position: relative;
 
+    .game-links, .video-inner-header {
+        z-index: 5;
+    }
+
     .video-inner-header {
       display: flex;
       flex-flow: row nowrap;
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 1;
 
       .game-title.title.title-simple, .video-inner-tag {
         font-size: $size-6;
@@ -335,4 +339,4 @@ const boxMaxWidthPx = `${HORIZONTAL_VIDEO_SIZE.width}px`;
       }
     }
   }
-</style>
+</style>./AutoplayVideo/AutoplayVideo.vue

@@ -12,22 +12,33 @@ import sunseek from '../../data/games/sunseek.yaml';
 import garby from '../../data/games/garby.yaml';
 import triviaMaze from '../../data/games/trivia-maze.yaml';
 
+const games = [
+    spookyTyping,
+    smashingSpirits,
+    tyfortress,
+    tybotInvasion,
+    neonShips,
+    typomancer,
+    kingBullseye,
+    sniperShips,
+    xanAdventure,
+    witchCircles,
+    triviaMaze,
+    garby,
+    sunseek,
+];
+
+// const newGames = games.flatMap((game) => {
+//     const newGame = JSON.parse(JSON.stringify(game));
+//     const newGame2 = JSON.parse(JSON.stringify(game));
+//     newGame.links.previewLow = newGame.links.previewLow.replace(/-mid/g, '-low');
+//     newGame.shortTitle += ' (Low)';
+//     newGame2.shortTitle += ' (Mid)';
+//     return [newGame2, newGame];
+// });
+
 const data = {
-    games: [
-        spookyTyping,
-        smashingSpirits,
-        tyfortress,
-        tybotInvasion,
-        neonShips,
-        typomancer,
-        kingBullseye,
-        sniperShips,
-        xanAdventure,
-        witchCircles,
-        triviaMaze,
-        garby,
-        sunseek,
-    ],
+    games,
 };
 
 export default data;

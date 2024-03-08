@@ -7,7 +7,9 @@ links:
     steam: null
     trailer: null
     gameplay: "https://youtu.be/ZX8zFkrlRZc"
-    previewLow: /videos/witch-circles-preview-360p.mp4
+    previewLow: /videos/witch-circles-preview-360p-low.mp4
+    previewMid: /videos/witch-circles-preview-360p-mid.mp4
+    poster: /images/witch-circles-preview-poster-360p.jpg
 bullets:
     technical:
         - Circle math solver UI made from scratch

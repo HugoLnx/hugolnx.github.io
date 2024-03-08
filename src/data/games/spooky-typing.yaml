@@ -9,7 +9,9 @@ links:
     steam: "https://store.steampowered.com/app/1791870/Spooky_Typing_The_Ghost_Plague/"
     trailer: "https://www.youtube.com/watch?v=WZTmxcAN0J0"
     gameplay: "https://www.youtube.com/watch?v=oEwrwlJ9jWk"
-    previewLow: /videos/spooky-typing-preview-360p.mp4
+    previewLow: /videos/spooky-typing-preview-360p-low.mp4
+    previewMid: /videos/spooky-typing-preview-360p-mid.mp4
+    poster: /images/spooky-typing-preview-poster-360p.jpg
 bullets:
     technical:
         - Typing system made from scratch

@@ -9,7 +9,9 @@ links:
     steam: "https://store.steampowered.com/app/1528580/Neon_Ships_The_Typeem_Up_Shooter"
     trailer: "https://youtu.be/MYc81JHaO3A"
     gameplay: "https://youtu.be/TmkhOMJtYmU"
-    previewLow: /videos/neonships-preview-360p.mp4
+    previewLow: /videos/neonships-preview-360p-low.mp4
+    previewMid: /videos/neonships-preview-360p-mid.mp4
+    poster: /images/neonships-preview-poster-360p.jpg
 bullets:
     technical:
         - Shoot'em up system made from scratch

@@ -9,7 +9,9 @@ links:
     steam: "https://store.steampowered.com/app/1636000/Tybot_Invasion_The_Typing_Runner/"
     trailer: "https://youtu.be/4Kq6gm5CvU4?si=-IWdaEa4vZsats_n"
     gameplay: "https://youtu.be/OfLBQZMVVUQ"
-    previewLow: /videos/tybot-preview-360p.mp4
+    previewLow: /videos/tybot-preview-360p-low.mp4
+    previewMid: /videos/tybot-preview-360p-mid.mp4
+    poster: /images/tybot-preview-poster-360p.jpg
 bullets:
     technical:
         - Typing system made from scratch
