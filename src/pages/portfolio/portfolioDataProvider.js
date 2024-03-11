@@ -28,15 +28,6 @@ const games = [
     sniperShips,
 ];
 
-// const newGames = games.flatMap((game) => {
-//     const newGame = JSON.parse(JSON.stringify(game));
-//     const newGame2 = JSON.parse(JSON.stringify(game));
-//     newGame.links.previewLow = newGame.links.previewLow.replace(/-mid/g, '-low');
-//     newGame.shortTitle += ' (Low)';
-//     newGame2.shortTitle += ' (Mid)';
-//     return [newGame2, newGame];
-// });
-
 const data = {
     games,
 };
