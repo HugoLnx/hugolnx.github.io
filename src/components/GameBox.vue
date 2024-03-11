@@ -1,7 +1,7 @@
 <template>
   <div
     ref="boxElement"
-    class="box reset-outer-spacing game-quick-details hover-grow"
+    class="box reset-outer-spacing game-box hover-grow"
     :class="{
       'is-vertical-video': isMobile,
       'is-horizontal-video': !isMobile,
@@ -11,7 +11,7 @@
     }"
   >
     <div class="box-content">
-      <div class="game-quick-details-middle">
+      <div class="game-box-middle">
         <div class="video-inner-header">
           <h2 class="game-title title title-simple">
             {{ title }}
@@ -57,7 +57,7 @@
           />
         </div>
       </div>
-      <div class="game-quick-details-bottom">
+      <div class="game-box-bottom">
         <div class="details-columns">
           <div class="details-column highlights-column">
             <div class="game-highlights">
@@ -236,7 +236,7 @@ onMounted(() => {
     }
   }
 
-  .box.game-quick-details {
+  .box.game-box {
     display: inline-block;
     &.reset-outer-spacing {
       padding: 0;
@@ -250,16 +250,16 @@ onMounted(() => {
     &.is-vertical-video {
       max-width: v-bind('px(sizeVars.boxMaxWidth)');
 
-      .game-quick-details-middle, .game-quick-details-bottom {
+      .game-box-middle, .game-box-bottom {
         height: v-bind('px(sizeVars.videoHeight)');
         min-height: v-bind('px(sizeVars.videoHeight)');
       }
 
-      .game-quick-details-bottom {
+      .game-box-bottom {
         min-width: v-bind('px(sizeVars.verticalDetailsMinWidth)');
       }
 
-      .game-quick-details-middle {
+      .game-box-middle {
         &, video, .video-inner-header, .game-links {
           width: v-bind('px(sizeVars.videoWidth)');
           min-width: v-bind('px(sizeVars.videoWidth)');
@@ -271,7 +271,7 @@ onMounted(() => {
         flex-flow: row nowrap;
       }
 
-      .game-quick-details-bottom {
+      .game-box-bottom {
         .details-columns {
           flex-flow: column nowrap;
         }
@@ -294,7 +294,7 @@ onMounted(() => {
     }
   }
 
-  .game-quick-details-middle {
+  .game-box-middle {
     position: relative;
 
     .video-inner-header {
@@ -391,26 +391,26 @@ onMounted(() => {
       z-index: $z-index + 3;
     }
 
-    .game-quick-details-bottom {
+    .game-box-bottom {
       z-index: $z-index - 1;
     }
   }
 
-  .game-quick-details {
+  .game-box {
     @include set-z-indexes($base-z-index);
   }
 
-  .game-quick-details.is-init-video-only {
+  .game-box.is-init-video-only {
     position: relative;
 
-    .game-quick-details-bottom {
+    .game-box-bottom {
       position: absolute;
       opacity: 0;
       pointer-events: none;
       transition: opacity 200ms ease-in-out;
     }
 
-    &.is-horizontal-video .game-quick-details-bottom {
+    &.is-horizontal-video .game-box-bottom {
       left: 0;
       bottom: 2rem;
       padding-top: 3rem;
@@ -418,14 +418,14 @@ onMounted(() => {
     }
 
     &.is-vertical-video {
-      &.is-details-at-right .game-quick-details-bottom {
+      &.is-details-at-right .game-box-bottom {
         top: 0;
         right: 2rem;
         padding-left: 3rem;
         transform: translateX(100%);
       }
 
-      &.is-details-at-left .game-quick-details-bottom {
+      &.is-details-at-left .game-box-bottom {
         top: 0;
         left: 2rem;
         padding-right: 3rem;
@@ -436,7 +436,7 @@ onMounted(() => {
     &:hover {
       @include set-z-indexes($hover-z-index);
 
-      .game-quick-details-bottom {
+      .game-box-bottom {
         transition: opacity 200ms ease-in-out;
         opacity: 1;
         pointer-events: all;
@@ -448,20 +448,20 @@ onMounted(() => {
       border-radius: $box-radius;
     }
 
-    .game-quick-details-bottom {
+    .game-box-bottom {
       border-radius: $box-radius;
       background-color: color.change(#1c4b52, $alpha: 0.95);
     }
   }
 
-  .game-quick-details-bottom {
+  .game-box-bottom {
     .details-columns {
       display: flex;
       align-items: start;
     }
   }
 
-  .is-horizontal-video .game-quick-details-bottom {
+  .is-horizontal-video .game-box-bottom {
     .details-columns {
       flex-flow: row nowrap;
 
@@ -475,13 +475,13 @@ onMounted(() => {
     }
   }
 
-  .is-vertical-video .game-quick-details-bottom {
+  .is-vertical-video .game-box-bottom {
     .details-columns {
       flex-flow: column nowrap;
     }
   }
 
-  .game-quick-details-bottom {
+  .game-box-bottom {
     padding: 1rem $box-padding;
     .title {
       color: $link;

@@ -3,7 +3,7 @@
     Game Highlights
   </h1>
 
-  <GameQuickDetailsBox
+  <GameBox
     v-for="game in games"
     :key="game.shortTitle"
     :title="game.shortTitle + ' (Low)'"
@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import GameQuickDetailsBox from '../../components/GameQuickDetailsBox.vue';
+import GameBox from '../../components/GameBox.vue';
 import data from './overviewDataProvider';
 
 const { games } = data;
