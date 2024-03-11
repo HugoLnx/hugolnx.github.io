@@ -118,7 +118,10 @@
 import {
     ref,
     reactive,
+    onBeforeMount,
     onMounted,
+    onUnmounted,
+    watch,
 } from 'vue';
 import AutoplayVideo from './AutoplayVideo.vue';
 import BulletList from './BulletList.vue';
@@ -166,6 +169,7 @@ const sizeVars = reactive({
     boxMaxWidth: 0,
     verticalDetailsMinWidth: 0,
 });
+const screenWidthRef = ref(1400);
 
 const { colors: bulmaColors } = bulmaConstants;
 const starColor = bulmaColors.yellow;
@@ -212,16 +216,29 @@ const updateSizeVars = (screenWidth) => {
 };
 
 const refreshWindowWidth = () => {
-    const screenWidth = window.innerWidth || 1400;
-    updateDetailsDirection(screenWidth);
-    updateSizeVars(screenWidth);
+    if (!window.innerWidth || window.innerWidth <= 0) return;
+    screenWidthRef.value = window.innerWidth;
 };
 
-onMounted(() => {
+onBeforeMount(() => {
     window.addEventListener('resize', refreshWindowWidth);
     window.addEventListener('load', refreshWindowWidth);
     window.addEventListener('DOMContentLoaded', refreshWindowWidth);
     refreshWindowWidth();
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', refreshWindowWidth);
+    window.removeEventListener('load', refreshWindowWidth);
+    window.removeEventListener('DOMContentLoaded', refreshWindowWidth);
+});
+
+onMounted(() => {
+    refreshWindowWidth();
+    watch(screenWidthRef, (screenWidth) => {
+        updateDetailsDirection(screenWidth);
+        updateSizeVars(screenWidth);
+    }, { immediate: true });
 });
 </script>
 
