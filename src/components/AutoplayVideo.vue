@@ -71,9 +71,22 @@ onMounted(() => {
   @use 'sass:color';
   @import '../css/bulma-custom.scss';
 
+  $base-z-index: 1;
+
   .video-wrapper {
     position: relative;
+    z-index: $base-z-index;
 
+    .video-poster {
+      z-index: $base-z-index + 1;
+    }
+
+    .video-overlay {
+      z-index: $base-z-index + 2;
+    }
+  }
+
+  .video-wrapper {
     &, video, .video-overlay, .video-poster {
       width: v-bind(widthPx);
       height: v-bind(heightPx);
@@ -87,7 +100,6 @@ onMounted(() => {
 
     .video-overlay {
       position: absolute;
-      z-index: 2;
       top: 0;
       left: 0;
       background-color: color.change($black, $alpha: 0.5);
@@ -106,7 +118,6 @@ onMounted(() => {
 
     .video-poster {
       position: absolute;
-      z-index: 1;
       top: 0;
       left: 0;
     }

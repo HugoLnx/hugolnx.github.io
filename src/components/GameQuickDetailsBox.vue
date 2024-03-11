@@ -1,6 +1,6 @@
 <template>
   <div
-    class="box game-quick-details"
+    class="box game-quick-details hover-grow init-video-only"
     :class="{ 'is-vertical-video': isMobile, 'is-horizontal-video': !isMobile}"
   >
     <div class="box-content">
@@ -138,10 +138,19 @@ const videoSize = isMobile ? VERTICAL_VIDEO_SIZE : HORIZONTAL_VIDEO_SIZE;
 const videoWidthPx = `${videoSize.width}px`;
 const videoHeightPx = `${videoSize.height}px`;
 const boxMaxWidthPx = `${HORIZONTAL_VIDEO_SIZE.width}px`;
+const verticalDetailsMinWidthPx = `${HORIZONTAL_VIDEO_SIZE.width - videoSize.width}px`;
 </script>
 
 <style lang="scss">
   @import '../css/bulma-custom.scss';
+
+  .hover-grow {
+    transition: transform 200ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 
   .box.game-quick-details {
     padding: 0;
@@ -153,9 +162,17 @@ const boxMaxWidthPx = `${HORIZONTAL_VIDEO_SIZE.width}px`;
 
     &.is-vertical-video {
       max-width: v-bind(boxMaxWidthPx);
-      .game-quick-details-middle {
-        height: v-bind(videoHeightPx);
 
+      .game-quick-details-middle, .game-quick-details-bottom {
+        height: v-bind(videoHeightPx);
+        min-height: v-bind(videoHeightPx);
+      }
+
+      .game-quick-details-bottom {
+        min-width: v-bind(verticalDetailsMinWidthPx);
+      }
+
+      .game-quick-details-middle {
         &, video, .video-inner-header, .game-links {
           width: v-bind(videoWidthPx);
           min-width: v-bind(videoWidthPx);
@@ -192,10 +209,6 @@ const boxMaxWidthPx = `${HORIZONTAL_VIDEO_SIZE.width}px`;
 
   .game-quick-details-middle {
     position: relative;
-
-    .game-links, .video-inner-header {
-        z-index: 5;
-    }
 
     .video-inner-header {
       display: flex;
@@ -266,7 +279,81 @@ const boxMaxWidthPx = `${HORIZONTAL_VIDEO_SIZE.width}px`;
 </style>
 
 <style lang="scss">
+  @use 'sass:color';
   @import '../css/bulma-custom.scss';
+
+  $base-z-index: 15;
+  $hover-z-index: 30;
+
+  @mixin set-z-indexes($z-index) {
+    z-index: $z-index;
+
+    .video-wrapper {
+      z-index: $z-index;
+
+      .video-poster {
+        z-index: $z-index + 1;
+      }
+
+      .video-overlay {
+        z-index: $z-index + 2;
+      }
+    }
+
+    .game-links, .video-inner-header {
+      z-index: $z-index + 3;
+    }
+
+    .game-quick-details-bottom {
+      z-index: $z-index - 1;
+    }
+  }
+
+  .game-quick-details.init-video-only {
+    position: relative;
+    @include set-z-indexes($base-z-index);
+
+    .game-quick-details-bottom {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease-in-out;
+    }
+
+    &.is-horizontal-video .game-quick-details-bottom {
+      left: 0;
+      bottom: 2rem;
+      padding-top: 3rem;
+      transform: translateY(100%);
+    }
+
+    &.is-vertical-video .game-quick-details-bottom {
+      right: 2rem;
+      top: 0;
+      padding-left: 3rem;
+      transform: translateX(100%);
+    }
+
+    &:hover {
+      @include set-z-indexes($hover-z-index);
+
+      .game-quick-details-bottom {
+        transition: opacity 200ms ease-in-out;
+        opacity: 1;
+        pointer-events: all;
+        margin: 0;
+      }
+    }
+
+    .game-video {
+      border-radius: $box-radius;
+    }
+
+    .game-quick-details-bottom {
+      border-radius: $box-radius;
+      background-color: color.change(#1c4b52, $alpha: 0.95);
+    }
+  }
 
   .game-quick-details-bottom {
     .details-columns {
@@ -339,4 +426,4 @@ const boxMaxWidthPx = `${HORIZONTAL_VIDEO_SIZE.width}px`;
       }
     }
   }
-</style>./AutoplayVideo/AutoplayVideo.vue
+</style>

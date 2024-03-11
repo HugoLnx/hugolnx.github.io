@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-fixed-top top-zindex" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
@@ -58,3 +58,9 @@
 <script setup>
 import NavLink from './NavLink.vue';
 </script>
+
+<style lang="scss">
+nav.navbar.is-fixed-top.top-zindex {
+  z-index: 100;
+}
+</style>
