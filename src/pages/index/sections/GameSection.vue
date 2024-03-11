@@ -1,8 +1,8 @@
 <template>
   <div class="games-section">
-    <h1 class="title">
+    <h2 class="title">
       Games
-    </h1>
+    </h2>
 
     <div class="game-boxes">
       <GameBox
