@@ -396,9 +396,12 @@ onMounted(() => {
     }
   }
 
+  .game-quick-details {
+    @include set-z-indexes($base-z-index);
+  }
+
   .game-quick-details.is-init-video-only {
     position: relative;
-    @include set-z-indexes($base-z-index);
 
     .game-quick-details-bottom {
       position: absolute;
