@@ -32,6 +32,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { px } from '../js/utils';
 
 const { width, height } = defineProps({
     src: { type: String, required: true },
@@ -44,9 +45,6 @@ const { width, height } = defineProps({
 const videoElement = ref(null);
 const isPlaying = ref(false);
 const isLoading = ref(false);
-
-const widthPx = `${width}px`;
-const heightPx = `${height}px`;
 
 const playVideo = () => {
     videoElement.value.play();
@@ -88,10 +86,10 @@ onMounted(() => {
 
   .video-wrapper {
     &, video, .video-overlay, .video-poster {
-      width: v-bind(widthPx);
-      height: v-bind(heightPx);
-      min-width: v-bind(widthPx);
-      min-height: v-bind(heightPx);
+      width: v-bind('px(width)');
+      height: v-bind('px(height)');
+      min-width: v-bind('px(width)');
+      min-height: v-bind('px(height)');
     }
 
     video, .video-overlay, .video-poster {

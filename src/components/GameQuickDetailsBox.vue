@@ -1,7 +1,14 @@
 <template>
   <div
-    class="box game-quick-details hover-grow init-video-only"
-    :class="{ 'is-vertical-video': isMobile, 'is-horizontal-video': !isMobile}"
+    ref="boxElement"
+    class="box reset-outer-spacing game-quick-details hover-grow"
+    :class="{
+      'is-vertical-video': isMobile,
+      'is-horizontal-video': !isMobile,
+      'is-init-video-only': isInitVideoOnly,
+      'is-details-at-right': isDetailsAtRight,
+      'is-details-at-left': isDetailsAtLeft,
+    }"
   >
     <div class="box-content">
       <div class="game-quick-details-middle">
@@ -19,8 +26,8 @@
         <AutoplayVideo
           class="game-video"
           :src="videoSrc"
-          :width="videoSize.width"
-          :height="videoSize.height"
+          :width="sizeVars.videoWidth"
+          :height="sizeVars.videoHeight"
           :poster="links.poster"
         />
         <div class="game-links">
@@ -68,7 +75,7 @@
             </div>
           </div>
           <div class="details-column bullets-column">
-            <div v-if="integrations" class="game-integrations">
+            <div v-if="integrations.length > 0" class="game-integrations">
               <h3 class="title title-simple is-5">
                 Integrations
               </h3>
@@ -108,13 +115,28 @@
 </template>
 
 <script setup>
+import {
+    ref,
+    reactive,
+    onMounted,
+} from 'vue';
 import AutoplayVideo from './AutoplayVideo.vue';
 import BulletList from './BulletList.vue';
 import BulletListItem from './BulletListItem.vue';
 import GameLink from './GameLink.vue';
 import bulmaConstants from '../js/bulma-constants';
+import { px, preventSequentialCalls } from '../js/utils';
 
-const { isMobile } = defineProps({
+const BASE_HORIZONTAL_VSIZE = { width: 640, height: 360 };
+const BASE_VERTICAL_VSIZE = { width: 270, height: 480 };
+
+const {
+    isMobile,
+    isInitVideoOnly,
+    minScale,
+    lerpScaleMinScreen,
+    lerpScaleMaxScreen,
+} = defineProps({
     title: { type: String, required: true },
     videoSrc: { type: String, required: true },
     highlights: { type: Array, required: true },
@@ -125,20 +147,82 @@ const { isMobile } = defineProps({
     isPersonal: { type: Boolean, default: false },
     isFreelance: { type: Boolean, default: false },
     isMobile: { type: Boolean, default: false },
+    isInitVideoOnly: { type: Boolean, default: false },
+    minScale: { type: Number, default: 1 },
+    lerpScaleMinScreen: { type: Number, default: 0 },
+    lerpScaleMaxScreen: { type: Number, default: 0 },
 });
 
-const HORIZONTAL_VIDEO_SIZE = { width: 640, height: 360 };
-const VERTICAL_VIDEO_SIZE = { width: 270, height: 480 };
+const baseVideoSize = isMobile
+    ? BASE_VERTICAL_VSIZE
+    : BASE_HORIZONTAL_VSIZE;
+
+const boxElement = ref(null);
+const isDetailsAtRight = ref(true);
+const isDetailsAtLeft = ref(false);
+const sizeVars = reactive({
+    videoWidth: 0,
+    videoHeight: 0,
+    boxMaxWidth: 0,
+    verticalDetailsMinWidth: 0,
+});
 
 const { colors: bulmaColors } = bulmaConstants;
 const starColor = bulmaColors.yellow;
 
-const videoSize = isMobile ? VERTICAL_VIDEO_SIZE : HORIZONTAL_VIDEO_SIZE;
+const updateDetailsDirection = preventSequentialCalls(
+    (screenWidth) => {
+        if (!isMobile || !isInitVideoOnly) {
+            isDetailsAtLeft.value = false;
+            isDetailsAtRight.value = false;
+            return;
+        }
 
-const videoWidthPx = `${videoSize.width}px`;
-const videoHeightPx = `${videoSize.height}px`;
-const boxMaxWidthPx = `${HORIZONTAL_VIDEO_SIZE.width}px`;
-const verticalDetailsMinWidthPx = `${HORIZONTAL_VIDEO_SIZE.width - videoSize.width}px`;
+        const boxBounds = boxElement.value.getBoundingClientRect();
+        const rightDistance = screenWidth - boxBounds.right;
+        const leftDistance = boxBounds.left;
+        const rightEdgeIsCloser = rightDistance < leftDistance;
+        isDetailsAtRight.value = !rightEdgeIsCloser;
+        isDetailsAtLeft.value = !isDetailsAtRight.value;
+    },
+);
+
+const updateSizeVars = (screenWidth) => {
+    let scale = screenWidth < 1390 ? minScale : 1.0;
+    const isLerping = lerpScaleMinScreen > 0
+        && lerpScaleMaxScreen > 0
+        && minScale !== 1.0;
+
+    if (isLerping) {
+        const widthDiff = lerpScaleMaxScreen - lerpScaleMinScreen;
+        let widthDiffPerc = (screenWidth - lerpScaleMinScreen) / widthDiff;
+        widthDiffPerc = Math.min(1, Math.max(0, widthDiffPerc));
+        scale = minScale + (1 - minScale) * widthDiffPerc;
+    }
+
+    const horizontalVideoSize = {
+        width: BASE_HORIZONTAL_VSIZE.width * scale,
+        height: BASE_HORIZONTAL_VSIZE.height * scale,
+    };
+
+    sizeVars.videoWidth = Math.round(baseVideoSize.width * scale);
+    sizeVars.videoHeight = Math.round(baseVideoSize.height * scale);
+    sizeVars.boxMaxWidth = horizontalVideoSize.width;
+    sizeVars.verticalDetailsMinWidth = horizontalVideoSize.width - sizeVars.videoWidth;
+};
+
+const refreshWindowWidth = () => {
+    const screenWidth = window.innerWidth || 1400;
+    updateDetailsDirection(screenWidth);
+    updateSizeVars(screenWidth);
+};
+
+onMounted(() => {
+    window.addEventListener('resize', refreshWindowWidth);
+    window.addEventListener('load', refreshWindowWidth);
+    window.addEventListener('DOMContentLoaded', refreshWindowWidth);
+    refreshWindowWidth();
+});
 </script>
 
 <style lang="scss">
@@ -153,29 +237,32 @@ const verticalDetailsMinWidthPx = `${HORIZONTAL_VIDEO_SIZE.width - videoSize.wid
   }
 
   .box.game-quick-details {
-    padding: 0;
     display: inline-block;
+    &.reset-outer-spacing {
+      padding: 0;
+      margin: 0;
+    }
 
     &.is-horizontal-video {
-      width: v-bind(videoWidthPx);
+      width: v-bind('px(sizeVars.videoWidth)');
     }
 
     &.is-vertical-video {
-      max-width: v-bind(boxMaxWidthPx);
+      max-width: v-bind('px(sizeVars.boxMaxWidth)');
 
       .game-quick-details-middle, .game-quick-details-bottom {
-        height: v-bind(videoHeightPx);
-        min-height: v-bind(videoHeightPx);
+        height: v-bind('px(sizeVars.videoHeight)');
+        min-height: v-bind('px(sizeVars.videoHeight)');
       }
 
       .game-quick-details-bottom {
-        min-width: v-bind(verticalDetailsMinWidthPx);
+        min-width: v-bind('px(sizeVars.verticalDetailsMinWidth)');
       }
 
       .game-quick-details-middle {
         &, video, .video-inner-header, .game-links {
-          width: v-bind(videoWidthPx);
-          min-width: v-bind(videoWidthPx);
+          width: v-bind('px(sizeVars.videoWidth)');
+          min-width: v-bind('px(sizeVars.videoWidth)');
         }
       }
 
@@ -309,7 +396,7 @@ const verticalDetailsMinWidthPx = `${HORIZONTAL_VIDEO_SIZE.width - videoSize.wid
     }
   }
 
-  .game-quick-details.init-video-only {
+  .game-quick-details.is-init-video-only {
     position: relative;
     @include set-z-indexes($base-z-index);
 
@@ -327,11 +414,20 @@ const verticalDetailsMinWidthPx = `${HORIZONTAL_VIDEO_SIZE.width - videoSize.wid
       transform: translateY(100%);
     }
 
-    &.is-vertical-video .game-quick-details-bottom {
-      right: 2rem;
-      top: 0;
-      padding-left: 3rem;
-      transform: translateX(100%);
+    &.is-vertical-video {
+      &.is-details-at-right .game-quick-details-bottom {
+        top: 0;
+        right: 2rem;
+        padding-left: 3rem;
+        transform: translateX(100%);
+      }
+
+      &.is-details-at-left .game-quick-details-bottom {
+        top: 0;
+        left: 2rem;
+        padding-right: 3rem;
+        transform: translateX(-100%);
+      }
     }
 
     &:hover {
