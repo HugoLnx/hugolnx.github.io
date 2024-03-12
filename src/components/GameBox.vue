@@ -217,6 +217,7 @@ const updateSizeVars = (screenWidth) => {
 
 const refreshWindowWidth = () => {
     if (!window.innerWidth || window.innerWidth <= 0) return;
+    console.log('Screen Size', window.innerWidth);
     screenWidthRef.value = window.innerWidth;
 };
 
