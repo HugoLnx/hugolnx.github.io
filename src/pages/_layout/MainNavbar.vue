@@ -1,49 +1,47 @@
 <template>
   <nav class="navbar is-fixed-top top-zindex" role="navigation" aria-label="main navigation">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
-          HUGOLNX
+    <div class="container navbar-container">
+      <div class="navbar-brand navbar-top">
+        <a class="navbar-dev navbar-item" href="/">
+          <span class="dev-name">Hugo Roque</span>
+          <span class="dev-position">Gameplay Programmer</span>
         </a>
-
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="main-navbar-links"
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </a>
+        <div class="navbar-item social-media">
+          <SocialIconLink
+            href="https://store.steampowered.com/developer/sensengames"
+            icon-classes="fa-brands fa-steam"
+            text="Games"
+          />
+          <SocialIconLink
+            href="https://github.com/hugolnx"
+            icon-classes="fa-brands fa-github"
+            text="Github"
+          />
+          <SocialIconLink
+            href="https://www.linkedin.com/in/hugolnx/"
+            icon-classes="fa-brands fa-linkedin"
+            text="LinkedIn"
+          />
+          <SocialIconLink
+            href="mailto:hugolnx@gmail.com"
+            icon-classes="fa-solid fa-envelope"
+            text="Email"
+          />
+        </div>
       </div>
 
-      <div id="main-navbar-links" class="navbar-menu">
+      <div id="main-navbar-links" class="navbar-menu lnx-menu">
         <div class="navbar-start">
           <NavLink href="/" class="navbar-item">
-            Overview
-          </NavLink>
-
-          <NavLink href="/portfolio" class="navbar-item">
             Portfolio
-          </NavLink>
-
-          <NavLink href="/skills" class="navbar-item">
-            Skills
-          </NavLink>
-
-          <NavLink href="/work-experience" class="navbar-item">
-            Work Experience
-          </NavLink>
-
-          <NavLink href="/resume" class="navbar-item">
-            Resume
           </NavLink>
 
           <NavLink href="/about-me" class="navbar-item">
             About Me
+          </NavLink>
+
+          <NavLink href="/resume" class="navbar-item">
+            Resume
           </NavLink>
 
           <NavLink href="/contact" class="navbar-item">
@@ -57,10 +55,79 @@
 
 <script setup>
 import NavLink from './NavLink.vue';
+import SocialIconLink from '../../components/SocialIconLink.vue';
 </script>
 
 <style lang="scss">
-nav.navbar.is-fixed-top.top-zindex {
-  z-index: 100;
+@import '../../css/bulma-custom.scss';
+
+nav {
+  &.navbar.is-fixed-top.top-zindex {
+    z-index: 100;
+  }
+
+  .container.navbar-container {
+    flex-flow: column nowrap;
+  }
+
+  a.navbar-dev {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+
+    .dev-name {
+      @extend .title;
+      @extend .is-4;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .dev-position {
+      @extend .subtitle;
+      @extend .is-6;
+    }
+  }
+
+  .social-media {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  @include touch {
+    .lnx-menu.navbar-menu {
+      display: flex;
+
+      .navbar-start {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
+  }
+
+  @include desktop {
+    .social-media {
+      margin-left: 2rem;
+      gap: 1.5rem;
+    }
+
+    .lnx-menu.navbar-menu {
+      .navbar-start :first-child {
+        margin-left: 0;
+        padding-left: 0;
+      }
+
+      .navbar-start {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 3rem;
+      }
+    }
+  }
 }
 </style>

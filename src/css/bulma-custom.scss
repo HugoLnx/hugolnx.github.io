@@ -8,7 +8,8 @@ $main-footer-background-color: darken($navbar-background-color, 15%);
 
 $size-6-l2: 1rem;
 $size-6-l3: 0.9rem;
-$size-7-l2: 0.6rem;
+$size-7-l2: 0.75rem;
+$size-7-l3: 0.6rem;
 
 @mixin flex-stretch-items-vertical {
   display: flex;

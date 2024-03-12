@@ -31,6 +31,11 @@ a.social-icon-link {
 
   .icon-raw-text {
     font-size: $size-7-l2;
+    margin-top: 0.1rem;
+  }
+
+  &.icon-text {
+    line-height: 1rem;
   }
 
   &:not(:hover) .icon-raw-text {
