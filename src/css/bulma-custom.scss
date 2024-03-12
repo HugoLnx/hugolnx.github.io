@@ -11,6 +11,8 @@ $size-6-l3: 0.9rem;
 $size-7-l2: 0.75rem;
 $size-7-l3: 0.6rem;
 
+$tablet: 600px;
+
 @mixin flex-stretch-items-vertical {
   display: flex;
   align-items: stretch;

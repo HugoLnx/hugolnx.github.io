@@ -24,7 +24,7 @@ import '../../css/index.scss';
 @import '../../css/bulma-custom.scss';
 
 #main-body {
-  margin-top: $navbar-height;
+  margin-top: 8rem;
   display: flex;
   flex-flow: column nowrap;
 
