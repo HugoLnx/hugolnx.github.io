@@ -1,7 +1,7 @@
 shortTitle: Sunseek
 fullTitle: Sunseek
 engine: Unity 3D
-isPersonal: true
+commercial: prototype
 platforms:
     - Windows
 links:

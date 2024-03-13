@@ -33,19 +33,19 @@
       <div id="main-navbar-links" class="navbar-menu lnx-menu">
         <div class="navbar-start">
           <NavLink href="/" class="navbar-item">
-            Portfolio
+            Skills
           </NavLink>
 
-          <NavLink href="/about-me" class="navbar-item">
-            About Me
+          <NavLink href="/portfolio" class="navbar-item">
+            Portfolio
           </NavLink>
 
           <NavLink href="/resume" class="navbar-item">
             Resume
           </NavLink>
 
-          <NavLink href="/contact" class="navbar-item">
-            Contact
+          <NavLink href="/about-me" class="navbar-item">
+            About Me
           </NavLink>
         </div>
       </div>

@@ -1,8 +1,8 @@
 shortTitle: Trivia Maze
 fullTitle: "Trivia Maze: A Fun Quiz Game"
 engine: Unity 3D
+commercial: freelance-job
 isMobile: true
-isFreelance: true
 platforms:
     - Android
 links:

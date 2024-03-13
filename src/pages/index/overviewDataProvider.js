@@ -4,10 +4,10 @@ import neonShips from '../../data/games/neon-ships.yaml';
 import triviaMaze from '../../data/games/trivia-maze.yaml';
 
 const games = [
-    smashingSpirits,
     neonShips,
-    spookyTyping,
     triviaMaze,
+    smashingSpirits,
+    spookyTyping,
 ];
 
 const data = {

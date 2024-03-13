@@ -1,6 +1,7 @@
 shortTitle: King Bullseye
 fullTitle: "King Bullseye: The Chess Strike"
 engine: Unity 3D
+commercial: self-published
 platforms:
     - Windows
     - Linux

@@ -1,6 +1,7 @@
 shortTitle: Garby
 fullTitle: Garby Recycling
 engine: Unity 3D
+commercial: self-published
 isMobile: true
 platforms:
     - Android

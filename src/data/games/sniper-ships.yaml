@@ -1,6 +1,7 @@
 shortTitle: Sniper Ships
 fullTitle: "Sniper Ships: Shoot'em Up on Rails"
 engine: Unity 3D
+commercial: self-published
 platforms:
     - Windows
     - Linux

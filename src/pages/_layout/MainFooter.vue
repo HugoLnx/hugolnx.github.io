@@ -14,6 +14,8 @@
 @import '../../css/bulma-custom.scss';
 
 #main-footer {
+  flex-basis: content;
+  min-height: 250px;
   background-color: $main-footer-background-color;
 }
 </style>

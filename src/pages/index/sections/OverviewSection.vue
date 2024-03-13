@@ -1,16 +1,22 @@
 <template>
-  <div class="intro-section">
-    <div class="block flex-column-center">
+  <section class="overview-page-section page-section">
+    <h2 class="title page-section-title">
+      Overview
+    </h2>
+    <section class="block flex-column-center">
+      <h3 class="title page-section-subtitle introduction-title">
+        Introduction
+      </h3>
       <figure class="image is-128x128">
         <img class="is-rounded" src="../../_layout/img/me-268.jpg">
       </figure>
-      <h1 class="title">
+      <p class="title">
         Hugo Roque
-      </h1>
-      <h2 class="subtitle">
+      </p>
+      <p class="subtitle">
         Gameplay Programmer
-      </h2>
-      <div class="social-media">
+      </p>
+      <nav class="social-media">
         <SocialIconLink
           href="https://store.steampowered.com/developer/sensengames"
           icon-classes="fa-brands fa-steam"
@@ -41,39 +47,45 @@
           icon-classes="fa-solid fa-envelope"
           text="Email"
         />
-      </div>
-    </div>
+      </nav>
+    </section>
 
     <div class="blocks-list">
-      <div class="block bullets-block">
-        <h3 class="title title-simple">
+      <section class="block bullets-block">
+        <h3 class="title page-section-subtitle">
           Background
         </h3>
-        <BulletList :icon-classes="bulletListIconClasses">
+        <BulletList
+          :icon-classes="bulletListIconClasses"
+          class="bullets-block-content"
+        >
           <BulletListItem>11 indie games published</BulletListItem>
           <BulletListItem>14 years developing software</BulletListItem>
           <BulletListItem>6 years part-time with Unity / C#</BulletListItem>
         </BulletList>
-      </div>
+      </section>
 
-      <div class="block bullets-block">
-        <h3 class="title title-simple">
+      <section class="block bullets-block">
+        <h3 class="title page-section-subtitle">
           Skills
         </h3>
-        <BulletList :icon-classes="bulletListIconClasses">
+        <BulletList
+          :icon-classes="bulletListIconClasses"
+          class="bullets-block-content"
+        >
           <BulletListItem>Unity / C#</BulletListItem>
           <BulletListItem>Software Engineering</BulletListItem>
           <BulletListItem>Performance and Optimization</BulletListItem>
           <BulletListItem>Desktop, Android, and WebGL</BulletListItem>
           <BulletListItem>Web Development</BulletListItem>
         </BulletList>
-      </div>
+      </section>
 
-      <div class="block bullets-block">
-        <h3 class="title title-simple">
+      <section class="block bullets-block tags-block">
+        <h3 class="title page-section-subtitle">
           Professional Experience
         </h3>
-        <TagList default-classes="is-link is-rounded">
+        <TagList class="bullets-block-content">
           <TagItem>Unity / C#</TagItem>
           <TagItem>Unity Cloud Build</TagItem>
           <TagItem>DOTween</TagItem>
@@ -101,9 +113,9 @@
           <TagItem>Redis</TagItem>
           <TagItem>Git</TagItem>
         </TagList>
-      </div>
+      </section>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -119,7 +131,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 <style lang="scss">
 @import '../../../css/bulma-custom.scss';
 
-.intro-section {
+.overview-page-section {
   .flex-column-center {
     display: flex;
     flex-flow: column nowrap;
@@ -133,6 +145,17 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     gap: 1rem;
   }
 
+  .tags-block {
+    .tag-list {
+      justify-content: center;
+
+      .tag-item {
+        background-color: darken($link, 20%);
+        border-radius: $radius-rounded;
+      }
+    }
+  }
+
   .blocks-list {
     display: flex;
     flex-flow: column wrap;
@@ -140,21 +163,21 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
   }
 
   .bullets-block {
-    .title {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+
+    .bullet-list {
       font-size: $size-5;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.5rem;
-      margin-top: 1rem;
+
+      .bullet-list-item {
+        margin-bottom: 1rem;
+      }
     }
   }
 
   @include tablet {
-    .title {
-      font-size: $size-3;
-    }
-
     .blocks-list {
       flex-flow: row wrap;
       justify-content: center;
@@ -162,18 +185,16 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
       margin-top: 3rem;
     }
 
-    .bullets-block {
+    .bullets-block-content {
       min-width: 300px;
       max-width: 640px;
-
-      .bullet-list {
-        font-size: $size-5;
-
-        .bullet-list-item {
-          margin-bottom: 1rem;
-        }
-      }
     }
+  }
+}
+
+.overview-page-section {
+  .title.page-section-subtitle.introduction-title {
+    @include semantic-hide;
   }
 }
 </style>

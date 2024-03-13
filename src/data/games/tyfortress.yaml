@@ -1,6 +1,7 @@
 shortTitle: Tyfortress
 fullTitle: "Tyfortress: Tactical Typing"
 engine: Unity 3D
+commercial: self-published
 platforms:
     - Windows
     - Linux

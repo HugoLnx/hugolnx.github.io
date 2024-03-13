@@ -1,6 +1,7 @@
 shortTitle: Neon Ships
 fullTitle: "Neon Ships: The Type'em Up Shooter"
 engine: Unity 3D
+commercial: self-published
 platforms:
     - Windows
     - Linux

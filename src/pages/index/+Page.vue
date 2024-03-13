@@ -1,9 +1,9 @@
 <template>
-  <IntroSection />
-  <!-- <GameSection /> -->
+  <OverviewSection />
+  <GamesSection />
 </template>
 
 <script setup>
-// import GameSection from './sections/GameSection.vue';
-import IntroSection from './sections/IntroSection.vue';
+import GamesSection from './sections/GamesSection.vue';
+import OverviewSection from './sections/OverviewSection.vue';
 </script>

@@ -1,17 +1,15 @@
 <template>
   <MainNavbar />
   <div id="main-body">
-    <div id="main-middle">
-      <div class="lnx-container vertical-stretch">
-        <div id="main-middle-view" class="vertical-stretch">
-          <main id="main-middle-view-content" class="vertical-stretch">
-            <slot />
-          </main>
-        </div>
+    <div id="main-middle" class="lnx-container">
+      <div id="main-middle-view">
+        <main id="main-middle-view-content">
+          <slot />
+        </main>
       </div>
     </div>
-    <MainFooter />
   </div>
+  <MainFooter />
 </template>
 
 <script setup>
@@ -27,60 +25,61 @@ import '../../css/index.scss';
   margin-top: 8rem;
   display: flex;
   flex-flow: column nowrap;
+}
 
-  #main-middle {
-    flex-grow: 1;
+#main-middle-view-content {
+  padding: 0.5rem;
+}
 
-    #main-middle-sidebar-content {
-      padding: 1.5rem 0.75rem;
-    }
+.lnx-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
-    #main-middle-view-content {
-      padding: 1.5rem;
-    }
+#main-middle-view {
+  background-color: $main-sidebar-background-color;
 
-    #main-middle-sidebar {
-      background-color: $main-sidebar-background-color;
-    }
-
-    #main-middle-sidebar-column {
-      min-width: 300px;
-    }
-
-    .lnx-container {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-
-      #main-middle-view {
-        background-color: $main-sidebar-background-color; // $main-view-background-color;
-        padding: 0 1rem;
-
-        @media (min-width: 1300px) {
-          max-width: 1400px;
-        }
-
-        @media (max-width: 1300px) {
-          margin: 0 1rem;
-        }
-      }
-    }
-  }
-
-  footer {
-    flex-basis: content;
-    min-height: 250px;
+  @include tablet {
+    padding: 0 1rem;
+    margin: 0 1rem;
   }
 }
 
-.vertical-stretch {
-  height: 100%;
+// Section Layout
+.page-section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
-body, html, #page-view, #main-body {
-  height: 100vh;
-  @extend .is-fullheight;
+.title.page-section-title {
+  font-size: $size-2;
+  font-weight: 700;
+  color: $color-title1;
+  text-align: center;
+  align-self: center;
+  width: 90%;
+
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid $color-title1;
+  padding-bottom: 0.5rem;
+}
+
+.title.page-section-subtitle {
+  font-size: $size-4;
+  text-align: center;
+  align-self: center;
+
+  width: 65%;
+  min-width: 250px;
+
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
 }
 </style>

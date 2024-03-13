@@ -529,18 +529,5 @@ onMounted(() => {
     .game-integrations {
       margin-bottom: 0.5rem;
     }
-
-    .list-item {
-      display: inline-block;
-
-      &::after {
-        content: ', ';
-        margin-right: 0.5rem;
-      }
-
-      &:last-child::after {
-        content: '';
-      }
-    }
   }
 </style>

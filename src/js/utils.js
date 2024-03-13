@@ -1,5 +1,6 @@
 export function px(value) {
-    return `${value}px`;
+    const v = Math.round(parseInt(value, 10));
+    return `${v}px`;
 }
 
 export function preventSequentialCalls(callback, { timeout = 500 } = {}) {

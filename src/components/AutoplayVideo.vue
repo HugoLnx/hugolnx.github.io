@@ -2,8 +2,6 @@
   <div class="video-wrapper autoplay-video">
     <video
       ref="videoElement"
-      :width="width"
-      :height="height"
       muted
       loop
       preload="none"
@@ -32,12 +30,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { px } from '../js/utils';
 
-const { width, height } = defineProps({
+defineProps({
     src: { type: String, required: true },
-    width: { type: Number, required: false, default: 360 },
-    height: { type: Number, required: false, default: 240 },
     poster: { type: String, required: true },
     isPriority: { type: Boolean, required: false, default: false },
 });
@@ -85,14 +80,13 @@ onMounted(() => {
   }
 
   .video-wrapper {
-    &, video, .video-overlay, .video-poster {
-      width: v-bind('px(width)');
-      height: v-bind('px(height)');
-      min-width: v-bind('px(width)');
-      min-height: v-bind('px(height)');
-    }
-
+    margin: 0;
+    padding: 0;
     video, .video-overlay, .video-poster {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
       border-radius: inherit;
     }
 

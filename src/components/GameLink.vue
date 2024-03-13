@@ -6,9 +6,9 @@
     rel="noopener noreferrer"
   >
     <span class="icon">
-      <i class="fa-xl" :class="iconClasses" />
+      <i class="inner-icon fa-xl" :class="iconClasses" />
     </span>
-    <span>{{ title }}</span>
+    <span class="icon-raw-text">{{ title }}</span>
   </a>
 </template>
 
@@ -25,6 +25,11 @@ defineProps({
 .game-link {
   .icon {
     min-width: 2rem;
+  }
+
+  .icon, .inner-icon, .icon-raw-text {
+    line-height: 1.5rem;
+    vertical-align: middle;
   }
 }
 </style>
