@@ -1,7 +1,7 @@
 <template>
   <section class="overview-page-section page-section">
     <h2 class="title page-section-title">
-      Profile
+      Skills
     </h2>
     <section class="block flex-column-center">
       <h3 class="title page-section-subtitle introduction-title">
@@ -11,41 +11,18 @@
         <img class="is-rounded" src="./img/me-128-compressed.jpg">
       </figure>
       <p class="title">
-        Hugo Roque
+        {{ dev.name }}
       </p>
       <p class="subtitle">
-        Gameplay Programmer
+        {{ dev.position }}
       </p>
       <nav class="social-media">
         <SocialIconLink
-          href="https://store.steampowered.com/developer/sensengames"
-          icon-classes="fa-brands fa-steam"
-          text="Games"
-        />
-        <SocialIconLink
-          href="https://github.com/hugolnx"
-          icon-classes="fa-brands fa-github"
-          text="Github"
-        />
-        <SocialIconLink
-          href="https://www.linkedin.com/in/hugolnx/"
-          icon-classes="fa-brands fa-linkedin"
-          text="LinkedIn"
-        />
-        <SocialIconLink
-          href="https://www.shadertoy.com/user/hugolnx"
-          icon-classes="fa-solid fa-pen-nib"
-          text="Shaders"
-        />
-        <SocialIconLink
-          href="https://bit.ly/hugolnx-resume"
-          icon-classes="fa-solid fa-file-lines"
-          text="Resume"
-        />
-        <SocialIconLink
-          href="mailto:hugolnx@gmail.com"
-          icon-classes="fa-solid fa-envelope"
-          text="Email"
+          v-for="social in dev.links"
+          :key="social.name"
+          :href="social.url"
+          :icon-classes="social.iconClasses"
+          :text="social.name"
         />
       </nav>
     </section>
@@ -59,9 +36,12 @@
           :icon-classes="bulletListIconClasses"
           class="bullets-block-content"
         >
-          <BulletListItem>11 indie games published</BulletListItem>
-          <BulletListItem>14 years developing software</BulletListItem>
-          <BulletListItem>6 years part-time with Unity / C#</BulletListItem>
+          <BulletListItem
+            v-for="item in dev.background"
+            :key="item"
+          >
+            {{ item }}
+          </BulletListItem>
         </BulletList>
       </section>
 
@@ -73,11 +53,12 @@
           :icon-classes="bulletListIconClasses"
           class="bullets-block-content"
         >
-          <BulletListItem>Unity / C#</BulletListItem>
-          <BulletListItem>Software Engineering</BulletListItem>
-          <BulletListItem>Performance and Optimization</BulletListItem>
-          <BulletListItem>Desktop, Android, and WebGL</BulletListItem>
-          <BulletListItem>Web Development</BulletListItem>
+          <BulletListItem
+            v-for="skill in dev.skills"
+            :key="skill"
+          >
+            {{ skill }}
+          </BulletListItem>
         </BulletList>
       </section>
 
@@ -86,32 +67,12 @@
           Professional Experience
         </h3>
         <TagList class="bullets-block-content">
-          <TagItem>Unity / C#</TagItem>
-          <TagItem>Unity Cloud Build</TagItem>
-          <TagItem>DOTween</TagItem>
-          <TagItem>InControl</TagItem>
-          <TagItem>Cinemachine</TagItem>
-          <TagItem>Odin</TagItem>
-          <TagItem>Steam API</TagItem>
-          <TagItem>Steam Leaderboards</TagItem>
-          <TagItem>Steam Achievements</TagItem>
-          <TagItem>Google Admob</TagItem>
-          <TagItem>Unity Ads</TagItem>
-          <TagItem>Unity IAP</TagItem>
-          <TagItem>Firebase Firestore</TagItem>
-          <TagItem>Firebase Storage</TagItem>
-          <TagItem>Firebase Functions</TagItem>
-          <TagItem>Firebase Hosting</TagItem>
-          <TagItem>Three.js</TagItem>
-          <TagItem>Shaders</TagItem>
-          <TagItem>REST APIs</TagItem>
-          <TagItem>Lua</TagItem>
-          <TagItem>Ruby on Rails</TagItem>
-          <TagItem>Python</TagItem>
-          <TagItem>JavaScript</TagItem>
-          <TagItem>Node.js</TagItem>
-          <TagItem>Redis</TagItem>
-          <TagItem>Git</TagItem>
+          <TagItem
+            v-for="tool in dev.tools"
+            :key="tool"
+          >
+            {{ tool }}
+          </TagItem>
         </TagList>
       </section>
 
@@ -140,6 +101,7 @@ import BulletList from '../../components/BulletList.vue';
 import BulletListItem from '../../components/BulletListItem.vue';
 import TagList from '../../components/TagList.vue';
 import TagItem from '../../components/TagItem.vue';
+import dev from './indexDataProvider';
 
 const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 </script>

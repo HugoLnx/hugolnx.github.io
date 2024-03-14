@@ -3,29 +3,16 @@
     <div class="container navbar-container">
       <div class="navbar-brand navbar-top">
         <a class="navbar-dev navbar-item" href="/">
-          <span class="dev-name">Hugo Roque</span>
-          <span class="dev-position">Gameplay Programmer</span>
+          <span class="dev-name">{{ name }}</span>
+          <span class="dev-position">{{ position }}</span>
         </a>
         <div class="navbar-item social-media">
           <SocialIconLink
-            href="https://store.steampowered.com/developer/sensengames"
-            icon-classes="fa-brands fa-steam"
-            text="Games"
-          />
-          <SocialIconLink
-            href="https://github.com/hugolnx"
-            icon-classes="fa-brands fa-github"
-            text="Github"
-          />
-          <SocialIconLink
-            href="https://www.linkedin.com/in/hugolnx/"
-            icon-classes="fa-brands fa-linkedin"
-            text="LinkedIn"
-          />
-          <SocialIconLink
-            href="mailto:hugolnx@gmail.com"
-            icon-classes="fa-solid fa-envelope"
-            text="Email"
+            v-for="social in socials"
+            :key="social.name"
+            :href="social.url"
+            :icon-classes="social.iconClasses"
+            :text="social.name"
           />
         </div>
       </div>
@@ -33,7 +20,7 @@
       <div id="main-navbar-links" class="navbar-menu lnx-menu">
         <div class="navbar-start">
           <NavLink href="/" class="navbar-item">
-            Profile
+            Skills
           </NavLink>
 
           <NavLink href="/games" class="navbar-item">
@@ -56,6 +43,7 @@
 <script setup>
 import NavLink from './NavLink.vue';
 import SocialIconLink from '../../components/SocialIconLink.vue';
+import { socials, name, position } from './navbarDataProvider';
 </script>
 
 <style lang="scss">
