@@ -87,7 +87,7 @@
             </BulletList>
           </section>
           <section
-            v-if="integrations.length > 0"
+            v-if="integrations?.length > 0"
             class="game-section game-integrations"
           >
             <h4 class="title game-section-title">

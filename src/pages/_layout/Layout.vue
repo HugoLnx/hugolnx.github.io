@@ -29,6 +29,7 @@ import '../../css/index.scss';
 
 #main-middle-view-content {
   padding: 0.5rem;
+  padding-bottom: 3rem;
 }
 
 .lnx-container {

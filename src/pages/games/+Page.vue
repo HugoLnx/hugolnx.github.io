@@ -15,14 +15,14 @@
 </template>
 
 <script setup>
-import NewGameBox from '../../../components/NewGameBox.vue';
-import data from '../overviewDataProvider';
+import NewGameBox from '../../components/NewGameBox.vue';
+import data from './gamesDataProvider';
 
 const { games } = data;
 </script>
 
 <style lang="scss">
-@import '../../../css/bulma-custom.scss';
+@import '../../css/bulma-custom.scss';
   .games-page-section {
     .game-boxes {
       display: flex;
@@ -39,6 +39,10 @@ const { games } = data;
       margin-bottom: 1rem;
       padding-bottom: 0.5rem;
       text-align: center;
+    }
+
+    .new-game-box:first-child .title.page-section-subtitle {
+      margin-top: 0;
     }
   }
 </style>

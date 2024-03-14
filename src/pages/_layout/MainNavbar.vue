@@ -33,11 +33,11 @@
       <div id="main-navbar-links" class="navbar-menu lnx-menu">
         <div class="navbar-start">
           <NavLink href="/" class="navbar-item">
-            Skills
+            Profile
           </NavLink>
 
-          <NavLink href="/portfolio" class="navbar-item">
-            Portfolio
+          <NavLink href="/games" class="navbar-item">
+            Games
           </NavLink>
 
           <NavLink href="/resume" class="navbar-item">
