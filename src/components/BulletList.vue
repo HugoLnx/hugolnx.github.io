@@ -6,10 +6,24 @@
 
 <script setup>
 import { provide } from 'vue';
+import bulmaConsts from '../js/bulma-constants';
 
-const { iconClasses } = defineProps({
+const { colors: bulmaColors } = bulmaConsts;
+
+const { iconClasses, hoverColor } = defineProps({
     iconClasses: { type: String, required: false, default: 'fa-solid fa-angle-right' },
+    hoverColor: { type: String, required: false, default: undefined },
 });
 
 provide('iconClasses', iconClasses);
+provide('hoverColor', hoverColor || bulmaColors.green);
 </script>
+
+<style lang="scss">
+.bullet-list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  justify-content: center;
+}
+</style>

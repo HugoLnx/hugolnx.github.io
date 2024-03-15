@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "vite dev --force",
+    "dev": "vite dev --force --host 0.0.0.0",
     "build": "npm run build:dev",
     "build:dev": "cross-env NODE_ENV=development vite build --force --mode development",
     "build:prod": "cross-env NODE_ENV=production vite build --force --mode production",
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.9",
+    "@modyfi/vite-plugin-yaml": "^1.1.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@stylistic/eslint-plugin-js": "^1.6.0",

@@ -4,6 +4,7 @@ import vike from 'vike/plugin';
 import vue from '@vitejs/plugin-vue';
 /* eslint-disable-next-line import/no-unresolved */
 import md from 'unplugin-vue-markdown/vite';
+import ViteYaml from '@modyfi/vite-plugin-yaml';
 import glsl from 'vite-plugin-glsl';
 import eslint from 'vite-plugin-eslint';
 
@@ -20,6 +21,7 @@ export default defineConfig({
         }),
         vue({ include: [/\.vue$/, /\.md$/] }),
         md(),
+        ViteYaml(),
     ],
     resolve: {
         alias: {

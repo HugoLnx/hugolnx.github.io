@@ -2,33 +2,18 @@
   <MainNavbar />
   <div id="main-body">
     <div id="main-middle">
-      <div class="container vertical-stretch">
-        <div class="columns no-columns-spacing vertical-stretch">
-          <div
-            id="main-middle-sidebar-column"
-            class="column is-3 is-hidden-mobile vertical-stretch"
-          >
-            <div id="main-middle-sidebar" class="vertical-stretch">
-              <MainSidebar id="main-middle-sidebar-content" class="vertical-stretch" />
-            </div>
-          </div>
-          <div class="column vertical-stretch">
-            <div id="main-middle-view" class="vertical-stretch">
-              <main id="main-middle-view-content" class="vertical-stretch">
-                <slot />
-              </main>
-            </div>
-          </div>
-        </div>
+      <div id="main-middle-view" class="background-container">
+        <main id="main-middle-view-content">
+          <slot />
+        </main>
       </div>
     </div>
-    <MainFooter />
   </div>
+  <MainFooter />
 </template>
 
 <script setup>
 import MainNavbar from './MainNavbar.vue';
-import MainSidebar from './MainSidebar.vue';
 import MainFooter from './MainFooter.vue';
 import '../../css/index.scss';
 </script>
@@ -37,45 +22,102 @@ import '../../css/index.scss';
 @import '../../css/bulma-custom.scss';
 
 #main-body {
-  margin-top: $navbar-height;
+  margin-top: 8rem;
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
+}
 
-  #main-middle {
-    flex-grow: 1;
+#main-body, #main-middle, #main-middle-view, #main-middle-view-content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-self: center;
+}
 
-    #main-middle-sidebar-content {
-      padding: 1.5rem 0.75rem;
-    }
+#main-body, #main-middle, #main-middle-view-content {
+  width: 100%;
+}
 
-    #main-middle-view-content {
-      padding: 1.5rem;
-    }
+#main-middle-view-content {
+  padding: 0.5rem;
+  padding-bottom: 3rem;
+}
 
-    #main-middle-sidebar {
-      background-color: $main-sidebar-background-color;
-    }
+.background-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-self: center;
 
-    #main-middle-sidebar-column {
-      min-width: 300px;
-    }
-
-    #main-middle-view {
-      background-color: $main-view-background-color;
-    }
+  width: 100%;
+  @include desktop-only {
+    width: 960px;
   }
 
-  footer {
-    flex-basis: content;
+  @include widescreen {
+    width: 1152px;
   }
 }
 
-.vertical-stretch {
-  height: 100%;
+.content-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-self: center;
+
+  width: 100%;
+  @include tablet-only {
+    width: 600px;
+  }
+
+  @include desktop-only {
+    width: 860px;
+  }
+
+  @include widescreen {
+    width: 1024px;
+  }
 }
 
-body, html, #page-view, #main-body {
-  height: 100vh;
-  @extend .is-fullheight;
+#main-middle-view {
+  background-color: $main-sidebar-background-color;
+}
+
+// Section Layout
+.page-section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.title.page-section-title {
+  font-size: $size-2;
+  font-weight: 700;
+  color: $color-title1;
+  text-align: center;
+  align-self: center;
+  width: 90%;
+  max-width: 450px;
+
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid $color-title1;
+  padding-bottom: 0.5rem;
+}
+
+.title.page-section-subtitle {
+  font-size: $size-4;
+  text-align: center;
+  align-self: center;
+
+  width: 65%;
+  min-width: 250px;
+  max-width: 380px;
+
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
 }
 </style>

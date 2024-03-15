@@ -1,0 +1,32 @@
+shortTitle: Trivia Maze
+fullTitle: "Trivia Maze: A Fun Quiz Game"
+engine: Unity 3D
+commercial: freelance-job
+isMobile: true
+platforms:
+    - Android
+links:
+    steam: ""
+    trailer: ""
+    gameplay: "https://youtu.be/PCFfw68AC7A"
+    googlePlay: "https://play.google.com/store/apps/details?id=com.neomindgames.triviamaze&hl=pt&gl=US"
+    previewLow: /videos/triviamaze-preview-270p-low-vertical.mp4
+    previewMid: /videos/triviamaze-preview-270p-mid-vertical.mp4
+    poster: /images/triviamaze-preview-poster-405p.jpg
+bullets:
+    technical:
+        - In-game quiz generation via Chat GPT
+        - Authentication with Firebase
+        - Ads and In-App Purchases
+    integrations:
+        - Chat GPT
+        - Firebase Auth
+        - Google AdMob
+        - Unity In-App Purchases
+tags:
+    - Unity
+    - Android
+    - Mobile
+    - Freelancer
+    - Trivia Game
+    - Educational

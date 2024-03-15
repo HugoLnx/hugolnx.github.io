@@ -1,0 +1,39 @@
+shortTitle: Sniper Ships
+fullTitle: "Sniper Ships: Shoot'em Up on Rails"
+engine: Unity 3D
+commercial: self-published
+platforms:
+    - Windows
+    - Linux
+    - Mac
+links:
+    steam: "https://store.steampowered.com/app/1555080/Sniper_Ships_Shootem_Up_on_Rails"
+    trailer: "https://youtu.be/9SAh5-r_C1c?si=q7mjfHBKJsbBSzeN"
+    gameplay: "https://youtu.be/1odKuYLuY64?si=YnQjHMV0ZxDDgLVN"
+    previewLow: /videos/sniperships-preview-360p-low.mp4
+    previewMid: /videos/sniperships-preview-360p-mid.mp4
+    poster: /images/sniperships-preview-poster-360p.jpg
+bullets:
+    technical:
+        - On-Rails Shooter & Shoot'em up systems
+        - Smart enemy scheduler
+        - Composable shooting patterns
+    integrations:
+        - Steam
+        - Leaderboards
+        - Achievements
+        - Stats
+        - Cloud Save
+tags:
+    - Unity
+    - Steam
+    - Windows
+    - Linux
+    - Mac
+    - Indie
+    - Typing Game
+    - On-Rails Shooter
+    - Shoot'em Up
+    - Achievements
+    - Leaderboards
+    - Cloud Save

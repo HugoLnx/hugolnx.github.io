@@ -1,0 +1,70 @@
+name: Hugo Roque
+position: Gameplay Programmer
+links:
+  - name: Games
+    url: 'https://store.steampowered.com/developer/sensengames'
+    iconClasses: fa-brands fa-steam
+    navbar: true
+
+  - name: Github
+    url: 'https://www.linkedin.com/in/hugolnx/'
+    iconClasses: fa-brands fa-github
+    navbar: true
+
+  - name: LinkedIn
+    url: 'https://www.linkedin.com/in/hugolnx/'
+    iconClasses: fa-brands fa-linkedin
+    navbar: true
+
+  - name: Shaders
+    url: 'https://www.shadertoy.com/user/hugolnx'
+    iconClasses: fa-solid fa-pen-nib
+
+  - name: Resume
+    url: '/resume'
+    iconClasses: fa-solid fa-file-lines
+
+  - name: Email
+    url: 'mailto:hugolnx@gmail.com'
+    iconClasses: fa-solid fa-envelope
+    navbar: true
+
+background:
+  - 11 indie games published
+  - 14 years developing software
+  - 6 years part-time with Unity / C#
+
+skills:
+  - Unity / C#
+  - Software Engineering
+  - Performance and Optimization
+  - Desktop, Android, and WebGL
+  - Web Development
+
+tools:
+  - Unity / C#
+  - Unity Cloud Build
+  - DOTween
+  - InControl
+  - Cinemachine
+  - Odin
+  - Steam API
+  - Steam Leaderboards
+  - Steam Achievements
+  - Google Admob
+  - Unity Ads
+  - Unity IAP
+  - Firebase Firestore
+  - Firebase Storage
+  - Firebase Functions
+  - Firebase Hosting
+  - Three.js
+  - Shaders
+  - REST APIs
+  - Lua
+  - Ruby on Rails
+  - Python
+  - JavaScript
+  - Node.js
+  - Redis
+  - Git

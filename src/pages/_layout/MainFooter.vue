@@ -2,9 +2,11 @@
   <footer id="main-footer" class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        Portfolio website made with  <i class="fa-solid fa-heart heart" />  by <a href="https://hugolnx.github.io/">Hugo Roque</a>.
+      </p>
+      <p>
+        Use the <a href="https://github.com/hugolnx/hugolnx.github.io">source code</a> to make your own website.
+        <i class="fa-solid fa-smile-wink emoticon" /> <i class="fa-solid fa-thumbs-up emoticon" />
       </p>
     </div>
   </footer>
@@ -14,6 +16,19 @@
 @import '../../css/bulma-custom.scss';
 
 #main-footer {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100px;
+  align-items: center;
+  justify-content: end;
   background-color: $main-footer-background-color;
+
+  .heart {
+    color: $danger;
+  }
+
+  .emoticon {
+    color: $link;
+  }
 }
 </style>

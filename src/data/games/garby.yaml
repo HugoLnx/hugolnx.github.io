@@ -1,0 +1,29 @@
+shortTitle: Garby
+fullTitle: Garby Recycling
+engine: Unity 3D
+commercial: self-published
+isMobile: true
+platforms:
+    - Android
+links:
+    steam: ""
+    trailer: ""
+    gameplay: "https://youtube.com/shorts/dIAXF-qFObo"
+    previewLow: /videos/garby-preview-270p-low-vertical.mp4
+    previewMid: /videos/garby-preview-270p-mid-vertical.mp4
+    poster: /images/garby-preview-poster-360p.jpg
+bullets:
+    technical:
+        - Smart ad-hoc level generation
+        - Ads and In-App Purchases
+        - Automatic level difficulty scaling
+    integrations:
+        - Unity Ads
+        - Unity In-App Purchases
+tags:
+    - Unity
+    - Android
+    - Mobile
+    - Indie
+    - Recycling
+    - Educational

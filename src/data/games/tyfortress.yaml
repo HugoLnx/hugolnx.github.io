@@ -1,0 +1,41 @@
+shortTitle: Tyfortress
+fullTitle: "Tyfortress: Tactical Typing"
+engine: Unity 3D
+commercial: self-published
+platforms:
+    - Windows
+    - Linux
+    - Mac
+links:
+    steam: "https://store.steampowered.com/app/1661700/Tyfortress_Tactical_Typing/"
+    trailer: "https://www.youtube.com/watch?v=FtdJSk4B41k"
+    gameplay: "https://www.youtube.com/watch?v=OurOSsgrPLI"
+    previewLow: /videos/tyfortress-preview-360p-low.mp4
+    previewMid: /videos/tyfortress-preview-360p-mid.mp4
+    poster: /images/tyfortress-preview-poster-360p.jpg
+bullets:
+    technical:
+        - Tower defense system made from scratch
+        - Smart enemy scheduler
+        - Configuration via scriptable objects
+    integrations:
+        - Steam
+        - Leaderboards
+        - Achievements
+        - Stats
+        - Cloud Save
+    other:
+        - Event-based architecture
+        - Steam integration
+tags:
+    - Unity
+    - Steam
+    - Windows
+    - Linux
+    - Mac
+    - Indie
+    - Typing Game
+    - Tower Defense
+    - Achievements
+    - Leaderboards
+    - Cloud Save

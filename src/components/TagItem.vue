@@ -1,5 +1,5 @@
 <template>
-  <span class="tag" :class="defaultClasses">
+  <span class="tag tag-item" :class="defaultClasses">
     <slot />
   </span>
 </template>

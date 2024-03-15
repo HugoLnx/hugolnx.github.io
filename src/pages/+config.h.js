@@ -5,7 +5,7 @@ import Head from './_layout/Head.vue';
 
 export default {
     extends: config,
-    title: 'Hugolnx Website',
+    title: 'Hugolnx Gamedev',
     favicon: '/favicon.ico',
     ssr: true,
     Layout,

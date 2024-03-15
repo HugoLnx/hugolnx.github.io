@@ -51,7 +51,7 @@
       <BulletList :icon-classes="bulletListIconClasses">
         <BulletListItem>11 commercial indie games published.</BulletListItem>
         <BulletListItem>14 years working with games and web.</BulletListItem>
-        <BulletListItem>6 years working with Unity / C#.</BulletListItem>
+        <BulletListItem>6 years working part-time with Unity / C#.</BulletListItem>
       </BulletList>
     </div>
 

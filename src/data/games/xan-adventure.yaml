@@ -1,0 +1,25 @@
+shortTitle: Xan's Adventure
+fullTitle: Xan's Adventure in the Algy World
+engine: Unity 3D
+commercial: royalty-earning
+platforms:
+    - WebGL
+links:
+    steam: null
+    trailer: null
+    gameplay: "https://youtu.be/M1vvi4pJK8A"
+    previewLow: /videos/xan-preview-360p-low.mp4
+    previewMid: /videos/xan-preview-360p-mid.mp4
+    poster: /images/xan-preview-poster-360p.jpg
+bullets:
+    technical:
+        - Expression solver UI made from scratch
+        - Educational game
+        - Internationalization
+    integrations:
+        - Legends of Learning SDK
+tags:
+    - Unity
+    - WebGL
+    - Educational Game
+    - Legends of Learning

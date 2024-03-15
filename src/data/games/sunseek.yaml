@@ -1,0 +1,22 @@
+shortTitle: Sunseek
+fullTitle: Sunseek
+engine: Unity 3D
+commercial: prototype
+platforms:
+    - Windows
+links:
+    steam: null
+    trailer: null
+    gameplay: "https://www.youtube.com/watch?v=-h1pDEJCxKM"
+    previewLow: /videos/sunseek-preview-360p-low.mp4
+    previewMid: /videos/sunseek-preview-360p-mid.mp4
+    poster: /images/sunseek-preview-poster-360p.jpg
+bullets:
+    technical:
+        - Puzzle platformer made from scratch
+        - Personal prototype
+tags:
+    - Unity
+    - Windows
+    - Personal
+    - Prototype
