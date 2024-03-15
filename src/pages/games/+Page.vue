@@ -40,9 +40,5 @@ const { games } = data;
       padding-bottom: 0.5rem;
       text-align: center;
     }
-
-    .new-game-box:first-child .title.page-section-subtitle {
-      margin-top: 0;
-    }
   }
 </style>

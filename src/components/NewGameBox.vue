@@ -198,13 +198,32 @@ const baseVideoSize = isVerticalVideo
 
   // Video Size
   .new-game-box {
-    width: 100%;
+    flex-basis: 100%;
 
     .game-preview {
       width: 100%;
       max-width: v-bind('px(baseVideoSize.width)');
       height: auto;
       aspect-ratio: v-bind('baseVideoSize.width') / v-bind('baseVideoSize.height');
+    }
+  }
+
+  // Video Header
+  .new-game-box {
+    .video-header {
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      .title.game-title {
+        margin-top: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    &:first-child .video-header .title.game-title {
+      margin-top: 0;
     }
   }
 
@@ -247,7 +266,7 @@ const baseVideoSize = isVerticalVideo
 
     &.is-horizontal-video {
       .game-links {
-        max-width: v-bind('px(baseVideoSize.width*0.85)');
+        max-width: v-bind('px(baseVideoSize.width*0.6)');
       }
     }
 
@@ -289,18 +308,6 @@ const baseVideoSize = isVerticalVideo
 
   // Game Sections styling
   .new-game-box {
-    .video-header {
-      width: 100%;
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-
-      .title.game-title {
-        margin-top: 2.5rem;
-        margin-bottom: 0.5rem;
-      }
-    }
-
     .game-sections {
       display: flex;
       flex-flow: column nowrap;
@@ -390,6 +397,34 @@ const baseVideoSize = isVerticalVideo
     .game-preview-section .title
     {
       @include semantic-hide;
+    }
+  }
+
+  // Gallery View Styling
+  @include tablet {
+    .new-game-box .game-links .game-link {
+      padding: 0.25rem 0.5rem;
+    }
+
+    .new-game-box .video-header .title.game-title.page-section-subtitle {
+      margin-top: 0rem;
+    }
+  }
+  @include tablet {
+    .new-game-box {
+      flex-basis: 49%;
+      flex-grow: 1;
+      max-width: v-bind('px(baseVideoSize.width)');
+    }
+  }
+
+  @include desktop {
+    .new-game-box {
+      flex-basis: 40%;
+
+      &.is-vertical-video {
+        flex-basis: v-bind('px(baseVideoSize.width * 0.4)');
+      }
     }
   }
 </style>
