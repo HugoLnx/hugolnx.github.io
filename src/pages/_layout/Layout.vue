@@ -1,8 +1,8 @@
 <template>
   <MainNavbar />
   <div id="main-body">
-    <div id="main-middle" class="lnx-container">
-      <div id="main-middle-view">
+    <div id="main-middle">
+      <div id="main-middle-view" class="background-container">
         <main id="main-middle-view-content">
           <slot />
         </main>
@@ -25,6 +25,18 @@ import '../../css/index.scss';
   margin-top: 8rem;
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
+}
+
+#main-body, #main-middle, #main-middle-view, #main-middle-view-content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-self: center;
+}
+
+#main-body, #main-middle, #main-middle-view-content {
+  width: 100%;
 }
 
 #main-middle-view-content {
@@ -32,21 +44,44 @@ import '../../css/index.scss';
   padding-bottom: 3rem;
 }
 
-.lnx-container {
+.background-container {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
+  flex-flow: column nowrap;
   align-items: center;
+  align-self: center;
+
   width: 100%;
+  @include desktop-only {
+    width: 960px;
+  }
+
+  @include widescreen {
+    width: 1152px;
+  }
+}
+
+.content-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-self: center;
+
+  width: 100%;
+  @include tablet-only {
+    width: 600px;
+  }
+
+  @include desktop-only {
+    width: 860px;
+  }
+
+  @include widescreen {
+    width: 1024px;
+  }
 }
 
 #main-middle-view {
   background-color: $main-sidebar-background-color;
-
-  @include tablet {
-    padding: 0 1rem;
-    margin: 0 1rem;
-  }
 }
 
 // Section Layout
@@ -63,6 +98,7 @@ import '../../css/index.scss';
   text-align: center;
   align-self: center;
   width: 90%;
+  max-width: 450px;
 
   margin-top: 3rem;
   margin-bottom: 1rem;
@@ -77,6 +113,7 @@ import '../../css/index.scss';
 
   width: 65%;
   min-width: 250px;
+  max-width: 380px;
 
   margin-top: 1rem;
   margin-bottom: 1.5rem;

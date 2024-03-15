@@ -3,7 +3,7 @@
     <h2 class="title page-section-title">
       Skills
     </h2>
-    <section class="block flex-column-center">
+    <section class="block content-container">
       <h3 class="title page-section-subtitle introduction-title">
         Introduction
       </h3>
@@ -28,7 +28,7 @@
     </section>
 
     <div class="blocks-list">
-      <section class="block bullets-block">
+      <section class="block bullets-block content-container">
         <h3 class="title page-section-subtitle">
           Background
         </h3>
@@ -45,7 +45,7 @@
         </BulletList>
       </section>
 
-      <section class="block bullets-block">
+      <section class="block bullets-block content-container">
         <h3 class="title page-section-subtitle">
           Skills
         </h3>
@@ -62,7 +62,7 @@
         </BulletList>
       </section>
 
-      <section class="block bullets-block tags-block">
+      <section class="block bullets-block tags-block content-container">
         <h3 class="title page-section-subtitle">
           Professional Experience
         </h3>
@@ -76,7 +76,7 @@
         </TagList>
       </section>
 
-      <section class="block bullets-block">
+      <section class="block bullets-block content-container">
         <h3 class="title page-section-subtitle">
           Games
         </h3>
@@ -110,12 +110,6 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 @import '../../css/bulma-custom.scss';
 
 .overview-page-section {
-  .flex-column-center {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-
   .social-media {
     display: flex;
     flex-flow: row wrap;
@@ -144,7 +138,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    width: 100%;
+    // width: 100%;
 
     .bullet-list {
       font-size: $size-5;
@@ -152,20 +146,6 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
       .bullet-list-item {
         margin-bottom: 1rem;
       }
-    }
-  }
-
-  @include tablet {
-    .blocks-list {
-      flex-flow: row wrap;
-      justify-content: center;
-      gap: 0 3rem;
-      margin-top: 3rem;
-    }
-
-    .bullets-block-content {
-      min-width: 300px;
-      max-width: 640px;
     }
   }
 }
