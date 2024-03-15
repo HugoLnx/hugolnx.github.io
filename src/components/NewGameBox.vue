@@ -205,6 +205,7 @@ const baseVideoSize = isVerticalVideo
       max-width: v-bind('px(baseVideoSize.width)');
       height: auto;
       aspect-ratio: v-bind('baseVideoSize.width') / v-bind('baseVideoSize.height');
+      border-radius: calc($box-radius * 1.2);
     }
   }
 

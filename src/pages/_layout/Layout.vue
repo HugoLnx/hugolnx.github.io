@@ -91,7 +91,7 @@ import '../../css/index.scss';
   align-items: center;
 }
 
-.title.page-section-title {
+.page-section .title.page-section-title {
   font-size: $size-2;
   font-weight: 700;
   color: $color-title1;
@@ -100,8 +100,8 @@ import '../../css/index.scss';
   width: 90%;
   max-width: 450px;
 
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
   border-bottom: 3px solid $color-title1;
   padding-bottom: 0.5rem;
 }
