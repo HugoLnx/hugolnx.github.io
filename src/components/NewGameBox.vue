@@ -6,7 +6,7 @@
       'is-horizontal-video': !isVerticalVideo,
     }"
   >
-    <div class="box-content">
+    <div class="game-box-content">
       <div class="game-box-middle">
         <header class="video-header">
           <h3 class="game-title title page-section-subtitle">
@@ -205,6 +205,15 @@ const baseVideoSize = isVerticalVideo
       max-width: v-bind('px(baseVideoSize.width)');
       height: auto;
       aspect-ratio: v-bind('baseVideoSize.width') / v-bind('baseVideoSize.height');
+    }
+  }
+
+  // Game Box Content
+  .new-game-box {
+    .game-box-content {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
     }
   }
 

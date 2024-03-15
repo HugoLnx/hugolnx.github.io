@@ -44,6 +44,9 @@ function toggle() {
 @use 'sass:color';
 @import '../css/bulma-custom.scss';
 
+$anim-duration: 500ms;
+$anim-ease: ease-out;
+
 .toggable-content {
   overflow: hidden;
   display: flex;
@@ -56,7 +59,7 @@ function toggle() {
     // transform: translateY(-100%); // scaleY(0);
     // transform-origin: top center;
     opacity: 0;
-    transition: all 200ms ease-out;
+    transition: all $anim-duration $anim-ease;
   }
 
   &.is-content-on {
@@ -65,28 +68,27 @@ function toggle() {
       // transform: translateY(0);// scaleY(1);
       // transform-origin: top center;
       opacity: 1;
-      padding: 1.5rem 0;
+      padding: 1.5rem 0 1rem 0;
     }
   }
 
-  &.is-content-on:hover {
+  &:hover {
     cursor: pointer;
 
-    .inner-content {
-      background-color: color.change($link, $alpha: 0.1);
-      border-radius: $radius;
-    }
+    background-color: color.change($link, $alpha: 0.1);
+    border-radius: $radius;
   }
 
   // Toggle Button Styling
   .toggle-button {
-    transition: margin-top 200ms ease-in;
+    transition: margin-top $anim-duration $anim-ease;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
     border-radius: $radius-rounded;
     padding: 0.33rem 1rem;
+    margin: 0.5rem 0;
     font-size: $size-7;
 
     &, &:active, &:focus, &:visited {
@@ -96,23 +98,10 @@ function toggle() {
     }
   }
 
-  &:hover {
-    cursor: pointer;
-    .toggle-button {
-      background-color: color.change($link, $alpha: 0.1);
-    }
-  }
-
-  &.is-content-on {
-    .toggle-button {
-      margin-top: 1rem;
-    }
-  }
-
   // Toggle Icon Styling
   .toggle-button {
     .toggle-icon {
-      transition: transform 200ms ease-in;
+      transition: transform $anim-duration $anim-ease;
     }
   }
 
@@ -137,7 +126,7 @@ function toggle() {
     }
 
     .toggle-on-label, .toggle-off-label {
-      transition: opacity 200ms ease-in;
+      transition: opacity $anim-duration $anim-ease;
     }
   }
 
