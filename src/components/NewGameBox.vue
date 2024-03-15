@@ -218,10 +218,16 @@ const baseVideoSize = isVerticalVideo
   }
 
   // Middle Layout
-  .new-game-box .game-box-middle {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+  .new-game-box {
+    .game-box-middle, .game-preview-section, .game-preview {
+      width: 100%;
+    }
+
+    .game-box-middle, .game-preview-section {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+    }
   }
 
   // Game links styling
