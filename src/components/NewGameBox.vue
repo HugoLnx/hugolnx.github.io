@@ -219,16 +219,31 @@ const baseVideoSize = isVerticalVideo
   .new-game-box {
     .game-links-section {
       width: 100%;
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+    }
+
+    &.is-vertical-video {
+      .game-links {
+        max-width: v-bind('px(baseVideoSize.width*1.3)');
+      }
+    }
+
+    &.is-horizontal-video {
+      .game-links {
+        max-width: v-bind('px(baseVideoSize.width*0.85)');
+      }
     }
 
     .game-links {
-      width: 100%;
       display: flex;
       flex-flow: row wrap;
       justify-content: space-around;
       align-items: center;
       gap: 0.5rem;
       margin: 0.25rem 0;
+      width: 100%;
 
       .game-link-wrapper {
         flex-grow: 1;
