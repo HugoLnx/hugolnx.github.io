@@ -71,7 +71,11 @@
           </div>
         </nav>
       </div>
-      <div class="game-box-bottom">
+      <ToggableContent
+        class="game-box-bottom"
+        :show-label="`${title} Info`"
+        :hide-label="`${title} Info`"
+      >
         <div class="game-sections">
           <section class="game-section game-highlights">
             <h4 class="title game-section-title">
@@ -141,7 +145,7 @@
             </div>
           </section>
         </div>
-      </div>
+      </ToggableContent>
     </div>
   </article>
 </template>
@@ -151,6 +155,7 @@ import AutoplayVideo from './AutoplayVideo.vue';
 import BulletList from './BulletList.vue';
 import BulletListItem from './BulletListItem.vue';
 import GameLink from './GameLink.vue';
+import ToggableContent from './ToggableContent.vue';
 import { px } from '../js/utils';
 
 const BASE_HORIZONTAL_VSIZE = { width: 640, height: 360 };
@@ -223,7 +228,7 @@ const baseVideoSize = isVerticalVideo
       justify-content: space-around;
       align-items: center;
       gap: 0.5rem;
-      margin: 10px 0 5px 0;
+      margin: 0.25rem 0;
 
       .game-link-wrapper {
         flex-grow: 1;
@@ -237,7 +242,7 @@ const baseVideoSize = isVerticalVideo
 
       .game-link {
         display: inline-block;
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
         border-radius: $radius;
         border: $button-border-width solid;
 
@@ -261,7 +266,8 @@ const baseVideoSize = isVerticalVideo
       align-items: center;
 
       .title.game-title {
-        margin-top: 3.5rem;
+        margin-top: 2.5rem;
+        margin-bottom: 0.5rem;
       }
     }
 
@@ -312,6 +318,19 @@ const baseVideoSize = isVerticalVideo
 
       .game-details-section-title, .game-details-section-content {
         display: inline-block;
+      }
+    }
+  }
+
+  // Toggable Content Styling
+  .game-box-bottom {
+    margin-top: 0.75rem;
+
+    .game-sections {
+      .game-section:first-child {
+        .title.game-section-title {
+          margin-top: 0;
+        }
       }
     }
   }
