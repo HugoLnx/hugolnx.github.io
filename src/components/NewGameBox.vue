@@ -84,6 +84,7 @@
         class="game-box-bottom"
         :show-label="`${title} Info`"
         :hide-label="`${title} Info`"
+        @toggled="refreshGameSelection"
       >
         <div class="game-sections">
           <section class="game-section game-highlights">
@@ -159,7 +160,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import AutoplayVideo from './AutoplayVideo.vue';
 import BulletList from './BulletList.vue';
 import BulletListItem from './BulletListItem.vue';
@@ -203,16 +204,12 @@ const baseVideoSize = isVerticalVideo
     : BASE_HORIZONTAL_VSIZE;
 
 function toggleGameSelection() {
-    isSelected.value = !isSelected.value;
+    toggableContent.value?.toggle();
 }
 
-// function unselectGame() {
-//     isSelected.value = false;
-// }
-
-watch(isSelected, (selectedValue) => {
-    toggableContent.value?.toggle({ forceValue: selectedValue });
-}, { immediate: true });
+function refreshGameSelection() {
+    isSelected.value = toggableContent.value?.isContentOn();
+}
 </script>
 
 <style lang="scss">

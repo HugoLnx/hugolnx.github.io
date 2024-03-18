@@ -35,15 +35,22 @@ defineProps({
     hideLabel: { type: String, required: false, default: 'Hide Details' },
 });
 
+const emit = defineEmits(['toggled']);
+
 function toggle({ forceValue } = {}) {
     if (forceValue === undefined) {
         isContentOn.value = !isContentOn.value;
     } else {
         isContentOn.value = forceValue;
     }
+
+    emit('toggled', isContentOn.value);
 }
 
-defineExpose({ toggle });
+defineExpose({
+    toggle,
+    isContentOn: () => isContentOn.value,
+});
 </script>
 
 <style lang="scss">

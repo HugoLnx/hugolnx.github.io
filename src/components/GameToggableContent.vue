@@ -16,7 +16,11 @@ const toggableContent = ref(null);
 function toggle(...args) {
     toggableContent.value.toggle(...args);
 }
-defineExpose({ toggle });
+
+defineExpose({
+    toggle,
+    isContentOn: () => toggableContent.value.isContentOn(),
+});
 </script>
 
 <style lang="scss">
