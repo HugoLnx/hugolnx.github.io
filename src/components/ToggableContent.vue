@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineExpose } from 'vue';
 
 const isContentOn = ref(false);
 
@@ -35,9 +35,15 @@ defineProps({
     hideLabel: { type: String, required: false, default: 'Hide Details' },
 });
 
-function toggle() {
-    isContentOn.value = !isContentOn.value;
+function toggle({ forceValue } = {}) {
+    if (forceValue === undefined) {
+        isContentOn.value = !isContentOn.value;
+    } else {
+        isContentOn.value = forceValue;
+    }
 }
+
+defineExpose({ toggle });
 </script>
 
 <style lang="scss">
@@ -70,13 +76,6 @@ $anim-ease: ease-out;
       opacity: 1;
       padding: 1.5rem 0 1rem 0;
     }
-  }
-
-  &:hover {
-    cursor: pointer;
-
-    background-color: color.change($link, $alpha: 0.1);
-    border-radius: $radius;
   }
 
   // Toggle Button Styling

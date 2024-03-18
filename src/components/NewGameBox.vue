@@ -4,8 +4,12 @@
     :class="{
       'is-vertical-video': isVerticalVideo,
       'is-horizontal-video': !isVerticalVideo,
+      'is-selected': isSelected,
+      'is-not-selected': !isSelected,
     }"
+    @click.prevent.stop="toggleGameSelection"
   >
+    <div class="screen-overlay" />
     <div class="game-box-content">
       <div class="game-box-middle">
         <header class="video-header">
@@ -36,6 +40,7 @@
                 title="Steam"
                 :href="links.steam"
                 icon-classes="fa-brands fa-steam-symbol"
+                @click.stop
               />
             </div>
             <div
@@ -46,6 +51,7 @@
                 title="Store"
                 :href="links.googlePlay"
                 icon-classes="fa-brands fa-google-play"
+                @click.stop
               />
             </div>
             <div
@@ -56,6 +62,7 @@
                 title="Trailer"
                 :href="links.trailer"
                 icon-classes="fa-solid fa-play"
+                @click.stop
               />
             </div>
             <div
@@ -66,12 +73,14 @@
                 title="Gameplay"
                 :href="links.gameplay"
                 icon-classes="fa-solid fa-gamepad"
+                @click.stop
               />
             </div>
           </div>
         </nav>
       </div>
-      <ToggableContent
+      <GameToggableContent
+        ref="toggableContent"
         class="game-box-bottom"
         :show-label="`${title} Info`"
         :hide-label="`${title} Info`"
@@ -83,7 +92,6 @@
             </h4>
             <BulletList
               icon-classes="fa-solid fa-star"
-              :hover-color="starColor"
             >
               <BulletListItem v-for="topic in highlights" :key="topic">
                 {{ topic }}
@@ -145,17 +153,18 @@
             </div>
           </section>
         </div>
-      </ToggableContent>
+      </GameToggableContent>
     </div>
   </article>
 </template>
 
 <script setup>
+import { ref, watch } from 'vue';
 import AutoplayVideo from './AutoplayVideo.vue';
 import BulletList from './BulletList.vue';
 import BulletListItem from './BulletListItem.vue';
 import GameLink from './GameLink.vue';
-import ToggableContent from './ToggableContent.vue';
+import GameToggableContent from './GameToggableContent.vue';
 import { px } from '../js/utils';
 
 const BASE_HORIZONTAL_VSIZE = { width: 640, height: 360 };
@@ -170,6 +179,8 @@ const COMMERCIAL_LABELS = {
 const { game } = defineProps({
     game: { type: Object, required: true },
 });
+const isSelected = ref(false);
+const toggableContent = ref(null);
 
 const {
     shortTitle: title,
@@ -190,6 +201,18 @@ const commercialLabel = COMMERCIAL_LABELS[game.commercial];
 const baseVideoSize = isVerticalVideo
     ? BASE_VERTICAL_VSIZE
     : BASE_HORIZONTAL_VSIZE;
+
+function toggleGameSelection() {
+    isSelected.value = !isSelected.value;
+}
+
+// function unselectGame() {
+//     isSelected.value = false;
+// }
+
+watch(isSelected, (selectedValue) => {
+    toggableContent.value?.toggle({ forceValue: selectedValue });
+}, { immediate: true });
 </script>
 
 <style lang="scss">
@@ -234,6 +257,11 @@ const baseVideoSize = isVerticalVideo
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
+    }
+
+    .video-header .title.game-title.page-section-subtitle {
+      padding-top: 0;
+      margin-top: 0;
     }
   }
 
@@ -401,7 +429,7 @@ const baseVideoSize = isVerticalVideo
     }
   }
 
-  // Gallery View Styling
+  // Gallery View Layout
   @include tablet {
     .new-game-box .game-links .game-link {
       padding: 0.25rem 0.5rem;
@@ -425,6 +453,114 @@ const baseVideoSize = isVerticalVideo
 
       &.is-vertical-video {
         flex-basis: v-bind('px(baseVideoSize.width * 0.4)');
+      }
+    }
+  }
+
+  // Game box Selected
+  .new-game-box {
+    .game-box-content {
+      // margin-top: 2rem;
+      padding: 1rem 0.25rem;
+      border-radius: $box-radius;
+      transition: background-color 200ms ease-out;
+    }
+
+    .game-preview-section {
+      border: solid 1px rgba(0, 0, 0, 0);
+      border-radius: $box-radius;
+      overflow: hidden;
+      transition: border 200ms ease-out;
+
+      .game-preview {
+        transition: transform 200ms ease-out;
+      }
+    }
+
+    &:hover, &.is-selected {
+      .game-box-content {
+        cursor: pointer;
+
+        .game-preview-section {
+          border: solid 1px color.change($link, $alpha: 0.3);
+
+          .game-preview {
+            position: relative;
+            transform: scale(1.25);
+          }
+        }
+      }
+    }
+
+    .game-box-content {
+      transition: background-color 200ms ease-out;
+    }
+
+    &:hover, &.is-selected {
+      .game-box-content {
+        background-color: $game-box-selected-color;
+      }
+    }
+
+    @include tablet {
+      &.is-selected .game-box-content {
+        background-color: $game-box-selected-dark-color;
+      }
+    }
+  }
+
+  // Gallery View Styling
+  .screen-overlay {
+    cursor: pointer;
+    position: fixed;
+    z-index: -9999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: black;
+    transition: opacity 200ms ease-out;
+  }
+
+  @include tablet {
+    .new-game-box {
+      // Set screen overlay
+      &.is-selected .screen-overlay {
+        opacity: 0.95;
+      }
+
+      .game-box-content {
+        position: relative;
+        overflow: visible;
+      }
+
+      // Set z-indexes
+      $z-index: 500;
+      &.is-selected {
+        .game-box-content {
+          z-index: $z-index;
+        }
+
+        .video-wrapper {
+          z-index: $z-index;
+
+          .video-poster {
+            z-index: $z-index + 1;
+          }
+
+          .video-overlay {
+            z-index: $z-index + 2;
+          }
+        }
+
+        .toggable-content .inner-content {
+          z-index: $z-index - 1;
+        }
+
+        .screen-overlay {
+          z-index: $z-index - 2;
+        }
       }
     }
   }

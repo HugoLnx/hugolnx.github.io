@@ -19,6 +19,9 @@ $color-title1: mix($green, $turquoise, 15%);
 $color-title2: mix($white, $turquoise, 10%);
 $color-title3: mix($white, $turquoise, 35%);
 
+$game-box-selected-color: color.change($link, $alpha: 0.1);
+$game-box-selected-dark-color: color.change(darken($link, 20%), $alpha: 0.8);
+
 $tablet: 700px;
 
 @mixin semantic-hide {
