@@ -558,7 +558,7 @@ function refreshGameSelection() {
         right: 0;
 
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column nowrap;
         align-items: center;
         justify-items: center;
         text-align: center;
@@ -567,6 +567,9 @@ function refreshGameSelection() {
         margin: 0.5em;
       }
 
+      .preview-info-button.button.is-link.is-outlined {
+        background-color: color.change($link, $alpha: 0.2);
+      }
       &:hover, &.is-selected {
         .preview-info-button.button.is-link.is-outlined {
           background-color: $link;

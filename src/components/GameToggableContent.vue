@@ -35,30 +35,19 @@ defineExpose({
 
 const refreshOpenDirection = preventSequentialCalls(() => {
     const el = gameBox;
-    const bodyWidth = document.body.clientWidth;
-    const winWidth = window.innerWidth;
-    const screenWidth = bodyWidth;
+    const screenWidth = document.body.clientWidth;
     const rect = el.getBoundingClientRect();
     const spaceAtLeft = rect.left;
     const spaceAtRight = screenWidth - rect.right;
     const width = rect.right - rect.left;
 
-    if (spaceAtRight >= width) {
+    if (spaceAtRight >= spaceAtLeft && spaceAtRight >= width) {
         openDirection.value = 'right';
     } else if (spaceAtLeft > spaceAtRight && spaceAtLeft >= width) {
         openDirection.value = 'left';
     } else {
         openDirection.value = 'bottom';
     }
-    console.log('CALL refreshOpenDirection', openDirection.value, el, {
-        spaceAtLeft,
-        spaceAtRight,
-        width,
-        rect,
-        winWidth,
-        sumWidth: spaceAtLeft + spaceAtRight + width,
-        bodyWidth,
-    });
 });
 
 onMounted(() => {
