@@ -13,7 +13,12 @@
 </template>
 
 <script setup>
-import { ref, defineExpose, onMounted } from 'vue';
+import {
+    ref,
+    defineExpose,
+    onMounted,
+    onUnmounted,
+} from 'vue';
 import ToggableContent from './ToggableContent.vue';
 import { preventSequentialCalls } from '../js/utils';
 
@@ -56,6 +61,13 @@ onMounted(() => {
     window.addEventListener('load', refreshOpenDirection);
     window.addEventListener('DOMContentLoaded', refreshOpenDirection);
     refreshOpenDirection();
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', refreshOpenDirection);
+    window.removeEventListener('orientationchange', refreshOpenDirection);
+    window.removeEventListener('load', refreshOpenDirection);
+    window.removeEventListener('DOMContentLoaded', refreshOpenDirection);
 });
 </script>
 
