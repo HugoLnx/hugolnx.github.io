@@ -26,6 +26,14 @@
             :src="videoSrc"
             :poster="links.poster"
           />
+          <button
+            class="preview-info-button button is-rounded is-link is-outlined is-small"
+            @click.prevent
+          >
+            <span class="icon">
+              <i class="fa-solid fa-info" title="Show {{ title }} information" />
+            </span>
+          </button>
         </section>
         <nav class="game-links-section">
           <h4 class="title">
@@ -522,6 +530,10 @@ function refreshGameSelection() {
     transition: opacity 200ms ease-out;
   }
 
+  .preview-info-button.button {
+    display: none;
+  }
+
   @include from($game-gallery-breakpoint) {
     .new-game-box {
       // Set screen overlay
@@ -532,6 +544,34 @@ function refreshGameSelection() {
       .game-box-content {
         position: relative;
         overflow: visible;
+      }
+
+      // Info icon inside video
+      .game-preview-section {
+        position: relative;
+      }
+
+      .preview-info-button {
+        position: absolute;
+        z-index: 5;
+        bottom: 0;
+        right: 0;
+
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        width: 2rem;
+        height: 2rem;
+        margin: 0.5em;
+      }
+
+      &:hover, &.is-selected {
+        .preview-info-button.button.is-link.is-outlined {
+          background-color: $link;
+          color: $white;
+        }
       }
 
       // Set z-indexes
@@ -551,6 +591,10 @@ function refreshGameSelection() {
           .video-overlay {
             z-index: $z-index + 2;
           }
+        }
+
+        .preview-info-button {
+          z-index: $z-index + 3;
         }
 
         .toggable-content .inner-content {

@@ -36,6 +36,10 @@ $game-gallery-breakpoint: $tablet;
   border: 0;
 }
 
+.semantic-hide {
+  @include semantic-hide;
+}
+
 @mixin flex-stretch-items-vertical {
   display: flex;
   align-items: stretch;
