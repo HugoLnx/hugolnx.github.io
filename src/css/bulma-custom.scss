@@ -1,6 +1,14 @@
 @use "sass:color";
 @import 'bulmaswatch/darkly/_variables.scss';
-@import 'bulma/bulma.sass';
+// @import 'bulma/bulma.sass';
+@import 'bulma/sass/utilities/_all';
+@import 'bulma/sass/base/_all';
+@import './bulma-custom/elements'; // @import 'bulma/sass/elements/_all';
+// @import 'bulma/sass/form/_all';
+@import './bulma-custom/components'; // @import 'bulma/sass/components/_all';
+// @import 'bulma/sass/grid/_all';
+@import 'bulma/sass/helpers/_all';
+@import 'bulma/sass/layout/_all';
 @import 'bulmaswatch/darkly/_overrides.scss';
 
 $main-sidebar-background-color: $footer-background-color; // lighten($footer-background-color, 1%);
