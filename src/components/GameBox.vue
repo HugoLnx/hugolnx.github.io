@@ -483,10 +483,6 @@ function refreshGameSelection() {
         transition: transform 200ms ease-out;
       }
     }
-
-    .game-box-content {
-      transition: background-color 200ms ease-out;
-    }
   }
 
   // Gamebox Hover
@@ -494,7 +490,6 @@ function refreshGameSelection() {
     @at-root .is-mouse &:hover, &.is-selected {
       .game-box-content {
         cursor: pointer;
-        background-color: $game-box-selected-color;
 
         .game-preview-section {
           border: solid 1px color.change($link, $alpha: 0.3);
@@ -507,9 +502,20 @@ function refreshGameSelection() {
       }
     }
 
-    @include from($game-gallery-breakpoint) {
-      &.is-selected .game-box-content {
-        background-color: $game-box-selected-dark-color;
+    @at-root .is-mouse &.is-not-selected:hover {
+      .game-box-content {
+        background-color: $game-box-selected-color;
+      }
+    }
+
+    &.is-selected {
+      .game-box-content {
+        @include until($game-gallery-breakpoint) {
+          background-color: $game-box-selected-color;
+        }
+        @include from($game-gallery-breakpoint) {
+          background-color: $game-box-selected-dark-color;
+        }
       }
     }
   }
