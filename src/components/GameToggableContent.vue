@@ -26,7 +26,7 @@ const toggableContent = ref(null);
 const openDirection = ref('bottom');
 
 const { gameBox } = defineProps({
-    gameBox: { type: Object, required: true },
+    gameBox: { type: Object, required: false, default: null },
 });
 
 function toggle(...args) {
@@ -35,7 +35,7 @@ function toggle(...args) {
 
 defineExpose({
     toggle,
-    isContentOn: () => toggableContent.value.isContentOn(),
+    isContentOn: () => toggableContent.value?.isContentOn(),
 });
 
 const refreshOpenDirection = preventSequentialCalls(() => {

@@ -1,3 +1,7 @@
+<template>
+  <div class="IsTouchClassifier-template-ignore" />
+</template>
+
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
 
