@@ -60,6 +60,18 @@ $game-gallery-breakpoint: $tablet;
   flex-flow: row nowrap;
 }
 
+@mixin only-game-gallery {
+  @include from($game-gallery-breakpoint) {
+    @content;
+  }
+}
+
+@mixin only-game-list {
+  @include until($game-gallery-breakpoint) {
+    @content;
+  }
+}
+
 .columns.no-columns-offset {
   margin-top: 0;
   .column {

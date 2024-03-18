@@ -75,7 +75,7 @@ onUnmounted(() => {
   @import '../css/bulma-custom.scss';
 
   // Game Gallery View Styling
-  @include from($game-gallery-breakpoint) {
+  @include only-game-gallery {
     .game-toggable-content.toggable-content {
       .toggle-button {
         display: none;

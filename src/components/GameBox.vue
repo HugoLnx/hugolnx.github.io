@@ -437,7 +437,7 @@ function refreshGameSelection() {
   }
 
   // Gallery View Layout
-  @include from($game-gallery-breakpoint) {
+  @include only-game-gallery {
     .game-box .game-links .game-link {
       padding: 0.25rem 0.5rem;
     }
@@ -510,10 +510,10 @@ function refreshGameSelection() {
 
     &.is-selected {
       .game-box-content {
-        @include until($game-gallery-breakpoint) {
+        @include only-game-list {
           background-color: $game-box-selected-color;
         }
-        @include from($game-gallery-breakpoint) {
+        @include only-game-gallery {
           background-color: $game-box-selected-dark-color;
         }
       }
@@ -538,7 +538,7 @@ function refreshGameSelection() {
     display: none;
   }
 
-  @include from($game-gallery-breakpoint) {
+  @include only-game-gallery {
     .game-box {
       // Set screen overlay
       &.is-selected .screen-overlay {
