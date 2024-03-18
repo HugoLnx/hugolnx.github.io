@@ -24,7 +24,6 @@ import '../../css/index.scss';
 @import '../../css/bulma-custom.scss';
 
 #main-body {
-  margin-top: 8rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -44,6 +43,7 @@ import '../../css/index.scss';
 #main-middle-view-content {
   padding: 0.5rem;
   padding-bottom: 3rem;
+  padding-top: 8rem;
 }
 
 .background-container {
