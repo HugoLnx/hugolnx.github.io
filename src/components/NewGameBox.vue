@@ -82,6 +82,7 @@
       <GameToggableContent
         ref="toggableContent"
         class="game-box-bottom"
+        :game-box="$el"
         :show-label="`${title} Info`"
         :hide-label="`${title} Info`"
         @toggled="refreshGameSelection"
@@ -175,6 +176,7 @@ const COMMERCIAL_LABELS = {
     'freelance-job': 'Freelance Job',
     'royalty-earning': 'Royalty Earning',
     personal: 'Personal Demo',
+    prototype: 'Personal Prototype',
 };
 
 const { game } = defineProps({

@@ -1,17 +1,28 @@
 <template>
   <ToggableContent
     ref="toggableContent"
-    class="game-toggable-content is-open-to-bottom"
+    class="game-toggable-content"
+    :class="{
+      'is-open-to-bottom': openDirection === 'bottom',
+      'is-open-to-right': openDirection === 'right',
+      'is-open-to-left': openDirection === 'left',
+    }"
   >
     <slot />
   </ToggableContent>
 </template>
 
 <script setup>
-import { ref, defineExpose } from 'vue';
+import { ref, defineExpose, onMounted } from 'vue';
 import ToggableContent from './ToggableContent.vue';
+import { preventSequentialCalls } from '../js/utils';
 
 const toggableContent = ref(null);
+const openDirection = ref('bottom');
+
+const { gameBox } = defineProps({
+    gameBox: { type: Object, required: true },
+});
 
 function toggle(...args) {
     toggableContent.value.toggle(...args);
@@ -20,6 +31,42 @@ function toggle(...args) {
 defineExpose({
     toggle,
     isContentOn: () => toggableContent.value.isContentOn(),
+});
+
+const refreshOpenDirection = preventSequentialCalls(() => {
+    const el = gameBox;
+    const bodyWidth = document.body.clientWidth;
+    const winWidth = window.innerWidth;
+    const screenWidth = bodyWidth;
+    const rect = el.getBoundingClientRect();
+    const spaceAtLeft = rect.left;
+    const spaceAtRight = screenWidth - rect.right;
+    const width = rect.right - rect.left;
+
+    if (spaceAtRight >= width) {
+        openDirection.value = 'right';
+    } else if (spaceAtLeft > spaceAtRight && spaceAtLeft >= width) {
+        openDirection.value = 'left';
+    } else {
+        openDirection.value = 'bottom';
+    }
+    console.log('CALL refreshOpenDirection', openDirection.value, el, {
+        spaceAtLeft,
+        spaceAtRight,
+        width,
+        rect,
+        winWidth,
+        sumWidth: spaceAtLeft + spaceAtRight + width,
+        bodyWidth,
+    });
+});
+
+onMounted(() => {
+    window.addEventListener('resize', refreshOpenDirection);
+    window.addEventListener('orientationchange', refreshOpenDirection);
+    window.addEventListener('load', refreshOpenDirection);
+    window.addEventListener('DOMContentLoaded', refreshOpenDirection);
+    refreshOpenDirection();
 });
 </script>
 
@@ -34,9 +81,17 @@ defineExpose({
       }
     }
 
+    .is-horizontal-video .game-toggable-content.toggable-content {
+      width: 100%;
+    }
+
+    .is-vertical-video .game-toggable-content.toggable-content {
+      width: 175%;
+    }
+
     .game-toggable-content.toggable-content {
       position: absolute;
-      width: 100%;
+      z-index: -1;
 
       transition: transform 200ms ease-out;
       transition-property: transform, opacity;
@@ -53,31 +108,30 @@ defineExpose({
 
       &.is-open-to-right {
         top: 50%;
-        left: 50%;
-        transform: translate(0, -50%);
+        left: 100%;
+        transform: translate(-50%, -50%);
         margin-left: 0.5rem;
 
         &.is-content-on {
-          transform: translate(50%, -50%);
+          transform: translate(0, -50%);
           opacity: 1;
         }
       }
 
       &.is-open-to-left {
         top: 50%;
-        right: 50%;
-        transform: translate(0, -50%);
+        right: 100%;
+        transform: translate(50%, -50%);
         margin-right: 0.5rem;
 
         &.is-content-on {
-          transform: translate(-50%, -50%);
+          transform: translate(0, -50%);
           opacity: 1;
         }
       }
 
       &.is-open-to-bottom {
         bottom: 0;
-        top: unset;
         left: 50%;
         transform: translate(-50%, 50%);
         margin-bottom: -0.5em;
