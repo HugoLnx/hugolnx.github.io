@@ -5,7 +5,7 @@
     </h2>
 
     <div class="game-boxes">
-      <NewGameBox
+      <GameBox
         v-for="game in games"
         :key="game.shortTitle"
         :game="game"
@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import NewGameBox from '../../components/NewGameBox.vue';
+import GameBox from '../../components/GameBox.vue';
 import data from './gamesDataProvider';
 
 const { games } = data;
