@@ -334,7 +334,7 @@ function refreshGameSelection() {
         background-color: color.change($dark, $alpha: 0.8);
         border-color: color.change($white, $alpha: 0.85);
 
-        &:hover {
+        @at-root .is-mouse &:hover {
           background-color: color.change($dark, $alpha: 0.95);
           border-color: color.change($link, $alpha: 1);
         }
@@ -484,9 +484,17 @@ function refreshGameSelection() {
       }
     }
 
-    &:hover, &.is-selected {
+    .game-box-content {
+      transition: background-color 200ms ease-out;
+    }
+  }
+
+  // Gamebox Hover
+  .new-game-box {
+    @at-root .is-mouse &:hover, &.is-selected {
       .game-box-content {
         cursor: pointer;
+        background-color: $game-box-selected-color;
 
         .game-preview-section {
           border: solid 1px color.change($link, $alpha: 0.3);
@@ -496,16 +504,6 @@ function refreshGameSelection() {
             transform: scale(1.25);
           }
         }
-      }
-    }
-
-    .game-box-content {
-      transition: background-color 200ms ease-out;
-    }
-
-    &:hover, &.is-selected {
-      .game-box-content {
-        background-color: $game-box-selected-color;
       }
     }
 
@@ -570,7 +568,7 @@ function refreshGameSelection() {
       .preview-info-button.button.is-link.is-outlined {
         background-color: color.change($link, $alpha: 0.2);
       }
-      &:hover, &.is-selected {
+      @at-root .is-mouse &:hover, &.is-selected {
         .preview-info-button.button.is-link.is-outlined {
           background-color: $link;
           color: $white;
