@@ -430,7 +430,7 @@ watch(isSelected, (selectedValue) => {
   }
 
   // Gallery View Layout
-  @include tablet {
+  @include from($game-gallery-breakpoint) {
     .new-game-box .game-links .game-link {
       padding: 0.25rem 0.5rem;
     }
@@ -502,7 +502,7 @@ watch(isSelected, (selectedValue) => {
       }
     }
 
-    @include tablet {
+    @include from($game-gallery-breakpoint) {
       &.is-selected .game-box-content {
         background-color: $game-box-selected-dark-color;
       }
@@ -523,7 +523,7 @@ watch(isSelected, (selectedValue) => {
     transition: opacity 200ms ease-out;
   }
 
-  @include tablet {
+  @include from($game-gallery-breakpoint) {
     .new-game-box {
       // Set screen overlay
       &.is-selected .screen-overlay {

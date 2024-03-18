@@ -23,6 +23,7 @@ $game-box-selected-color: color.change($link, $alpha: 0.1);
 $game-box-selected-dark-color: color.change(darken($link, 20%), $alpha: 0.8);
 
 $tablet: 700px;
+$game-gallery-breakpoint: $tablet;
 
 @mixin semantic-hide {
   position: absolute;

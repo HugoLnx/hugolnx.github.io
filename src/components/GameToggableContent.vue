@@ -23,7 +23,7 @@ defineExpose({ toggle });
   @import '../css/bulma-custom.scss';
 
   // Game Gallery View Styling
-  @include tablet {
+  @include from($game-gallery-breakpoint) {
     .game-toggable-content.toggable-content {
       .toggle-button {
         display: none;
