@@ -60,6 +60,10 @@ import '../../css/index.scss';
   @include widescreen {
     width: 1152px;
   }
+
+  @include fullhd {
+    width: 1344px;
+  }
 }
 
 .content-container {
