@@ -165,7 +165,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 
     @include from(400px) {
       .bullet-list {
-        font-size: 1.35rem;
+        font-size: $size-4-l2;
         margin-top: 0.5rem;
 
         .bullet-list-item {
