@@ -18,6 +18,10 @@ function generateFullSocialImageUrl({ domain }) {
     return urlJoin([domain, socialImage]);
 }
 
+function generateDescription({ baseDescription, description }) {
+    return [baseDescription, description].join(' ');
+}
+
 export default function generate(pageId, siteData) {
     const pageData = siteData.pages.find((page) => page.id === pageId);
     const allData = {
@@ -29,5 +33,6 @@ export default function generate(pageId, siteData) {
         title: generateTitle(allData),
         pageUrl: generatePageUrl(allData),
         socialImage: generateFullSocialImageUrl(allData),
+        description: generateDescription(allData),
     };
 }
