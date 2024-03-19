@@ -1,6 +1,7 @@
 import socialImage from '../../img/me-268.jpg';
 
-function generateTitle({ mainTitle, subtitle }) {
+function generateTitle({ mainTitle, subtitle, hiddenTitleOnHead }) {
+    if (hiddenTitleOnHead) return mainTitle;
     return `${mainTitle} - ${subtitle}`;
 }
 

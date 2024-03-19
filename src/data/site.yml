@@ -1,14 +1,15 @@
 mainTitle: Hugolnx Gamedev
 domain: https://hugolnx.github.io
-baseDescription: "I'm a gameplay programmer with 14 years experience on web development and 6 years part-time with Unity / C#."
+baseDescription: "I'm a gameplay programmer who published 11 indie games (made with Unity / C#). I'm also heavily experienced in web development."
 pages:
   - id: skills
     subtitle: Skills
-    description: "Checkout the skills and professional experience I've developed over the years."
+    hiddenTitleOnHead: true
+    description: "Check out the games, skills, and professional experience I've developed over the years."
     path: '/'
   - id: games
     subtitle: Games
-    description: "Those are the games I've developed and/or published over the years, and the features I've implemented."
+    description: "Those are the games I've developed and published over the years and the features I've implemented."
     path: '/games'
   - id: resume
     subtitle: Resume
@@ -16,7 +17,7 @@ pages:
     external: true
   - id: about-me
     subtitle: About Me
-    description: "Come read a little bit about me and my journey."
+    description: "Read a little bit about me and my journey."
     path: '/about-me'
     hidden: true
   - id: not-found
