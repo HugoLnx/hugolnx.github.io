@@ -7,7 +7,7 @@ links:
     navbar: true
 
   - name: Github
-    url: 'https://www.linkedin.com/in/hugolnx/'
+    url: 'https://github.com/hugolnx/'
     iconClasses: fa-brands fa-github
     navbar: true
 
