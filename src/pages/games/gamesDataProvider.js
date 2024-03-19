@@ -32,8 +32,7 @@ const games = [
     sniperShips,
 ];
 
-const data = {
+export default {
     games,
+    title: pageData.subtitle,
 };
-
-export default data;

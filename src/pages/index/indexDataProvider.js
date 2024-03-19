@@ -1,3 +1,10 @@
 import devData from '../../data/dev.yml';
+import siteData from '../../data/site.yml';
 
-export default devData;
+const PAGE_ID = 'skills';
+const pageData = siteData.pages.find((page) => page.id === PAGE_ID);
+
+export default {
+    title: pageData.subtitle,
+    dev: devData,
+};

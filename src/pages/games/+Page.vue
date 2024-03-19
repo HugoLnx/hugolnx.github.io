@@ -1,7 +1,7 @@
 <template>
   <section class="games-page-section page-section">
     <h2 class="title page-section-title">
-      Games
+      {{ title }}
     </h2>
 
     <div class="game-boxes">
@@ -18,7 +18,7 @@
 import GameBox from '../../components/GameBox.vue';
 import data from './gamesDataProvider';
 
-const { games } = data;
+const { games, title } = data;
 </script>
 
 <style lang="scss">

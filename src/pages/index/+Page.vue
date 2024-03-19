@@ -1,7 +1,7 @@
 <template>
   <section class="overview-page-section page-section">
     <h2 class="title page-section-title">
-      Skills
+      {{ title }}
     </h2>
     <section class="block content-container">
       <h3 class="title page-section-subtitle introduction-title">
@@ -106,8 +106,9 @@ import BulletList from '../../components/BulletList.vue';
 import BulletListItem from '../../components/BulletListItem.vue';
 import TagList from '../../components/TagList.vue';
 import TagItem from '../../components/TagItem.vue';
-import dev from './indexDataProvider';
+import data from './indexDataProvider';
 
+const { dev, title } = data;
 const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 </script>
 
