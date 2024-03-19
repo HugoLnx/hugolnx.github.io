@@ -44,8 +44,10 @@ const isPlaying = ref(false);
 const isLoading = ref(false);
 
 const playVideo = () => {
-    videoElement.value.play();
     isPlaying.value = true;
+    setTimeout(() => {
+        videoElement.value.play();
+    }, 0);
 };
 
 onMounted(() => {
@@ -56,8 +58,10 @@ onMounted(() => {
     };
     new IntersectionObserver(([entry]) => {
         if (!entry.isIntersecting || isPlaying.value || isLoading.value) return;
-        videoElement.value.load();
         isLoading.value = true;
+        setTimeout(() => {
+            videoElement.value.load();
+        }, 0);
     }, options).observe(videoElement.value);
 });
 </script>
