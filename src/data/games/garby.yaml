@@ -5,6 +5,9 @@ commercial: self-published
 isMobile: true
 platforms:
     - Android
+genres:
+    - Educational
+    - Recycling
 links:
     steam: ""
     trailer: ""

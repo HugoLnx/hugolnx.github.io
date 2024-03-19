@@ -133,6 +133,23 @@
               <h4 class="title game-section-title">
                 Details
               </h4>
+              <section
+                v-if="genres?.length > 0"
+                class="game-details-section"
+              >
+                <h5 class="game-details-section-title">
+                  Genres
+                </h5>
+                <ul class="inline-list game-details-section-content">
+                  <li
+                    v-for="genre in genres"
+                    :key="genre"
+                    class="list-item"
+                  >
+                    {{ genre }}
+                  </li>
+                </ul>
+              </section>
               <section class="game-details-section">
                 <h5 class="game-details-section-title">
                   Made with
@@ -203,6 +220,7 @@ const {
     doPreloadVideo,
     doPreloadPoster,
     platforms,
+    genres,
     links,
     engine,
 } = game;

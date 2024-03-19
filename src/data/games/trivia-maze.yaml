@@ -5,6 +5,10 @@ commercial: freelance-job
 isMobile: true
 platforms:
     - Android
+genres:
+    - Trivia
+    - Quiz
+    - Puzzle
 links:
     steam: ""
     trailer: ""

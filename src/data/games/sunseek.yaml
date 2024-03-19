@@ -4,6 +4,8 @@ engine: Unity 3D
 commercial: prototype
 platforms:
     - Windows
+genres:
+    - Platformer
 links:
     steam: null
     trailer: null

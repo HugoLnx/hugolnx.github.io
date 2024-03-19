@@ -6,6 +6,9 @@ platforms:
     - Windows
     - Linux
     - Mac
+genres:
+    - Shoot'em Up
+    - On-Rails Shooter
 links:
     steam: "https://store.steampowered.com/app/1555080/Sniper_Ships_Shootem_Up_on_Rails"
     trailer: "https://youtu.be/9SAh5-r_C1c?si=q7mjfHBKJsbBSzeN"
@@ -31,7 +34,6 @@ tags:
     - Linux
     - Mac
     - Indie
-    - Typing Game
     - On-Rails Shooter
     - Shoot'em Up
     - Achievements

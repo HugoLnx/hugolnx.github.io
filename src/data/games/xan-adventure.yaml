@@ -4,6 +4,9 @@ engine: Unity 3D
 commercial: royalty-earning
 platforms:
     - WebGL
+genres:
+    - Educational
+    - Math
 links:
     steam: null
     trailer: null

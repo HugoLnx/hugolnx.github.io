@@ -6,6 +6,9 @@ platforms:
     - Windows
     - Linux
     - Mac
+genres:
+    - Typing
+    - Shoot'em Up
 links:
     steam: "https://store.steampowered.com/app/1528580/Neon_Ships_The_Typeem_Up_Shooter"
     trailer: "https://youtu.be/MYc81JHaO3A"

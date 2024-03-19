@@ -6,6 +6,8 @@ platforms:
     - Windows
     - Linux
     - Mac
+genres:
+    - Shooter
 links:
     steam: "https://store.steampowered.com/app/1600870/King_Bullseye_The_Chess_Strike"
     trailer: "https://youtu.be/GBDkMf0BGyw?si=0m9njEetBE4W-NNb"
