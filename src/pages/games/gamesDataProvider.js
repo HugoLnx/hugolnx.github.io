@@ -35,6 +35,10 @@ const games = [
     sniperShips,
 ];
 
+for (let i = 0; i < games.length; i += 1) {
+    games[i] = JSON.parse(JSON.stringify(games[i]));
+}
+
 for (let i = 0; i < PRELOADED_VIDEOS_COUNT; i += 1) {
     games[i].doPreloadVideo = true;
 }
