@@ -11,12 +11,14 @@
   </div>
   <MainFooter />
   <IsTouchClassifier />
+  <PageLoadingOverlay />
 </template>
 
 <script setup>
 import MainNavbar from './MainNavbar.vue';
 import MainFooter from './MainFooter.vue';
 import IsTouchClassifier from './IsTouchClassifier.vue';
+import PageLoadingOverlay from './PageLoadingOverlay.vue';
 import '../../css/index.scss';
 </script>
 
