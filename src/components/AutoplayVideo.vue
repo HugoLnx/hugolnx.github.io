@@ -1,5 +1,11 @@
 <template>
-  <div class="video-wrapper autoplay-video">
+  <div
+    class="autoplay-video"
+    :class="{
+      'is-playing': isPlaying,
+      'is-loading': isLoading,
+    }"
+  >
     <video
       ref="videoElement"
       muted
@@ -25,7 +31,6 @@
       :fetchpriority="doPreloadPoster ? 'high' : 'auto'"
       :src="poster"
       class="video-poster"
-      :class="{ 'is-hidden': isPlaying }"
     >
   </div>
 </template>
@@ -73,7 +78,7 @@ onMounted(() => {
 
   $base-z-index: 1;
 
-  .video-wrapper {
+  .autoplay-video {
     position: relative;
     z-index: $base-z-index;
 
@@ -86,7 +91,7 @@ onMounted(() => {
     }
   }
 
-  .video-wrapper {
+  .autoplay-video {
     margin: 0;
     padding: 0;
     video, .video-overlay, .video-poster {
@@ -119,6 +124,13 @@ onMounted(() => {
       position: absolute;
       top: 0;
       left: 0;
+      transition: opacity 200ms ease-out;
+    }
+
+    &.is-playing {
+      .video-poster {
+        opacity: 0;
+      }
     }
   }
 </style>

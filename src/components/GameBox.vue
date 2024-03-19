@@ -587,9 +587,21 @@ function refreshGameSelection() {
         overflow: visible;
       }
 
-      // Info icon inside video
-      .game-preview-section {
-        position: relative;
+      // Play on hover only
+      @at-root .is-mouse & {
+        .autoplay-video.is-playing {
+          .video-poster {
+            opacity: 1;
+          }
+        }
+
+        &:hover, &.is-selected {
+          .autoplay-video.is-playing {
+            .video-poster {
+              opacity: 0;
+            }
+          }
+        }
       }
 
       // Set z-indexes
@@ -599,7 +611,7 @@ function refreshGameSelection() {
           z-index: $z-index;
         }
 
-        .video-wrapper {
+        .autoplay-video {
           z-index: $z-index;
 
           .video-poster {
