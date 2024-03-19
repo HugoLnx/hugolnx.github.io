@@ -82,12 +82,6 @@ defineExpose({
 
   // Game Gallery View Styling
   @include only-game-gallery {
-    .game-toggable-content.toggable-content {
-      .toggle-button {
-        display: none;
-      }
-    }
-
     .is-horizontal-video .game-toggable-content.toggable-content {
       width: 100%;
     }

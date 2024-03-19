@@ -89,6 +89,15 @@
             </div>
           </div>
         </nav>
+        <ToggableContentButton
+          class="outer-toggle-button"
+          hide-icon
+          :class="{
+            'is-content-on': isSelected,
+          }"
+          :show-label="`${title} Info`"
+          :hide-label="`${title} Info`"
+        />
       </div>
       <GameToggableContent
         ref="toggableContent"
@@ -195,6 +204,7 @@ import BulletList from './BulletList.vue';
 import BulletListItem from './BulletListItem.vue';
 import GameLink from './GameLink.vue';
 import GameToggableContent from './GameToggableContent.vue';
+import ToggableContentButton from './ToggableContentButton.vue';
 import { px } from '../js/utils';
 
 const BASE_HORIZONTAL_VSIZE = { width: 640, height: 360 };
@@ -540,6 +550,21 @@ function refreshGameSelection() {
         @include only-game-gallery {
           background-color: $game-box-selected-dark-color;
         }
+      }
+    }
+  }
+
+  // Control toggle buttons
+  @include only-game-list {
+    .toggle-button.outer-toggle-button {
+      display: none;
+    }
+  }
+
+  @include only-game-gallery {
+    .game-toggable-content.toggable-content {
+      .toggle-button {
+        display: none;
       }
     }
   }

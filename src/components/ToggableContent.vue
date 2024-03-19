@@ -9,24 +9,19 @@
     <div class="inner-content">
       <slot />
     </div>
-    <a
-      href="#"
-      class="toggle-button"
-      @click.prevent
-    >
-      <span class="icon">
-        <i class="toggle-icon fa-solid fa-chevron-down" />
-      </span>
-      <span class="toggle-label-wrapper">
-        <span class="toggle-off-label">{{ showLabel }}</span>
-        <span class="toggle-on-label">{{ hideLabel }}</span>
-      </span>
-    </a>
+    <ToggableContentButton
+      :show-label="showLabel"
+      :hide-label="hideLabel"
+      :class="{
+        'is-content-on': isContentOn,
+      }"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import ToggableContentButton from './ToggableContentButton.vue';
 
 const isContentOn = ref(false);
 
@@ -82,73 +77,6 @@ $anim-ease: ease-out;
       // transform-origin: top center;
       opacity: 1;
       padding: 1.5rem 0 1rem 0;
-    }
-  }
-
-  // Toggle Button Styling
-  .toggle-button {
-    transition: margin-top $anim-duration $anim-ease;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    border-radius: $radius-rounded;
-    padding: 0.33rem 1rem;
-    margin: 0.5rem 0;
-    font-size: $size-7;
-
-    &, &:active, &:focus, &:visited {
-      background-color: rgba(0, 0, 0, 0);
-      color: $link;
-      border: solid 1px $link;
-    }
-  }
-
-  // Toggle Icon Styling
-  .toggle-button {
-    .toggle-icon {
-      transition: transform $anim-duration $anim-ease;
-    }
-  }
-
-  &.is-content-on {
-    .toggle-button {
-      .toggle-icon {
-        transform: rotate(180deg);
-      }
-    }
-  }
-
-  // Toggle Text Styling
-  .toggle-label-wrapper {
-    .toggle-on-label {
-      display: none;
-      opacity: 0;
-    }
-
-    .toggle-off-label {
-      display: inline-block;
-      opacity: 1;
-    }
-
-    .toggle-on-label, .toggle-off-label {
-      transition: opacity $anim-duration $anim-ease;
-    }
-  }
-
-  &.is-content-on {
-    .toggle-label-wrapper {
-      position: relative;
-
-      .toggle-on-label {
-        display: inline-block;
-        opacity: 1;
-      }
-
-      .toggle-off-label {
-        display: none;
-        opacity: 0;
-      }
     }
   }
 }
