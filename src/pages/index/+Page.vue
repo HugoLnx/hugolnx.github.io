@@ -3,69 +3,72 @@
     <h2 class="title page-section-title">
       {{ title }}
     </h2>
-    <section class="block content-container">
-      <h3 class="title page-section-subtitle introduction-title">
-        Introduction
-      </h3>
-      <figure class="image is-128x128">
-        <img
-          class="is-rounded"
-          width="128"
-          height="128"
-          src="../../img/me-128-compressed.jpg"
-        >
-      </figure>
-      <p class="title">
-        {{ dev.name }}
-      </p>
-      <p class="subtitle">
-        {{ dev.position }}
-      </p>
-      <nav class="social-media">
-        <SocialIconLink
-          v-for="social in dev.links"
-          :key="social.name"
-          :href="social.url"
-          :icon-classes="social.iconClasses"
-          :text="social.name"
-        />
-      </nav>
-    </section>
 
     <div class="blocks-list">
-      <section class="block bullets-block content-container">
-        <h3 class="title page-section-subtitle">
-          Background
+      <section class="block content-container">
+        <h3 class="title page-section-subtitle introduction-title">
+          Introduction
         </h3>
-        <BulletList
-          :icon-classes="bulletListIconClasses"
-          class="bullets-block-content"
-        >
-          <BulletListItem
-            v-for="item in dev.background"
-            :key="item"
+        <figure class="image is-128x128">
+          <img
+            class="is-rounded"
+            width="128"
+            height="128"
+            src="../../img/me-128-compressed.jpg"
           >
-            {{ item }}
-          </BulletListItem>
-        </BulletList>
+        </figure>
+        <p class="title">
+          {{ dev.name }}
+        </p>
+        <p class="subtitle">
+          {{ dev.position }}
+        </p>
+        <nav class="social-media">
+          <SocialIconLink
+            v-for="social in dev.links"
+            :key="social.name"
+            :href="social.url"
+            :icon-classes="social.iconClasses"
+            :text="social.name"
+          />
+        </nav>
       </section>
 
-      <section class="block bullets-block content-container">
-        <h3 class="title page-section-subtitle">
-          Skills
-        </h3>
-        <BulletList
-          :icon-classes="bulletListIconClasses"
-          class="bullets-block-content"
-        >
-          <BulletListItem
-            v-for="skill in dev.skills"
-            :key="skill"
+      <div class="blocks-side-by-side">
+        <section class="block bullets-block content-container">
+          <h3 class="title page-section-subtitle">
+            Background
+          </h3>
+          <BulletList
+            :icon-classes="bulletListIconClasses"
+            class="bullets-block-content"
           >
-            {{ skill }}
-          </BulletListItem>
-        </BulletList>
-      </section>
+            <BulletListItem
+              v-for="item in dev.background"
+              :key="item"
+            >
+              {{ item }}
+            </BulletListItem>
+          </BulletList>
+        </section>
+
+        <section class="block bullets-block content-container">
+          <h3 class="title page-section-subtitle">
+            Skills
+          </h3>
+          <BulletList
+            :icon-classes="bulletListIconClasses"
+            class="bullets-block-content"
+          >
+            <BulletListItem
+              v-for="skill in dev.skills"
+              :key="skill"
+            >
+              {{ skill }}
+            </BulletListItem>
+          </BulletList>
+        </section>
+      </div>
 
       <section class="block bullets-block tags-block content-container">
         <h3 class="title page-section-subtitle">
@@ -113,6 +116,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 </script>
 
 <style lang="scss">
+@use 'sass:color';
 @import '../../css/bulma-custom.scss';
 
 .overview-page-section {
@@ -142,6 +146,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     display: flex;
     flex-flow: column wrap;
     align-items: stretch;
+    gap: 2.5rem;
   }
 
   .bullets-block {
@@ -155,6 +160,51 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 
       .bullet-list-item {
         margin-bottom: 1rem;
+      }
+    }
+
+    @include from(400px) {
+      .bullet-list {
+        font-size: 1.35rem;
+        margin-top: 0.5rem;
+
+        .bullet-list-item {
+          margin-bottom: 1.2rem;
+        }
+      }
+    }
+  }
+
+  .blocks-side-by-side {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    gap: inherit;
+  }
+
+  @include from(750px) {
+    .blocks-side-by-side {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      align-items: start;
+      gap: 1rem;
+      margin: 2rem 0;
+
+      .content-container.block {
+        width: unset;
+        align-self: stretch;
+
+        border: 1px solid color.change($white, $alpha: 0.5);
+        background-color: color.change($link, $alpha: 0.1);
+        padding: 0.5rem 1.5rem;
+        border-radius: $box-radius;
+        margin-bottom: 0;
       }
     }
   }
