@@ -11,15 +11,19 @@ import witchCircles from '../../data/games/witch-circles.yaml';
 import sunseek from '../../data/games/sunseek.yaml';
 import garby from '../../data/games/garby.yaml';
 import triviaMaze from '../../data/games/trivia-maze.yaml';
+import siteData from '../../data/site.yml';
+
+const PAGE_ID = 'games';
+const pageData = siteData.pages.find((page) => page.id === PAGE_ID);
 
 const games = [
     smashingSpirits,
     neonShips,
-    tyfortress,
-    typomancer,
     triviaMaze,
-    spookyTyping,
+    tyfortress,
     garby,
+    spookyTyping,
+    typomancer,
     kingBullseye,
     witchCircles,
     sunseek,
