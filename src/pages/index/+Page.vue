@@ -1,14 +1,14 @@
 <template>
   <section class="overview-page-section page-section">
-    <h2 class="title page-section-title">
+    <h1 class="title page-section-title">
       {{ title }}
-    </h2>
+    </h1>
 
     <div class="blocks-list">
       <section class="block content-container">
-        <h3 class="title page-section-subtitle introduction-title">
+        <h2 class="title page-section-subtitle introduction-title">
           Introduction
-        </h3>
+        </h2>
         <figure class="image is-128x128">
           <img
             class="is-rounded"
@@ -36,9 +36,9 @@
 
       <div class="blocks-side-by-side">
         <section class="block bullets-block content-container">
-          <h3 class="title page-section-subtitle">
+          <h2 class="title page-section-subtitle">
             Background
-          </h3>
+          </h2>
           <BulletList
             :icon-classes="bulletListIconClasses"
             class="bullets-block-content"
@@ -53,9 +53,9 @@
         </section>
 
         <section class="block bullets-block content-container">
-          <h3 class="title page-section-subtitle">
+          <h2 class="title page-section-subtitle">
             Skills
-          </h3>
+          </h2>
           <BulletList
             :icon-classes="bulletListIconClasses"
             class="bullets-block-content"
@@ -71,9 +71,9 @@
       </div>
 
       <section class="block bullets-block tags-block content-container">
-        <h3 class="title page-section-subtitle">
+        <h2 class="title page-section-subtitle">
           Professional Experience
-        </h3>
+        </h2>
         <TagList class="bullets-block-content">
           <TagItem
             v-for="tool in dev.tools"
@@ -85,9 +85,9 @@
       </section>
 
       <section class="block bullets-block content-container">
-        <h3 class="title page-section-subtitle">
+        <h2 class="title page-section-subtitle">
           Games
-        </h3>
+        </h2>
         <p
           class="bullets-block-content"
         >

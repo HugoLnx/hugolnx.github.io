@@ -1,6 +1,6 @@
 <template>
   <div class="center">
-    <p>{{ abortReason }}</p>
+    <h1>{{ abortReason }}</h1>
   </div>
 </template>
 

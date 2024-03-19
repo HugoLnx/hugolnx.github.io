@@ -1,8 +1,8 @@
 <template>
   <section class="games-page-section page-section">
-    <h2 class="title page-section-title">
+    <h1 class="title page-section-title">
       {{ title }}
-    </h2>
+    </h1>
 
     <div class="game-boxes">
       <GameBox

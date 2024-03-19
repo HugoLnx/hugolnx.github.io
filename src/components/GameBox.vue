@@ -14,14 +14,14 @@
     <div class="game-box-content">
       <div class="game-box-middle">
         <header class="video-header">
-          <h3 class="game-title title page-section-subtitle">
+          <h2 class="game-title title page-section-subtitle">
             {{ title }}
-          </h3>
+          </h2>
         </header>
         <section class="game-preview-section">
-          <h4 class="title">
+          <h3 class="title">
             Preview
-          </h4>
+          </h3>
           <AutoplayVideo
             class="game-preview"
             :src="videoSrc"
@@ -31,9 +31,9 @@
           />
         </section>
         <nav class="game-links-section">
-          <h4 class="title">
+          <h3 class="title">
             Links
-          </h4>
+          </h3>
           <div class="game-links">
             <div
               v-if="links.steam"
@@ -101,9 +101,9 @@
       >
         <div class="game-sections">
           <section class="game-section game-highlights">
-            <h4 class="title game-section-title">
+            <h3 class="title game-section-title">
               Highlights
-            </h4>
+            </h3>
             <BulletList
               icon-classes="fa-solid fa-star"
             >
@@ -116,9 +116,9 @@
             v-if="integrations?.length > 0"
             class="game-section game-integrations"
           >
-            <h4 class="title game-section-title">
+            <h3 class="title game-section-title">
               Integrations
-            </h4>
+            </h3>
             <ul class="inline-list">
               <li
                 v-for="integration in integrations"
@@ -131,9 +131,9 @@
           </section>
           <section class="game-section game-details">
             <div class="game-details-wrapper">
-              <h4 class="title game-section-title">
+              <h3 class="title game-section-title">
                 Details
-              </h4>
+              </h3>
               <section
                 v-if="genres?.length > 0"
                 class="game-details-section"
