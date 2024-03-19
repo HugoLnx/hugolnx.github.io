@@ -14,6 +14,9 @@ import triviaMaze from '../../data/games/trivia-maze.yaml';
 import siteData from '../../data/site.yml';
 
 const PAGE_ID = 'games';
+const PRELOADED_VIDEOS_COUNT = 0;
+const PRELOADED_POSTERS_COUNT = 5;
+
 const pageData = siteData.pages.find((page) => page.id === PAGE_ID);
 
 const games = [
@@ -31,6 +34,14 @@ const games = [
     tybotInvasion,
     sniperShips,
 ];
+
+for (let i = 0; i < PRELOADED_VIDEOS_COUNT; i += 1) {
+    games[i].doPreloadVideo = true;
+}
+
+for (let i = 0; i < PRELOADED_POSTERS_COUNT; i += 1) {
+    games[i].doPreloadPoster = true;
+}
 
 export default {
     games,

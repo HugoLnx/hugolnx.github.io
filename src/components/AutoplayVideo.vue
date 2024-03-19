@@ -4,7 +4,8 @@
       ref="videoElement"
       muted
       loop
-      preload="none"
+      :preload="doPreloadVideo ? 'auto' : 'none'"
+      :autoplay="doPreloadVideo ? true : null"
       @loadeddata="playVideo"
     >
       <source
@@ -19,8 +20,8 @@
       <i class="fa-solid fa-video fa-beat-fade video-spinner" />
     </div>
     <img
-      :loading="isPriority ? 'eager' : 'lazy'"
-      :fetchpriority="isPriority ? 'high' : 'auto'"
+      :loading="doPreloadPoster ? 'eager' : 'lazy'"
+      :fetchpriority="doPreloadPoster ? 'high' : 'auto'"
       :src="poster"
       class="video-poster"
       :class="{ 'is-hidden': isPlaying }"
@@ -34,7 +35,8 @@ import { ref, onMounted } from 'vue';
 defineProps({
     src: { type: String, required: true },
     poster: { type: String, required: true },
-    isPriority: { type: Boolean, required: false, default: false },
+    doPreloadPoster: { type: Boolean, required: false, default: false },
+    doPreloadVideo: { type: Boolean, required: false, default: false },
 });
 
 const videoElement = ref(null);

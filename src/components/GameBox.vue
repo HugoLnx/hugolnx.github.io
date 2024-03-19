@@ -26,6 +26,8 @@
             class="game-preview"
             :src="videoSrc"
             :poster="links.poster"
+            :do-preload-video="doPreloadVideo"
+            :do-preload-poster="doPreloadPoster"
           />
           <button
             class="preview-info-button button is-rounded is-link is-outlined is-small"
@@ -198,6 +200,8 @@ const gameBox = ref(null);
 const {
     shortTitle: title,
     isMobile: isVerticalVideo,
+    doPreloadVideo,
+    doPreloadPoster,
     platforms,
     links,
     engine,
