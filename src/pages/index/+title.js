@@ -1,2 +1,3 @@
+import data from './headDataProvider';
 // eslint-disable-next-line
-export const title = "Hugolnx - Skills";
+export const title = data.title;

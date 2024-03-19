@@ -1,0 +1,25 @@
+mainTitle: Hugolnx Gamedev
+domain: https://hugolnx.github.io
+pages:
+  - id: skills
+    subtitle: Skills
+    description: "Skills and professional experience I've developed over the years."
+    path: '/'
+  - id: games
+    subtitle: Games
+    description: "A collection of games I've developed over the years."
+    path: '/games'
+  - id: resume
+    subtitle: Resume
+    path: 'https://docs.google.com/document/d/1td3nobiQGHL1K4ZMKC1l2xtNmiY6XOO5Zgw2LnlF0gY/edit'
+    external: true
+  - id: about-me
+    subtitle: About Me
+    description: "A little bit about me and my journey."
+    path: '/about-me'
+    hidden: true
+  - id: not-found
+    subtitle: Page Not Found
+    description: "Page not found."
+    path: '/404'
+    hidden: true

@@ -17,7 +17,6 @@ import {
     ref,
     toRef,
     watch,
-    defineExpose,
     onMounted,
     onUnmounted,
 } from 'vue';

@@ -19,27 +19,15 @@
 
       <div id="main-navbar-links" class="navbar-menu lnx-menu">
         <div class="navbar-start">
-          <NavLink href="/" class="navbar-item">
-            Skills
-          </NavLink>
-
-          <NavLink href="/games" class="navbar-item">
-            Games
-          </NavLink>
-
           <NavLink
-            href="https://docs.google.com/document/d/1td3nobiQGHL1K4ZMKC1l2xtNmiY6XOO5Zgw2LnlF0gY/edit"
+            v-for="link in navLinks"
+            :key="link.id"
+            :href="link.url"
+            :target="link.external && '_blank'"
             class="navbar-item"
-            target="_blank"
           >
-            Resume
+            {{ link.title }}
           </NavLink>
-
-          <!--
-          <NavLink href="/about-me" class="navbar-item">
-            About Me
-          </NavLink>
-          -->
         </div>
       </div>
     </div>
@@ -49,7 +37,12 @@
 <script setup>
 import NavLink from './NavLink.vue';
 import SocialIconLink from '../../components/SocialIconLink.vue';
-import { socials, name, position } from './navbarDataProvider';
+import {
+    socials,
+    name,
+    position,
+    navLinks,
+} from './navbarDataProvider';
 </script>
 
 <style lang="scss">

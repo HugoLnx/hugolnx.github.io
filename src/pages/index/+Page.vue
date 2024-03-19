@@ -8,7 +8,7 @@
         Introduction
       </h3>
       <figure class="image is-128x128">
-        <img class="is-rounded" src="./img/me-128-compressed.jpg">
+        <img class="is-rounded" src="../../img/me-128-compressed.jpg">
       </figure>
       <p class="title">
         {{ dev.name }}
