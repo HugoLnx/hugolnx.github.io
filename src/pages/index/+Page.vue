@@ -131,6 +131,10 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
         background-color: darken($link, 20%);
         border-radius: $radius-rounded;
       }
+
+      @at-root.is-mouse & .tag-item:hover {
+        background-color: darken($link, 15%);
+      }
     }
   }
 
