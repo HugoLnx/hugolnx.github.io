@@ -15,6 +15,8 @@
 <script setup>
 import {
     ref,
+    toRef,
+    watch,
     defineExpose,
     onMounted,
     onUnmounted,
@@ -25,21 +27,14 @@ import { preventSequentialCalls } from '../js/utils';
 const toggableContent = ref(null);
 const openDirection = ref('bottom');
 
-const { gameBox } = defineProps({
+const props = defineProps({
     gameBox: { type: Object, required: false, default: null },
 });
-
-function toggle(...args) {
-    toggableContent.value.toggle(...args);
-}
-
-defineExpose({
-    toggle,
-    isContentOn: () => toggableContent.value?.isContentOn(),
-});
+const gameBox = toRef(props, 'gameBox');
 
 const refreshOpenDirection = preventSequentialCalls(() => {
-    const el = gameBox;
+    const el = gameBox.value;
+    if (!el) return;
     const screenWidth = document.body.clientWidth;
     const rect = el.getBoundingClientRect();
     const spaceAtLeft = rect.left;
@@ -55,6 +50,11 @@ const refreshOpenDirection = preventSequentialCalls(() => {
     }
 });
 
+function toggle(...args) {
+    refreshOpenDirection();
+    toggableContent.value.toggle(...args);
+}
+
 onMounted(() => {
     window.addEventListener('resize', refreshOpenDirection);
     window.addEventListener('orientationchange', refreshOpenDirection);
@@ -68,6 +68,13 @@ onUnmounted(() => {
     window.removeEventListener('orientationchange', refreshOpenDirection);
     window.removeEventListener('load', refreshOpenDirection);
     window.removeEventListener('DOMContentLoaded', refreshOpenDirection);
+});
+
+watch(gameBox, refreshOpenDirection);
+
+defineExpose({
+    toggle,
+    isContentOn: () => toggableContent.value?.isContentOn(),
 });
 </script>
 

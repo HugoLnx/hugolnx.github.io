@@ -1,5 +1,6 @@
 <template>
   <article
+    ref="gameBox"
     class="game-box"
     :class="{
       'is-vertical-video': isVerticalVideo,
@@ -90,7 +91,7 @@
       <GameToggableContent
         ref="toggableContent"
         class="game-box-bottom"
-        :game-box="$el"
+        :game-box="gameBox"
         :show-label="`${title} Info`"
         :hide-label="`${title} Info`"
         @toggled="refreshGameSelection"
@@ -192,6 +193,7 @@ const { game } = defineProps({
 });
 const isSelected = ref(false);
 const toggableContent = ref(null);
+const gameBox = ref(null);
 
 const {
     shortTitle: title,
