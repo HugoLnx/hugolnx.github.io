@@ -1,7 +1,7 @@
 name: Hugo Roque
 position: Gameplay Programmer
 links:
-  - name: Games
+  - name: Steam
     url: 'https://store.steampowered.com/developer/sensengames'
     iconClasses: fa-brands fa-steam
     navbar: true
