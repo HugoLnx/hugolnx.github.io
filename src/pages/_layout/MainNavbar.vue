@@ -27,7 +27,11 @@
             Games
           </NavLink>
 
-          <NavLink href="/resume" class="navbar-item">
+          <NavLink
+            href="https://docs.google.com/document/d/1td3nobiQGHL1K4ZMKC1l2xtNmiY6XOO5Zgw2LnlF0gY/edit"
+            class="navbar-item"
+            target="_blank"
+          >
             Resume
           </NavLink>
 
