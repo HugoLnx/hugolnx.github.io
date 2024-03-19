@@ -4,6 +4,7 @@
       ref="videoElement"
       muted
       loop
+      playsinline
       :preload="doPreloadVideo ? 'auto' : 'none'"
       :autoplay="doPreloadVideo ? true : null"
       @loadeddata="playVideo"
