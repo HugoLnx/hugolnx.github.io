@@ -5,6 +5,10 @@
     :name="name"
     :content="content"
   >
+  <link
+    rel="canonical"
+    :href="pageUrl"
+  >
 </template>
 
 <script setup>
