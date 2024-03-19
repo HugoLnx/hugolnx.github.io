@@ -35,9 +35,11 @@
             Resume
           </NavLink>
 
+          <!--
           <NavLink href="/about-me" class="navbar-item">
             About Me
           </NavLink>
+          -->
         </div>
       </div>
     </div>
