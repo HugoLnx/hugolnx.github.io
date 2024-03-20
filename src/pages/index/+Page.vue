@@ -5,7 +5,7 @@
     </h1>
 
     <div class="blocks-list">
-      <section class="block content-container introduction-section">
+      <section class="content-container introduction-section">
         <h2 class="title page-section-subtitle introduction-title">
           Introduction
         </h2>
@@ -35,7 +35,7 @@
       </section>
 
       <div class="blocks-side-by-side">
-        <section class="block bullets-block content-container">
+        <section class="box bullets-block content-container">
           <h2 class="title page-section-subtitle">
             Background
           </h2>
@@ -52,7 +52,7 @@
           </BulletList>
         </section>
 
-        <section class="block bullets-block content-container">
+        <section class="box bullets-block content-container">
           <h2 class="title page-section-subtitle">
             Skills
           </h2>
@@ -70,7 +70,7 @@
         </section>
       </div>
 
-      <section class="block bullets-block tags-block content-container">
+      <section class="bullets-block tags-block content-container">
         <h2 class="title page-section-subtitle">
           Professional Experience
         </h2>
@@ -84,7 +84,29 @@
         </TagList>
       </section>
 
-      <section class="block bullets-block content-container">
+      <section class="bullets-block testimonials-block content-container">
+        <h2 class="title page-section-subtitle">
+          Testimonials
+        </h2>
+        <div class="testimonials">
+          <article
+            v-for="testimonial in dev.testimonials"
+            :key="testimonial.author"
+            class="testimonial box"
+          >
+            <p class="testimonial-quote">
+              {{ testimonial.quote.trim() }}
+            </p>
+            <p class="testimonial-details">
+              <span class="detail author-name">{{ testimonial.author }}</span>
+              <span class="detail author-position">{{ testimonial.position }}</span>
+              <span class="detail testimonial-date">{{ testimonial.date }}</span>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="bullets-block content-container">
         <h2 class="title page-section-subtitle">
           Games
         </h2>
@@ -206,35 +228,77 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     margin: 0;
     padding: 0;
     display: flex;
-    flex-flow: inherit;
-    justify-content: inherit;
-    align-items: inherit;
-    gap: inherit;
-  }
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: start;
+    gap: 1rem;
 
-  @include from(750px) {
-    .blocks-side-by-side {
-      margin: 0;
-      padding: 0;
+    .content-container {
+      flex-basis: content;
+      width: unset;
+      align-self: stretch;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Testimonials Styling
+.testimonials {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+
+  .testimonial {
+    max-width: 600px;
+    .testimonial-quote {
+      font-size: $size-6;
+      @include from(500px) {
+        font-size: $size-5-l3;
+      }
+      font-style: italic;
+      margin-bottom: 0.5rem;
+
+      &:before {
+        content: open-quote;
+      }
+      &:after {
+        content: close-quote;
+      }
+    }
+
+    .testimonial-details {
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-evenly;
-      align-items: start;
-      gap: 1rem;
-      margin: 2rem 0;
+      justify-content: center;
+      margin-top: 0.5rem;
 
-      .content-container.block {
-        width: unset;
-        align-self: stretch;
+      font-size: $size-6-l3;
+      color: $grey-light2;
+      text-align: center;
 
-        border: 1px solid color.change($white, $alpha: 0.5);
-        background-color: color.change($link, $alpha: 0.1);
-        padding: 0.5rem 1.5rem;
-        border-radius: $box-radius;
-        margin-bottom: 0;
+      .detail {
+        &:not(:last-child):after {
+          content: '•';
+          margin: 0 0.5rem;
+        }
+
+        @include until(500px) {
+          &:nth-last-child(2):after {
+            content: '';
+            margin: 0;
+          }
+          &:last-child {
+            flex-basis: 100%;
+          }
+        }
       }
     }
   }
+}
+
+// Box Hover
+.overview-page-section {
+  @include box-hover-on-children();
 }
 
 .overview-page-section {
