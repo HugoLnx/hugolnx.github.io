@@ -214,7 +214,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
       transition-property: color, transform;
 
       @at-root .is-mouse &:hover {
-        transform: translateX(0.5rem);
+        transform: translateX(0.3rem);
         color: $white-ter;
       }
     }
@@ -349,7 +349,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
         transition-property: color, transform;
 
         @at-root .is-mouse &:hover {
-          transform: translateX(0.5rem);
+          transform: translateX(0.3rem);
           color: $white;
         }
 
