@@ -1,5 +1,10 @@
 name: Hugo Roque
 position: Gameplay Programmer
+introduction:
+  - I'm a game developer switching from web to games.
+  - I've been splitting my attention between the two areas in the past few years, but I want to focus solely on games as soon as possible.
+  - In those years, I've developed eleven commercial games, eight of which I self-published on Steam.
+  - Before that, I had been in the web industry for eight years.
 links:
   - name: Steam
     url: 'https://store.steampowered.com/developer/sensengames'
@@ -30,7 +35,7 @@ links:
     navbar: true
 
 background:
-  - Published 11 indie games
+  - Developed 11 commercial games
   - Software developer for 14 years
   - Unity developer for 6 years
 

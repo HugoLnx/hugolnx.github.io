@@ -1,28 +1,30 @@
 <template>
   <section class="overview-page-section page-section">
-    <h1 class="title page-section-title">
+    <h1 class="title page-section-title semantic-hide">
       {{ title }}
     </h1>
 
     <div class="overview-page-sections">
-      <section class="content-container introduction-section">
-        <h2 class="title page-section-subtitle introduction-title">
-          Introduction
+      <section class="overview-subsection content-container profile-section">
+        <h2 class="title page-section-subtitle profile-title">
+          Profile
         </h2>
-        <figure class="image is-128x128">
-          <img
-            class="is-rounded"
-            width="128"
-            height="128"
-            src="../../img/me-128-compressed.jpg"
-          >
-        </figure>
-        <p class="title dev-title">
-          {{ dev.name }}
-        </p>
-        <p class="subtitle dev-position">
-          {{ dev.position }}
-        </p>
+        <div class="profile">
+          <figure class="image is-128x128">
+            <img
+              class="is-rounded"
+              width="128"
+              height="128"
+              src="../../img/me-128-compressed.jpg"
+            >
+          </figure>
+          <p class="title dev-title">
+            {{ dev.name }}
+          </p>
+          <p class="subtitle dev-position">
+            {{ dev.position }}
+          </p>
+        </div>
         <nav class="social-media">
           <SocialIconLink
             v-for="social in dev.links"
@@ -34,7 +36,22 @@
         </nav>
       </section>
 
-      <div class="two-column-sections">
+      <section class="overview-subsection content-container introduction-section">
+        <h2 class="title page-section-subtitle introduction-title">
+          Hello and welcome
+        </h2>
+        <p class="introduction-text">
+          <span
+            v-for="phrase in dev.introduction"
+            :key="phrase"
+            class="introduction-phrase"
+          >
+            {{ phrase }}
+          </span>
+        </p>
+      </section>
+
+      <div class="two-columns-sections two-columns-skills">
         <section class="box overview-subsection content-container">
           <h2 class="title page-section-subtitle">
             Background
@@ -156,6 +173,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 @use 'sass:color';
 @import '../../css/bulma-custom.scss';
 
+// Introduction Styling
 .overview-page-section {
   .social-media {
     display: flex;
@@ -164,7 +182,53 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     gap: 1rem;
   }
 
-  @include tablet {
+  .profile-section {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+
+    .profile {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+  }
+
+  .introduction-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    .introduction-text {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1rem;
+      font-size: $size-6;
+      margin: 0 1rem;
+      max-width: 500px;
+    }
+
+    .introduction-phrase {
+      color: $grey-light2;
+      transition: color 200ms ease-out;
+      transition-property: color, transform;
+
+      @at-root .is-mouse &:hover {
+        transform: translateX(0.5rem);
+        color: $white-ter;
+      }
+    }
+
+    @include from(550px) {
+      .introduction-text {
+        font-size: $size-5-l3;
+        gap: 1.5rem;
+        max-width: 700px;
+      }
+    }
+  }
+
+  @include from(450px) {
     .social-media {
       margin-top: 0.5rem;
       font-size: $size-5;
@@ -180,7 +244,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
       }
     }
 
-    .introduction-section {
+    .profile-section {
       .dev-title.title {
         font-size: $size-3;
       }
@@ -211,6 +275,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     flex-flow: column wrap;
     align-items: stretch;
     gap: 2.5rem;
+    margin-top: 2rem;
   }
 
   .overview-subsection {
@@ -239,7 +304,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     }
   }
 
-  .two-column-sections {
+  .two-columns-sections {
     margin: 0;
     padding: 0;
     display: flex;
@@ -373,7 +438,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 }
 
 .overview-page-section {
-  .title.page-section-subtitle.introduction-title {
+  .title.page-section-subtitle.profile-title {
     @include semantic-hide;
   }
 }

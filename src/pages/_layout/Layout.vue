@@ -74,17 +74,17 @@ import '../../css/index.scss';
   align-items: center;
   align-self: center;
 
-  width: 100%;
+  // width: 100%;
   @include tablet-only {
-    width: 600px;
+    max-width: 600px;
   }
 
   @include desktop-only {
-    width: 860px;
+    max-width: 860px;
   }
 
   @include widescreen {
-    width: 1024px;
+    max-width: 1024px;
   }
 }
 
