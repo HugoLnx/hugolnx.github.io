@@ -33,30 +33,29 @@ $anim-duration: 500ms;
 $anim-ease: ease-out;
 // Toggle Button Styling
 .toggle-button {
-  transition: margin-top $anim-duration $anim-ease;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   border-radius: $radius-rounded;
   padding: 0.33rem 1rem;
-  margin: 0.5rem 0;
   font-size: $size-7;
 
-  &, &:active, &:focus, &:visited {
-    background-color: rgba(0, 0, 0, 0);
-    color: $link;
-    border: solid 1px $link;
-  }
+  background-color: rgba(0, 0, 0, 0);
+  color: $link;
+  border: solid 1px $link;
 }
 
 // Toggle Icon Styling
 .toggle-button {
   .toggle-icon {
     transition: transform $anim-duration $anim-ease;
+    transition-property: transform;
   }
 
+  transition: margin $anim-duration $anim-ease;
   &.is-content-on {
+    margin-top: 1rem;
     .toggle-icon {
       transform: rotate(180deg);
     }

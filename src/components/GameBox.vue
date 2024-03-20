@@ -87,8 +87,8 @@
           :class="{
             'is-content-on': isSelected,
           }"
-          :show-label="`${title} Info`"
-          :hide-label="`${title} Info`"
+          :show-label="`Show Info`"
+          :hide-label="`Hide Info`"
         />
       </div>
       <GameToggableContent
@@ -338,7 +338,7 @@ function refreshGameSelection() {
       justify-content: space-around;
       align-items: center;
       gap: 0.5rem;
-      margin: 0.25rem 0;
+      margin: 0.5rem 0;
       width: 100%;
 
       .game-link-wrapper {
@@ -353,7 +353,12 @@ function refreshGameSelection() {
 
       .game-link {
         display: inline-block;
-        padding: 0.5rem 1rem;
+        @include until(450px) {
+          padding: 0.5rem;
+        }
+        @include from(450px) {
+          padding: 0.5rem 1rem;
+        }
         border-radius: $radius;
         border: $button-border-width solid;
 
@@ -422,14 +427,10 @@ function refreshGameSelection() {
   }
 
   // Toggable Content Styling
-  .game-box-bottom {
-    margin-top: 0.75rem;
-
-    .game-sections {
-      .game-section:first-child {
-        .title.game-section-title {
-          margin-top: 0;
-        }
+  .game-box-bottom .game-sections {
+    .game-section:first-child {
+      .title.game-section-title {
+        margin-top: 0;
       }
     }
   }
@@ -554,6 +555,12 @@ function refreshGameSelection() {
   }
 
   @include only-game-gallery {
+    .toggle-button.outer-toggle-button {
+      &.is-content-on {
+        margin-top: unset;
+      }
+    }
+
     .game-toggable-content.toggable-content {
       .toggle-button {
         display: none;
