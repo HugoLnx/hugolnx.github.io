@@ -33,5 +33,6 @@ const metatags = {
     'og:url': pageUrl,
     'og:site_name': mainTitle,
     'og:image': socialImage,
+    'google-site-verification': import.meta.env.VITE_GOOGLE_SITE_VERIFICATION,
 };
 </script>
