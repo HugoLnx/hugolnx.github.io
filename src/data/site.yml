@@ -26,10 +26,10 @@ pages:
     hidden: true
 
 seeNext:
-  - action: See Games
+  - action: See my games
     description: Check out the games I've published
     url: *gamesUrl
-  - action: Read my Resume
+  - action: Read my resume
     description: Read more about my professional history
     url: *resumeUrl
     isExternal: true

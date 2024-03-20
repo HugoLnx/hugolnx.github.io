@@ -13,6 +13,9 @@
             :href="social.url"
             :icon-classes="social.iconClasses"
             :text="social.name"
+            :class="{
+              'is-low-priority': social.isLowPriority,
+            }"
           />
         </div>
       </div>
@@ -82,6 +85,12 @@ nav {
     justify-content: center;
     align-items: end;
     gap: 1rem;
+
+    @include until(500px) {
+      .is-low-priority {
+        display: none;
+      }
+    }
   }
 
   @include touch {

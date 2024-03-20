@@ -1,7 +1,7 @@
 name: Hugo Roque
 position: Gameplay Programmer
 introduction:
-  - I'm a game developer transitioning from web to game development.
+  - I'm a gameplay programmer transitioning from web to game development.
   - I've divided my attention between the two areas in the past few years, but I want to focus solely on games as soon as possible.
   - During those years, I've developed eleven commercial games, eight of which I self-published on Steam.
   - Before that, I had been in the web industry for eight years.
@@ -9,30 +9,23 @@ links:
   - name: Steam
     url: 'https://store.steampowered.com/developer/sensengames'
     iconClasses: fa-brands fa-steam
-    navbar: true
 
   - name: Github
     url: 'https://github.com/hugolnx/'
     iconClasses: fa-brands fa-github
-    navbar: true
 
   - name: LinkedIn
     url: 'https://www.linkedin.com/in/hugolnx/'
     iconClasses: fa-brands fa-linkedin
-    navbar: true
 
   - name: Shaders
     url: 'https://www.shadertoy.com/user/hugolnx'
     iconClasses: fa-solid fa-pen-nib
-
-  - name: Resume
-    url: 'https://docs.google.com/document/d/1td3nobiQGHL1K4ZMKC1l2xtNmiY6XOO5Zgw2LnlF0gY/edit'
-    iconClasses: fa-solid fa-file-lines
+    isLowPriority: true
 
   - name: Email
     url: 'mailto:hugolnx@gmail.com'
     iconClasses: fa-solid fa-envelope
-    navbar: true
 
 background:
   - Developed 11 commercial games

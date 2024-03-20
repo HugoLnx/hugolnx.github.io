@@ -5,37 +5,6 @@
     </h1>
 
     <div class="overview-page-sections">
-      <section class="overview-subsection content-container profile-section">
-        <h2 class="title page-section-subtitle profile-title">
-          Profile
-        </h2>
-        <div class="profile">
-          <figure class="image is-128x128">
-            <img
-              class="is-rounded"
-              width="128"
-              height="128"
-              src="../../img/me-128-compressed.jpg"
-            >
-          </figure>
-          <p class="title dev-title">
-            {{ dev.name }}
-          </p>
-          <p class="subtitle dev-position">
-            {{ dev.position }}
-          </p>
-        </div>
-        <nav class="social-media">
-          <SocialIconLink
-            v-for="social in dev.links"
-            :key="social.name"
-            :href="social.url"
-            :icon-classes="social.iconClasses"
-            :text="social.name"
-          />
-        </nav>
-      </section>
-
       <section class="overview-subsection content-container introduction-section">
         <h2 class="title page-section-subtitle introduction-title">
           Hello and welcome
@@ -159,7 +128,6 @@
 </template>
 
 <script setup>
-import SocialIconLink from '../../components/SocialIconLink.vue';
 import BulletList from '../../components/BulletList.vue';
 import BulletListItem from '../../components/BulletListItem.vue';
 import TagList from '../../components/TagList.vue';
@@ -176,25 +144,6 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 
 // Introduction Styling
 .overview-page-section {
-  .social-media {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .profile-section {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem;
-
-    .profile {
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-    }
-  }
-
   .introduction-section {
     display: flex;
     flex-flow: column nowrap;
@@ -225,33 +174,6 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
         font-size: $size-5-l3;
         gap: 1.5rem;
         max-width: 700px;
-      }
-    }
-  }
-
-  @include from(450px) {
-    .social-media {
-      margin-top: 0.5rem;
-      font-size: $size-5;
-      gap: 2rem;
-
-      .icon-text {
-        line-height: $size-5;
-      }
-
-      .icon-raw-text {
-        font-size: $size-6-l3;
-        margin-top: 0.65rem;
-      }
-    }
-
-    .profile-section {
-      .dev-title.title {
-        font-size: $size-3;
-      }
-
-      .dev-position.subtitle {
-        font-size: $size-4;
       }
     }
   }
@@ -447,11 +369,5 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 // Box Hover
 .overview-page-section {
   @include box-hover-on-children();
-}
-
-.overview-page-section {
-  .title.page-section-subtitle.profile-title {
-    @include semantic-hide;
-  }
 }
 </style>

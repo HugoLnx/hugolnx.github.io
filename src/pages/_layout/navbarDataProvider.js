@@ -1,11 +1,12 @@
 import devData from '../../data/dev.yml';
 import siteData from '../../data/site.yml';
 
-const { name, position } = devData;
-const socials = (() => {
-    const { links: allLinks } = devData;
-    return allLinks.filter((link) => link.navbar);
-})();
+const {
+    name,
+    position,
+    links: socials,
+} = devData;
+
 const navLinks = (() => {
     const { pages } = siteData;
     return pages
