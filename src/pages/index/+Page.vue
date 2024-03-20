@@ -146,6 +146,7 @@
             </p>
             <a
               :href="item.url"
+              :target="item.isExternal ? '_blank' : '_self'"
               class="see-next-button button is-link is-rounded is-outlined"
             >
               {{ item.action }}

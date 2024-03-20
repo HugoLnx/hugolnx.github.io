@@ -23,7 +23,7 @@
             v-for="link in navLinks"
             :key="link.id"
             :href="link.url"
-            :target="link.external && '_blank'"
+            :target="link.isExternal ? '_blank' : '_self'"
             class="navbar-item"
           >
             {{ link.title }}

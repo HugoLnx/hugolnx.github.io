@@ -14,7 +14,7 @@ pages:
   - id: resume
     subtitle: Resume
     path: &resumeUrl 'https://docs.google.com/document/d/1td3nobiQGHL1K4ZMKC1l2xtNmiY6XOO5Zgw2LnlF0gY/edit'
-    external: true
+    isExternal: true
   - id: about-me
     subtitle: About Me
     description: "Read a little bit about me and my journey."
@@ -33,4 +33,4 @@ seeNext:
   - action: Read my Resume
     description: Read more about my professional history
     url: *resumeUrl
-    external: true
+    isExternal: true
