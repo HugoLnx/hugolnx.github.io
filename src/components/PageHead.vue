@@ -25,7 +25,7 @@ const {
     socialImage,
 } = data;
 
-const metatags = {
+const rawMetatags = {
     viewport: 'width=device-width, initial-scale=1',
     'og:title': title,
     'og:description': description,
@@ -33,5 +33,10 @@ const metatags = {
     'og:url': pageUrl,
     'og:site_name': mainTitle,
     'og:image': socialImage,
+    'google-site-verification': import.meta.env.VITE_GOOGLE_SITE_VERIFICATION,
 };
+
+const metatags = Object.fromEntries(
+    Object.entries(rawMetatags).filter(([, content]) => content),
+);
 </script>
