@@ -5,6 +5,28 @@
     </h1>
 
     <div class="overview-page-sections">
+      <section class="overview-subsection content-container profile-section">
+        <h2 class="title page-section-subtitle profile-title">
+          Profile
+        </h2>
+        <div class="profile">
+          <figure class="image is-128x128">
+            <img
+              class="is-rounded"
+              width="128"
+              height="128"
+              src="../../img/me-128-compressed.jpg"
+            >
+          </figure>
+          <p class="title dev-title">
+            {{ dev.name }}
+          </p>
+          <p class="subtitle dev-position">
+            {{ dev.position }}
+          </p>
+        </div>
+      </section>
+
       <section class="overview-subsection content-container introduction-section">
         <h2 class="title page-section-subtitle introduction-title">
           Hello and welcome
@@ -144,6 +166,30 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 
 // Introduction Styling
 .overview-page-section {
+  .profile-section {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+
+    .profile {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+
+    @include from(450px) {
+     .profile-section {
+       .dev-title.title {
+         font-size: $size-3;
+       }
+
+       .dev-position.subtitle {
+         font-size: $size-4;
+       }
+     }
+    }
+  }
+
   .introduction-section {
     display: flex;
     flex-flow: column nowrap;
@@ -369,5 +415,11 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 // Box Hover
 .overview-page-section {
   @include box-hover-on-children();
+}
+
+.overview-page-section {
+  .title.page-section-subtitle.profile-title {
+    @include semantic-hide;
+  }
 }
 </style>
