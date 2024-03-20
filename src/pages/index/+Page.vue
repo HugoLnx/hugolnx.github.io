@@ -343,11 +343,22 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
       font-style: italic;
       margin-bottom: 0.5rem;
 
-      .quote-phrase:first-child:before {
-        content: open-quote;
-      }
-      .quote-phrase:last-child:after {
-        content: close-quote;
+      .quote-phrase {
+        color: $grey-lightest;
+        transition: color 200ms ease-out;
+        transition-property: color, transform;
+
+        @at-root .is-mouse &:hover {
+          transform: translateX(0.5rem);
+          color: $white;
+        }
+
+        &:first-child:before {
+          content: open-quote;
+        }
+        &:last-child:after {
+          content: close-quote;
+        }
       }
     }
 
