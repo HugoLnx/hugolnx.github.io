@@ -31,16 +31,20 @@ const hoverColor = inject('hoverColor');
 
   .icon-raw-text {
     margin-left: 0.1rem;
+    transition: color 200ms ease-out;
+    transition-property: color, transform;
   }
 
   .icon, .icon span {
-      color: v-bind(hoverColor);
+    color: v-bind(hoverColor);
   }
 
   @at-root .is-mouse &:hover {
     .icon, .icon span, .icon-raw-text {
       color: v-bind(hoverColor);
-      font-weight: bold;
+    }
+    .icon-raw-text {
+      transform: translateX(0.3rem);
     }
   }
 }

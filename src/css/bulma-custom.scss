@@ -16,6 +16,8 @@ $main-view-background-color: $body-background-color; // lighten($footer-backgrou
 $main-footer-background-color: darken($navbar-background-color, 15%);
 
 $size-4-l2: 1.35rem;
+$size-5-l2: 1.17rem;
+$size-5-l3: 1.1rem;
 $size-6-l2: 1rem;
 $size-6-l3: 0.9rem;
 $size-7-l2: 0.75rem;
@@ -49,6 +51,15 @@ $game-gallery-breakpoint: $tablet;
 
 .semantic-hide {
   @include semantic-hide;
+}
+
+@mixin box-hover-on-children {
+  @at-root .is-mouse & .box {
+    transition: background-color 200ms ease-out;
+    &:hover {
+      background-color: lighten($box-background-color, 2%);
+    }
+  }
 }
 
 @mixin flex-stretch-items-vertical {
