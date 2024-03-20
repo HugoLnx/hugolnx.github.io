@@ -72,6 +72,7 @@ nav {
     .dev-position {
       @extend .subtitle;
       @extend .is-6;
+      color: $grey-light2;
     }
   }
 
@@ -79,7 +80,7 @@ nav {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: start;
+    align-items: end;
     gap: 1rem;
   }
 

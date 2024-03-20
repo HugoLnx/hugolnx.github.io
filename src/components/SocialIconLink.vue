@@ -39,7 +39,7 @@ a.social-icon-link {
   }
 
   &:not(:hover) .icon-raw-text {
-    color: $grey-light;
+    color: $grey-light2;
   }
 
   .icon {

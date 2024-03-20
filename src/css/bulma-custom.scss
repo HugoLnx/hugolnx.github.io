@@ -24,6 +24,8 @@ $size-7-l3: 0.6rem;
 $turquoise: #1abc9c;
 $bluequoise: #1a9cbc;
 
+$grey-light2: mix($grey-light, $grey-lighter, 50%);
+
 $color-title1: mix($green, $turquoise, 15%);
 $color-title2: mix($white, $turquoise, 10%);
 $color-title3: mix($white, $turquoise, 35%);

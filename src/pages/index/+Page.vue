@@ -5,7 +5,7 @@
     </h1>
 
     <div class="blocks-list">
-      <section class="block content-container">
+      <section class="block content-container introduction-section">
         <h2 class="title page-section-subtitle introduction-title">
           Introduction
         </h2>
@@ -17,10 +17,10 @@
             src="../../img/me-128-compressed.jpg"
           >
         </figure>
-        <p class="title">
+        <p class="title dev-title">
           {{ dev.name }}
         </p>
-        <p class="subtitle">
+        <p class="subtitle dev-position">
           {{ dev.position }}
         </p>
         <nav class="social-media">
@@ -125,6 +125,33 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     flex-flow: row wrap;
     justify-content: center;
     gap: 1rem;
+  }
+
+  @include tablet {
+    .social-media {
+      margin-top: 0.5rem;
+      font-size: $size-5;
+      gap: 2rem;
+
+      .icon-text {
+        line-height: $size-5;
+      }
+
+      .icon-raw-text {
+        font-size: $size-6-l3;
+        margin-top: 0.65rem;
+      }
+    }
+
+    .introduction-section {
+      .dev-title.title {
+        font-size: $size-3;
+      }
+
+      .dev-position.subtitle {
+        font-size: $size-4;
+      }
+    }
   }
 
   .tags-block {
