@@ -4,7 +4,7 @@
       {{ title }}
     </h1>
 
-    <div class="blocks-list">
+    <div class="overview-page-sections">
       <section class="content-container introduction-section">
         <h2 class="title page-section-subtitle introduction-title">
           Introduction
@@ -34,14 +34,14 @@
         </nav>
       </section>
 
-      <div class="blocks-side-by-side">
-        <section class="box bullets-block content-container">
+      <div class="two-column-sections">
+        <section class="box overview-subsection content-container">
           <h2 class="title page-section-subtitle">
             Background
           </h2>
           <BulletList
             :icon-classes="bulletListIconClasses"
-            class="bullets-block-content"
+            class="overview-subsection-content"
           >
             <BulletListItem
               v-for="item in dev.background"
@@ -52,13 +52,13 @@
           </BulletList>
         </section>
 
-        <section class="box bullets-block content-container">
+        <section class="box overview-subsection content-container">
           <h2 class="title page-section-subtitle">
             Skills
           </h2>
           <BulletList
             :icon-classes="bulletListIconClasses"
-            class="bullets-block-content"
+            class="overview-subsection-content"
           >
             <BulletListItem
               v-for="skill in dev.skills"
@@ -70,11 +70,11 @@
         </section>
       </div>
 
-      <section class="bullets-block tags-block content-container">
+      <section class="overview-subsection tags-section content-container">
         <h2 class="title page-section-subtitle">
           Professional Experience
         </h2>
-        <TagList class="bullets-block-content">
+        <TagList class="overview-subsection-content">
           <TagItem
             v-for="tool in dev.tools"
             :key="tool"
@@ -84,7 +84,7 @@
         </TagList>
       </section>
 
-      <section class="bullets-block testimonials-block content-container">
+      <section class="overview-subsection testimonials-section content-container">
         <h2 class="title page-section-subtitle">
           Testimonials
         </h2>
@@ -106,12 +106,12 @@
         </div>
       </section>
 
-      <section class="bullets-block content-container">
+      <section class="overview-subsection content-container">
         <h2 class="title page-section-subtitle">
           Games
         </h2>
         <p
-          class="bullets-block-content"
+          class="overview-subsection-content"
         >
           <a
             href="/games"
@@ -176,7 +176,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     }
   }
 
-  .tags-block {
+  .tags-section {
     .tag-list {
       justify-content: center;
 
@@ -191,14 +191,14 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     }
   }
 
-  .blocks-list {
+  .overview-page-sections {
     display: flex;
     flex-flow: column wrap;
     align-items: stretch;
     gap: 2.5rem;
   }
 
-  .bullets-block {
+  .overview-subsection {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -224,7 +224,7 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
     }
   }
 
-  .blocks-side-by-side {
+  .two-column-sections {
     margin: 0;
     padding: 0;
     display: flex;
