@@ -10,10 +10,10 @@ pages:
   - id: games
     subtitle: Games
     description: "Those are the games I've developed and published over the years and the features I've implemented."
-    path: '/games'
+    path: &gamesUrl '/games'
   - id: resume
     subtitle: Resume
-    path: 'https://docs.google.com/document/d/1td3nobiQGHL1K4ZMKC1l2xtNmiY6XOO5Zgw2LnlF0gY/edit'
+    path: &resumeUrl 'https://docs.google.com/document/d/1td3nobiQGHL1K4ZMKC1l2xtNmiY6XOO5Zgw2LnlF0gY/edit'
     external: true
   - id: about-me
     subtitle: About Me
@@ -25,3 +25,12 @@ pages:
     description: "Oops... Page not found!"
     path: '/404'
     hidden: true
+
+seeNext:
+  - action: See Games
+    description: Check out the games I've published
+    url: *gamesUrl
+  - action: Read my Resume
+    description: Read more about my professional history
+    url: *resumeUrl
+    external: true

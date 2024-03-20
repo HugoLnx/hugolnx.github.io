@@ -95,7 +95,13 @@
             class="testimonial box"
           >
             <p class="testimonial-quote">
-              {{ testimonial.quote.trim() }}
+              <span
+                v-for="phrase in testimonial.quote"
+                :key="phrase"
+                class="quote-phrase"
+              >
+                {{ phrase.trim() }}
+              </span>
             </p>
             <p class="testimonial-details">
               <span class="detail author-name">{{ testimonial.author }}</span>
@@ -108,18 +114,27 @@
 
       <section class="overview-subsection content-container">
         <h2 class="title page-section-subtitle">
-          Games
+          See Next
         </h2>
-        <p
-          class="overview-subsection-content"
+        <div
+          class="overview-subsection-content see-next-grid content-container"
         >
-          <a
-            href="/games"
-            class="button is-link is-rounded is-outlined is-medium"
+          <div
+            v-for="item in seeNext"
+            :key="item.action"
+            class="see-next-item"
           >
-            See all my games
-          </a>
-        </p>
+            <p class="see-next-description">
+              {{ item.description }}
+            </p>
+            <a
+              :href="item.url"
+              class="see-next-button button is-link is-rounded is-outlined"
+            >
+              {{ item.action }}
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   </section>
@@ -133,7 +148,7 @@ import TagList from '../../components/TagList.vue';
 import TagItem from '../../components/TagItem.vue';
 import data from './indexDataProvider';
 
-const { dev, title } = data;
+const { dev, title, seeNext } = data;
 const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 </script>
 
@@ -250,7 +265,12 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
 
   .testimonial {
     max-width: 600px;
+
     .testimonial-quote {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1rem;
+
       font-size: $size-6;
       @include from(500px) {
         font-size: $size-5-l3;
@@ -258,10 +278,10 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
       font-style: italic;
       margin-bottom: 0.5rem;
 
-      &:before {
+      .quote-phrase:first-child:before {
         content: open-quote;
       }
-      &:after {
+      .quote-phrase:last-child:after {
         content: close-quote;
       }
     }
@@ -291,6 +311,57 @@ const bulletListIconClasses = 'fa-regular fa-circle-check has-text-success';
             flex-basis: 100%;
           }
         }
+      }
+    }
+  }
+}
+
+// See Next Styling
+.see-next-grid {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+
+  .see-next-item {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+
+    .see-next-description {
+      text-align: center;
+      font-size: $size-6;
+    }
+
+    .see-next-button {
+      flex-basis: content;
+    }
+  }
+
+  @include tablet {
+    flex-flow: column nowrap;
+    align-items: center;
+
+    .see-next-item {
+      max-width: 540px;
+      flex-flow: row nowrap;
+      justify-content: stretch;
+      align-items: center;
+      align-self: center;
+      gap: 2rem;
+
+      .see-next-description {
+        flex-basis: 360px;
+        font-size: $size-5-l3;
+        text-align: right;
+      }
+
+      .see-next-button {
+        width: 180px;
+        flex-basis: 180px;
       }
     }
   }

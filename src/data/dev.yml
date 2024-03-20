@@ -45,29 +45,41 @@ testimonials:
   - author: Sayed Shoyab
     position: Trivia Maze's client (from Upwork)
     date: September 2023
-    quote: |
-      Hugo is a truly exceptional developer I had the pleasure of collaborating with on Upwork. His ability to
-      understand my project's nuances, offer valuable insights, and consistently deliver high-quality work was truly
-      impressive. Communication with Hugo was effortless, and I'm excited to work with him again in the future.
-      Highly recommended!
+    quote:
+      - Hugo is a truly exceptional developer I had the pleasure of collaborating with on Upwork.
+      - His ability to understand my project's nuances, offer valuable insights, and consistently deliver high-quality work was truly impressive.
+      - Communication with Hugo was effortless, and I'm excited to work with him again in the future.
+      - Highly recommended!
+
   - author: Gil Hagi
     position: TastyTech's CEO
     date: August 2023
-    quote: |
-      I worked with Hugo for over 6 years, and over that time he was an instrumental part of the team,
-      taking initiative and solving complex problems with the goals of the business in mind. It is a rare
-      technical person who can understand business context, execute complex solutions quickly and independently,
-      while being an absolute pleasure to work with. Without him, my company would not exist today. I bet my
-      company's survival on Hugo's skills time and time again, and he never disappointed. Highly, highly
-      recommended!
+    quote:
+      - |
+          I worked with Hugo for over 6 years, and over that time he was an instrumental part of the team,
+          taking initiative and solving complex problems with the goals of the business in mind.
+      - |
+          It is a rare technical person who can understand business context, execute complex solutions quickly and
+          independently, while being an absolute pleasure to work with. Without him, my company would not exist today.
+      - I bet my company's survival on Hugo's skills time and time again, and he never disappointed.
+      - Highly, highly recommended!
+
+  - author: Emerson Macedo
+    position: Tech Lead at Globo.com
+    date: November 2018
+    quote:
+      - Hugo is one of the most talented Software Engineer I've worked with.
+      - He's very skilled in CS fundamentals, have also practical knowledge writing good software and is always interested on learning new stuff.
+      - Miss him working with me. 
+
   - author: Leandro Moreira
     position: Tech Lead at Globo.com
     date: September 2018
-    quote: |
-      Hugo led some of the most valuable projects for the Globo.com's media division. All of these projects required
-      robust solutions which were also scalable and thought of to be highly reliable. He started as an intern and soon
-      ascended positions due to his efforts and amazing work. It was an incredible pleasure to work with him. I really
-      think that any company which has him will be rewarded with one of the brightest minds I've seen.
+    quote:
+      - Hugo led some of the most valuable projects for the Globo.com's media division.
+      - All of these projects required robust solutions which were also scalable and thought of to be highly reliable.
+      - He started as an intern and soon ascended positions due to his efforts and amazing work. It was an incredible pleasure to work with him.
+      - I really think that any company which has him will be rewarded with one of the brightest minds I've seen.
 
 
 tools:
