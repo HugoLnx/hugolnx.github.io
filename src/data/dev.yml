@@ -1,13 +1,13 @@
 name: Hugo Roque
 position: Gameplay Programmer
 links:
-  - name: Games
+  - name: Steam
     url: 'https://store.steampowered.com/developer/sensengames'
     iconClasses: fa-brands fa-steam
     navbar: true
 
   - name: Github
-    url: 'https://www.linkedin.com/in/hugolnx/'
+    url: 'https://github.com/hugolnx/'
     iconClasses: fa-brands fa-github
     navbar: true
 
@@ -21,7 +21,7 @@ links:
     iconClasses: fa-solid fa-pen-nib
 
   - name: Resume
-    url: '/resume'
+    url: 'https://docs.google.com/document/d/1td3nobiQGHL1K4ZMKC1l2xtNmiY6XOO5Zgw2LnlF0gY/edit'
     iconClasses: fa-solid fa-file-lines
 
   - name: Email
@@ -30,9 +30,9 @@ links:
     navbar: true
 
 background:
-  - 11 indie games published
-  - 14 years developing software
-  - 6 years part-time with Unity / C#
+  - Published 11 indie games
+  - Software developer for 14 years
+  - Unity developer for 6 years
 
 skills:
   - Unity / C#

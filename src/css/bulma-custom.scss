@@ -1,12 +1,21 @@
 @use "sass:color";
 @import 'bulmaswatch/darkly/_variables.scss';
-@import 'bulma/bulma.sass';
+// @import 'bulma/bulma.sass';
+@import 'bulma/sass/utilities/_all';
+@import 'bulma/sass/base/_all';
+@import './bulma-custom/elements'; // @import 'bulma/sass/elements/_all';
+// @import 'bulma/sass/form/_all';
+@import './bulma-custom/components'; // @import 'bulma/sass/components/_all';
+// @import 'bulma/sass/grid/_all';
+@import 'bulma/sass/helpers/_all';
+@import 'bulma/sass/layout/_all';
 @import 'bulmaswatch/darkly/_overrides.scss';
 
 $main-sidebar-background-color: $footer-background-color; // lighten($footer-background-color, 1%);
 $main-view-background-color: $body-background-color; // lighten($footer-background-color, 5%);
 $main-footer-background-color: darken($navbar-background-color, 15%);
 
+$size-4-l2: 1.35rem;
 $size-6-l2: 1rem;
 $size-6-l3: 0.9rem;
 $size-7-l2: 0.75rem;
@@ -15,11 +24,17 @@ $size-7-l3: 0.6rem;
 $turquoise: #1abc9c;
 $bluequoise: #1a9cbc;
 
+$grey-light2: mix($grey-light, $grey-lighter, 50%);
+
 $color-title1: mix($green, $turquoise, 15%);
 $color-title2: mix($white, $turquoise, 10%);
 $color-title3: mix($white, $turquoise, 35%);
 
-$tablet: 600px;
+$game-box-selected-color: color.change($link, $alpha: 0.1);
+$game-box-selected-dark-color: color.change(darken($link, 20%), $alpha: 0.8);
+
+$tablet: 700px;
+$game-gallery-breakpoint: $tablet;
 
 @mixin semantic-hide {
   position: absolute;
@@ -32,6 +47,10 @@ $tablet: 600px;
   border: 0;
 }
 
+.semantic-hide {
+  @include semantic-hide;
+}
+
 @mixin flex-stretch-items-vertical {
   display: flex;
   align-items: stretch;
@@ -42,6 +61,18 @@ $tablet: 600px;
   display: flex;
   align-items: stretch;
   flex-flow: row nowrap;
+}
+
+@mixin only-game-gallery {
+  @include from($game-gallery-breakpoint) {
+    @content;
+  }
+}
+
+@mixin only-game-list {
+  @include until($game-gallery-breakpoint) {
+    @content;
+  }
 }
 
 .columns.no-columns-offset {

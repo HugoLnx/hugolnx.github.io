@@ -37,7 +37,7 @@ const hoverColor = inject('hoverColor');
       color: v-bind(hoverColor);
   }
 
-  &:hover {
+  @at-root .is-mouse &:hover {
     .icon, .icon span, .icon-raw-text {
       color: v-bind(hoverColor);
       font-weight: bold;

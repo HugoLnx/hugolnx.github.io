@@ -1,0 +1,27 @@
+mainTitle: Hugolnx Gamedev
+domain: https://hugolnx.github.io
+baseDescription: "I'm a gameplay programmer who published 11 indie games (made with Unity / C#). I'm also heavily experienced in web development."
+pages:
+  - id: skills
+    subtitle: Skills
+    hiddenTitleOnHead: true
+    description: "Check out the games, skills, and professional experience I've developed over the years."
+    path: '/'
+  - id: games
+    subtitle: Games
+    description: "Those are the games I've developed and published over the years and the features I've implemented."
+    path: '/games'
+  - id: resume
+    subtitle: Resume
+    path: 'https://docs.google.com/document/d/1td3nobiQGHL1K4ZMKC1l2xtNmiY6XOO5Zgw2LnlF0gY/edit'
+    external: true
+  - id: about-me
+    subtitle: About Me
+    description: "Read a little bit about me and my journey."
+    path: '/about-me'
+    hidden: true
+  - id: not-found
+    subtitle: Page Not Found
+    description: "Oops... Page not found!"
+    path: '/404'
+    hidden: true

@@ -10,11 +10,15 @@
     </div>
   </div>
   <MainFooter />
+  <IsTouchClassifier />
+  <PageLoadingOverlay />
 </template>
 
 <script setup>
 import MainNavbar from './MainNavbar.vue';
 import MainFooter from './MainFooter.vue';
+import IsTouchClassifier from './IsTouchClassifier.vue';
+import PageLoadingOverlay from './PageLoadingOverlay.vue';
 import '../../css/index.scss';
 </script>
 
@@ -22,7 +26,6 @@ import '../../css/index.scss';
 @import '../../css/bulma-custom.scss';
 
 #main-body {
-  margin-top: 8rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -42,6 +45,7 @@ import '../../css/index.scss';
 #main-middle-view-content {
   padding: 0.5rem;
   padding-bottom: 3rem;
+  padding-top: 8rem;
 }
 
 .background-container {
@@ -57,6 +61,10 @@ import '../../css/index.scss';
 
   @include widescreen {
     width: 1152px;
+  }
+
+  @include fullhd {
+    width: 1344px;
   }
 }
 
@@ -91,7 +99,7 @@ import '../../css/index.scss';
   align-items: center;
 }
 
-.title.page-section-title {
+.page-section .title.page-section-title {
   font-size: $size-2;
   font-weight: 700;
   color: $color-title1;
@@ -100,8 +108,8 @@ import '../../css/index.scss';
   width: 90%;
   max-width: 450px;
 
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
   border-bottom: 3px solid $color-title1;
   padding-bottom: 0.5rem;
 }

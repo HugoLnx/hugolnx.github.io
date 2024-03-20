@@ -19,20 +19,14 @@
 
       <div id="main-navbar-links" class="navbar-menu lnx-menu">
         <div class="navbar-start">
-          <NavLink href="/" class="navbar-item">
-            Skills
-          </NavLink>
-
-          <NavLink href="/games" class="navbar-item">
-            Games
-          </NavLink>
-
-          <NavLink href="/resume" class="navbar-item">
-            Resume
-          </NavLink>
-
-          <NavLink href="/about-me" class="navbar-item">
-            About Me
+          <NavLink
+            v-for="link in navLinks"
+            :key="link.id"
+            :href="link.url"
+            :target="link.external && '_blank'"
+            class="navbar-item"
+          >
+            {{ link.title }}
           </NavLink>
         </div>
       </div>
@@ -43,7 +37,12 @@
 <script setup>
 import NavLink from './NavLink.vue';
 import SocialIconLink from '../../components/SocialIconLink.vue';
-import { socials, name, position } from './navbarDataProvider';
+import {
+    socials,
+    name,
+    position,
+    navLinks,
+} from './navbarDataProvider';
 </script>
 
 <style lang="scss">
@@ -73,6 +72,7 @@ nav {
     .dev-position {
       @extend .subtitle;
       @extend .is-6;
+      color: $grey-light2;
     }
   }
 
@@ -80,7 +80,7 @@ nav {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-items: start;
+    align-items: end;
     gap: 1rem;
   }
 

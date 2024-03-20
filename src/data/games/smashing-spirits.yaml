@@ -6,6 +6,9 @@ platforms:
     - Windows
     - Linux
     - Mac
+genres:
+    - Action Platformer
+    - Fighting
 links:
     steam: "https://store.steampowered.com/app/1263200/Smashing_Spirits_Brazils_First_Boxer/"
     trailer: "https://www.youtube.com/watch?v=hpYTGMcTAV4"

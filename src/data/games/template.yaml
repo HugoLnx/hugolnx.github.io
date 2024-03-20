@@ -6,6 +6,9 @@ platforms:
     - Windows
     - Linux
     - Mac
+genres:
+    - Platformer
+    - Shooter
 links:
     steam: ""
     trailer: ""

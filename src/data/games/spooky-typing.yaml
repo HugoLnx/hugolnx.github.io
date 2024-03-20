@@ -6,6 +6,9 @@ platforms:
     - Windows
     - Linux
     - Mac
+genres:
+    - Typing
+    - Runner
 links:
     steam: "https://store.steampowered.com/app/1791870/Spooky_Typing_The_Ghost_Plague/"
     trailer: "https://www.youtube.com/watch?v=WZTmxcAN0J0"

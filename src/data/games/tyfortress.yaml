@@ -6,6 +6,9 @@ platforms:
     - Windows
     - Linux
     - Mac
+genres:
+    - Tower Defense
+    - Typing
 links:
     steam: "https://store.steampowered.com/app/1661700/Tyfortress_Tactical_Typing/"
     trailer: "https://www.youtube.com/watch?v=FtdJSk4B41k"

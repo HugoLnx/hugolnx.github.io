@@ -1,10 +1,18 @@
 <template>
-  <div class="video-wrapper autoplay-video">
+  <div
+    class="autoplay-video"
+    :class="{
+      'is-playing': isPlaying,
+      'is-loading': isLoading,
+    }"
+  >
     <video
       ref="videoElement"
       muted
       loop
-      preload="none"
+      playsinline
+      :preload="doPreloadVideo ? 'auto' : 'none'"
+      :autoplay="doPreloadVideo ? true : null"
       @loadeddata="playVideo"
     >
       <source
@@ -19,11 +27,10 @@
       <i class="fa-solid fa-video fa-beat-fade video-spinner" />
     </div>
     <img
-      :loading="isPriority ? 'eager' : 'lazy'"
-      :fetchpriority="isPriority ? 'high' : 'auto'"
+      :loading="doPreloadPoster ? 'eager' : 'lazy'"
+      :fetchpriority="doPreloadPoster ? 'high' : 'auto'"
       :src="poster"
       class="video-poster"
-      :class="{ 'is-hidden': isPlaying }"
     >
   </div>
 </template>
@@ -34,7 +41,8 @@ import { ref, onMounted } from 'vue';
 defineProps({
     src: { type: String, required: true },
     poster: { type: String, required: true },
-    isPriority: { type: Boolean, required: false, default: false },
+    doPreloadPoster: { type: Boolean, required: false, default: false },
+    doPreloadVideo: { type: Boolean, required: false, default: false },
 });
 
 const videoElement = ref(null);
@@ -42,8 +50,10 @@ const isPlaying = ref(false);
 const isLoading = ref(false);
 
 const playVideo = () => {
-    videoElement.value.play();
     isPlaying.value = true;
+    setTimeout(() => {
+        videoElement.value.play();
+    }, 0);
 };
 
 onMounted(() => {
@@ -54,8 +64,10 @@ onMounted(() => {
     };
     new IntersectionObserver(([entry]) => {
         if (!entry.isIntersecting || isPlaying.value || isLoading.value) return;
-        videoElement.value.load();
         isLoading.value = true;
+        setTimeout(() => {
+            videoElement.value.load();
+        }, 0);
     }, options).observe(videoElement.value);
 });
 </script>
@@ -66,7 +78,7 @@ onMounted(() => {
 
   $base-z-index: 1;
 
-  .video-wrapper {
+  .autoplay-video {
     position: relative;
     z-index: $base-z-index;
 
@@ -79,7 +91,7 @@ onMounted(() => {
     }
   }
 
-  .video-wrapper {
+  .autoplay-video {
     margin: 0;
     padding: 0;
     video, .video-overlay, .video-poster {
@@ -112,6 +124,13 @@ onMounted(() => {
       position: absolute;
       top: 0;
       left: 0;
+      transition: opacity 200ms ease-out;
+    }
+
+    &.is-playing {
+      .video-poster {
+        opacity: 0;
+      }
     }
   }
 </style>

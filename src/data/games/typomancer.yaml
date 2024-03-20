@@ -6,6 +6,10 @@ platforms:
     - Windows
     - Linux
     - Mac
+genres:
+    - Action Platformer
+    - Shooter
+    - Typing
 links:
     steam: "https://store.steampowered.com/app/1714300/Typomancer_in_the_Feathers_Way"
     trailer: "https://youtu.be/r-heFArzPqI?si=5R6Ev6J13BYeDatI"

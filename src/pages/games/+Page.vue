@@ -1,11 +1,11 @@
 <template>
   <section class="games-page-section page-section">
-    <h2 class="title page-section-title">
-      Games
-    </h2>
+    <h1 class="title page-section-title">
+      {{ title }}
+    </h1>
 
     <div class="game-boxes">
-      <NewGameBox
+      <GameBox
         v-for="game in games"
         :key="game.shortTitle"
         :game="game"
@@ -15,10 +15,10 @@
 </template>
 
 <script setup>
-import NewGameBox from '../../components/NewGameBox.vue';
+import GameBox from '../../components/GameBox.vue';
 import data from './gamesDataProvider';
 
-const { games } = data;
+const { games, title } = data;
 </script>
 
 <style lang="scss">
@@ -39,10 +39,6 @@ const { games } = data;
       margin-bottom: 1rem;
       padding-bottom: 0.5rem;
       text-align: center;
-    }
-
-    .new-game-box:first-child .title.page-section-subtitle {
-      margin-top: 0;
     }
   }
 </style>

@@ -6,6 +6,9 @@ platforms:
     - Windows
     - Linux
     - Mac
+genres:
+    - Typing
+    - Runner
 links:
     steam: "https://store.steampowered.com/app/1636000/Tybot_Invasion_The_Typing_Runner/"
     trailer: "https://youtu.be/4Kq6gm5CvU4?si=-IWdaEa4vZsats_n"
