@@ -12,10 +12,9 @@ const navLinks = (() => {
     return pages
         .filter((page) => !page.hidden)
         .map((page) => ({
+            ...page,
             title: page.subtitle,
             url: page.path,
-            external: page.external,
-            id: page.id,
         }));
 })();
 
