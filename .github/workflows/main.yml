@@ -27,6 +27,8 @@ jobs:
 
       - name: Build Vike
         run: npm run build:prod
+        env:
+          VITE_GOOGLE_SITE_VERIFICATION: ${{ secrets.VITE_GOOGLE_SITE_VERIFICATION }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
