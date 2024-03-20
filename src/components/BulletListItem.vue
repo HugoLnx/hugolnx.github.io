@@ -16,6 +16,7 @@ import { inject } from 'vue';
 
 const iconClasses = inject('iconClasses');
 const hoverColor = inject('hoverColor');
+const iconColor = inject('iconColor');
 </script>
 
 <style lang="scss">
@@ -36,11 +37,11 @@ const hoverColor = inject('hoverColor');
   }
 
   .icon, .icon span {
-    color: v-bind(hoverColor);
+    color: v-bind(iconColor);
   }
 
   @at-root .is-mouse &:hover {
-    .icon, .icon span, .icon-raw-text {
+    .icon-raw-text {
       color: v-bind(hoverColor);
     }
     .icon-raw-text {

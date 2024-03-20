@@ -17,9 +17,8 @@ pages:
     isExternal: true
   - id: about-me
     subtitle: About Me
-    description: "Read a little bit about me and my journey."
-    path: '/about-me'
-    hidden: true
+    description: "Read a little bit about the person behind the code."
+    path: &aboutMeUrl '/about-me'
   - id: not-found
     subtitle: Page Not Found
     description: "Oops... Page not found!"
@@ -34,3 +33,6 @@ seeNext:
     description: Read more about my professional history
     url: *resumeUrl
     isExternal: true
+  - action: Know me better
+    description: Learn about me as a person and professional
+    url: *aboutMeUrl

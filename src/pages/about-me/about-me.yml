@@ -1,0 +1,41 @@
+introText:
+  prePhoto:
+    - Hi, I'm Hugo.
+  postPhoto:
+    - That's the person behind the code.
+    - Thanks for being here!
+
+sections:
+  - title: What I love in game development
+    iconClasses: 'fa-solid fa-star'
+    elementClasses: 'love-gamedev-section'
+    items:
+      - title: Programming
+        description: I love to create new stuff with programming and even more to surpass technical challenges to bring something new to life.
+      - title: Games
+        description: I love playing them and their power to impact people and how they experience the world.
+      - title: Learning
+        description: I'm always trying to expand what I can create and how well I do it.
+      - title: Creation
+        description: I'm excited about all areas that involve the creation of a game, that includes game design, art, and narrative. (Although I'm way better at coding)
+
+  - title: My favorite game genres
+    iconClasses: 'fa-solid fa-gamepad'
+    elementClasses: 'favorite-genres-section'
+    items:
+      - title: Platformers
+        description: Celeste, The Messenger, Shovel Knight, Metroid, Castlevania, and Megaman Serie.
+      - title: Rhythm Games
+        description: Guitar Hero, Beat Saber, and Pump it Up.
+      - title: Couch Games
+        description: Super Smash Bros, Towerfall Ascension, and Skullgirls 2nd Encore.
+
+  - title: Also, I love to...
+    iconClasses: 'fa-solid fa-guitar'
+    elementClasses: 'outside-work-section'
+    items:
+      - Play the guitar
+      - Hike
+      - Sing at the karaoke
+      - Make my own tea herbs mix
+      - Travel (Peru, Italy, Spain, Netherlands, Argentina, and within Brazil as well)
