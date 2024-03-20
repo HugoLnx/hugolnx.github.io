@@ -45,6 +45,15 @@ You can fork it and use, but please keep the credits at the footer.
 2. Make code changes and watch the browser reload automatically.
 
 
+### Deploy
+1. Configure Github Pages to deploy from the branch `gh-pages`.
+![screenshot](docs/github-pages-config.png)
+
+2. Push to `main`.
+
+3. Check if your deploy succeeded in your [Repository's Actions Page](https://github.com/HugoLnx/hugolnx.github.io/actions).
+
+
 ### Tasks
 
 * Emulate final build being served
