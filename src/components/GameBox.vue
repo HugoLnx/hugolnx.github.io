@@ -227,7 +227,7 @@ const {
     engine,
 } = game;
 const {
-    previewLow: videoSrc,
+    preview: videoSrc,
 } = links;
 const {
     technical: highlights,

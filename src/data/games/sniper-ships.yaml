@@ -13,8 +13,7 @@ links:
     steam: "https://store.steampowered.com/app/1555080/Sniper_Ships_Shootem_Up_on_Rails"
     trailer: "https://youtu.be/9SAh5-r_C1c?si=q7mjfHBKJsbBSzeN"
     gameplay: "https://youtu.be/1odKuYLuY64?si=YnQjHMV0ZxDDgLVN"
-    previewLow: /videos/sniperships-preview-360p-high.mp4
-    previewMid: /videos/sniperships-preview-360p-mid.mp4
+    preview: /videos/sniperships-preview-360p-high.mp4
     poster: /images/sniperships-preview-poster-360p.jpg
 bullets:
     technical:

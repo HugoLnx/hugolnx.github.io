@@ -14,8 +14,7 @@ links:
     trailer: ""
     gameplay: "https://youtu.be/PCFfw68AC7A"
     googlePlay: "https://play.google.com/store/apps/details?id=com.neomindgames.triviamaze&hl=pt&gl=US"
-    previewLow: /videos/triviamaze-preview-270p-low-vertical.mp4
-    previewMid: /videos/triviamaze-preview-270p-mid-vertical.mp4
+    preview: /videos/triviamaze-preview-270p-low-vertical.mp4
     poster: /images/triviamaze-preview-poster-405p.jpg
 bullets:
     technical:
