@@ -12,8 +12,7 @@ links:
     steam: ""
     trailer: ""
     gameplay: "https://youtube.com/shorts/dIAXF-qFObo"
-    previewLow: /videos/garby-preview-270p-low-vertical.mp4
-    previewMid: /videos/garby-preview-270p-mid-vertical.mp4
+    preview: /videos/garby-preview-270p-low-vertical.mp4
     poster: /images/garby-preview-poster-360p.jpg
 bullets:
     technical:

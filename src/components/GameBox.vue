@@ -227,7 +227,7 @@ const {
     engine,
 } = game;
 const {
-    previewLow: videoSrc,
+    preview: videoSrc,
 } = links;
 const {
     technical: highlights,
@@ -523,7 +523,7 @@ function refreshGameSelection() {
 
           .game-preview {
             position: relative;
-            transform: scale(1.25);
+            transform: scale(1.1);
           }
         }
       }

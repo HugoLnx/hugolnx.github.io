@@ -13,7 +13,8 @@ links:
     steam: ""
     trailer: ""
     gameplay: ""
-    previewLow: /videos/???-preview-360p.mp4
+    googlePlay: ""
+    preview: /videos/???-preview-360p.mp4
 bullets:
     technical:
         - Tower defense system made from scratch

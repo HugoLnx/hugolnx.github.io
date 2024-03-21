@@ -14,8 +14,7 @@ links:
     steam: "https://store.steampowered.com/app/1714300/Typomancer_in_the_Feathers_Way"
     trailer: "https://youtu.be/r-heFArzPqI?si=5R6Ev6J13BYeDatI"
     gameplay: "https://youtu.be/kQzl2wnoM0c?si=135dvP9GoFB45F2W"
-    previewLow: /videos/typomancer-preview-360p-low.mp4
-    previewMid: /videos/typomancer-preview-360p-mid.mp4
+    preview: /videos/typomancer-preview-360p-low.mp4
     poster: /images/typomancer-preview-poster-360p.jpg
 bullets:
     technical:
