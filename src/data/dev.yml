@@ -32,12 +32,19 @@ background:
   - Software developer for 14 years
   - Unity developer for 6 years
 
-skills:
+technicalSkills:
   - Unity / C#
   - Software Engineering
   - Performance and Optimization
   - Desktop, Android, and WebGL
   - Web Development
+
+softSkills:
+  - Autonomy when tackling challenges
+  - Clear and effective communication
+  - Teamwork with big or small teams
+  - Excited about learning new things
+  - Commitment to my work
 
 testimonials:
   - author: Sayed Shoyab

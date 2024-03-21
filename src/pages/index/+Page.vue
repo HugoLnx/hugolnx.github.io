@@ -62,14 +62,31 @@
 
         <section class="box overview-subsection content-container">
           <h2 class="title page-section-subtitle">
-            Skills
+            Technical Skills
           </h2>
           <BulletList
             :icon-classes="bulletListIconClasses"
             class="overview-subsection-content"
           >
             <BulletListItem
-              v-for="skill in dev.skills"
+              v-for="skill in dev.technicalSkills"
+              :key="skill"
+            >
+              {{ skill }}
+            </BulletListItem>
+          </BulletList>
+        </section>
+
+        <section class="box overview-subsection content-container">
+          <h2 class="title page-section-subtitle">
+            Soft Skills
+          </h2>
+          <BulletList
+            :icon-classes="bulletListIconClasses"
+            class="overview-subsection-content"
+          >
+            <BulletListItem
+              v-for="skill in dev.softSkills"
               :key="skill"
             >
               {{ skill }}
