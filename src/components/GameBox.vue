@@ -523,7 +523,7 @@ function refreshGameSelection() {
 
           .game-preview {
             position: relative;
-            transform: scale(1.25);
+            transform: scale(1.1);
           }
         }
       }
