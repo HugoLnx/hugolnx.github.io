@@ -6,7 +6,9 @@ You can fork it and use, but please keep the credits at the footer.
 ### Technologies Used
 
 * Front-end:
-    * Vike + Vue.js ([https://vuejs.org/](https://vuejs.org/))
+    * Vike ([https://vike.dev/](https://vike.dev/))
+    * Vue.js ([https://vuejs.org/](https://vuejs.org/))
+    * Bulma ([https://bulma.io/](https://bulma.io/))
     * Babel ([https://babeljs.io/](https://babeljs.io/))
     * Sass ([https://sass-lang.com/guide/](https://sass-lang.com/guide/))
 * Package manager: npm ([https://www.npmjs.com/](https://www.npmjs.com/))
@@ -17,6 +19,12 @@ You can fork it and use, but please keep the credits at the footer.
 * SEO: All pages are pre-rendered, so the first request get the whole content.
 * Performance: After the first request, it's a common single page application.
 * Integrated with Github Pages
+* Responsive: This website was made mobile-first and it has responsive styling.
+
+### Theme
+For styling this website uses [Bulma](https://bulma.io/) with the [Darkly theme](https://jenil.github.io/bulmaswatch/darkly).
+So it shouldn't be too complicated to switch to other [Bulmaswatch Theme](https://jenil.github.io/bulmaswatch/), you'll just
+need to review the colors I set manually, maybe in a future version I get it all centered in a single `variables.scss` file.
 
 ### Setup
 
