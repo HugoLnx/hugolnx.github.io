@@ -88,6 +88,11 @@ Then, when you run serve the app it should have the metatag there.
 To make it work in github pages you just need to register `VITE_GOOGLE_SITE_VERIFICATION` at your github repository
 as a secret.
 
+### Issues
+* LFS Bandwidth / Storage Limit: Avoid having useless videos and images in the repository because every deploy makes
+  a full clone, which consumes LFS bandwidth. Github gives 1GB of LFS bandwidth per month for free, so if you have 50mb
+  on LFS you'll be able to do 20 deploys per month.
+
 ### License
 
 This project is licensed under the GNU General Public License v3.0. You can find the full text of the license [here](https://www.gnu.org/licenses/gpl-3.0.en.html).
